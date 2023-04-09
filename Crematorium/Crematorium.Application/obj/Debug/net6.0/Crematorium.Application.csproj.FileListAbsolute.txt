@@ -1,0 +1,15 @@
+D:\Crematorium\Crematorium\Crematorium.Application\bin\Debug\net6.0\Crematorium.Application.deps.json
+D:\Crematorium\Crematorium\Crematorium.Application\bin\Debug\net6.0\Crematorium.Application.dll
+D:\Crematorium\Crematorium\Crematorium.Application\bin\Debug\net6.0\Crematorium.Application.pdb
+D:\Crematorium\Crematorium\Crematorium.Application\bin\Debug\net6.0\Crematorium.Domain.dll
+D:\Crematorium\Crematorium\Crematorium.Application\bin\Debug\net6.0\Crematorium.Domain.pdb
+D:\Crematorium\Crematorium\Crematorium.Application\obj\Debug\net6.0\Crematorium.Application.csproj.AssemblyReference.cache
+D:\Crematorium\Crematorium\Crematorium.Application\obj\Debug\net6.0\Crematorium.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Crematorium\Crematorium\Crematorium.Application\obj\Debug\net6.0\Crematorium.Application.AssemblyInfoInputs.cache
+D:\Crematorium\Crematorium\Crematorium.Application\obj\Debug\net6.0\Crematorium.Application.AssemblyInfo.cs
+D:\Crematorium\Crematorium\Crematorium.Application\obj\Debug\net6.0\Crematorium.Application.csproj.CoreCompileInputs.cache
+D:\Crematorium\Crematorium\Crematorium.Application\obj\Debug\net6.0\Crematorium.Application.csproj.CopyComplete
+D:\Crematorium\Crematorium\Crematorium.Application\obj\Debug\net6.0\Crematorium.Application.dll
+D:\Crematorium\Crematorium\Crematorium.Application\obj\Debug\net6.0\refint\Crematorium.Application.dll
+D:\Crematorium\Crematorium\Crematorium.Application\obj\Debug\net6.0\Crematorium.Application.pdb
+D:\Crematorium\Crematorium\Crematorium.Application\obj\Debug\net6.0\ref\Crematorium.Application.dll

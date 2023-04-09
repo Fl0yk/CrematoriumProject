@@ -1,0 +1,15 @@
+D:\Crematorium\Crematorium\Crematorium.Persistense\bin\Debug\net6.0\Crematorium.Persistense.deps.json
+D:\Crematorium\Crematorium\Crematorium.Persistense\bin\Debug\net6.0\Crematorium.Persistense.dll
+D:\Crematorium\Crematorium\Crematorium.Persistense\bin\Debug\net6.0\Crematorium.Persistense.pdb
+D:\Crematorium\Crematorium\Crematorium.Persistense\bin\Debug\net6.0\Crematorium.Domain.dll
+D:\Crematorium\Crematorium\Crematorium.Persistense\bin\Debug\net6.0\Crematorium.Domain.pdb
+D:\Crematorium\Crematorium\Crematorium.Persistense\obj\Debug\net6.0\Crematorium.Persistense.csproj.AssemblyReference.cache
+D:\Crematorium\Crematorium\Crematorium.Persistense\obj\Debug\net6.0\Crematorium.Persistense.GeneratedMSBuildEditorConfig.editorconfig
+D:\Crematorium\Crematorium\Crematorium.Persistense\obj\Debug\net6.0\Crematorium.Persistense.AssemblyInfoInputs.cache
+D:\Crematorium\Crematorium\Crematorium.Persistense\obj\Debug\net6.0\Crematorium.Persistense.AssemblyInfo.cs
+D:\Crematorium\Crematorium\Crematorium.Persistense\obj\Debug\net6.0\Crematorium.Persistense.csproj.CoreCompileInputs.cache
+D:\Crematorium\Crematorium\Crematorium.Persistense\obj\Debug\net6.0\Crematorium.Persistense.csproj.CopyComplete
+D:\Crematorium\Crematorium\Crematorium.Persistense\obj\Debug\net6.0\Crematorium.Persistense.dll
+D:\Crematorium\Crematorium\Crematorium.Persistense\obj\Debug\net6.0\refint\Crematorium.Persistense.dll
+D:\Crematorium\Crematorium\Crematorium.Persistense\obj\Debug\net6.0\Crematorium.Persistense.pdb
+D:\Crematorium\Crematorium\Crematorium.Persistense\obj\Debug\net6.0\ref\Crematorium.Persistense.dll
