@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Crematorium\\Crematorium\\Crematorium.UI\\Crematorium.UI.csproj": {}
+    "C:\\CrematoriumProject\\Crematorium\\Crematorium.UI\\Crematorium.UI.csproj": {}
   },
   "projects": {
-    "D:\\Crematorium\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj": {
+    "C:\\CrematoriumProject\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Crematorium\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj",
+        "projectUniqueName": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj",
         "projectName": "Crematorium.Application",
-        "projectPath": "D:\\Crematorium\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj",
-        "packagesPath": "C:\\Users\\Dima\\.nuget\\packages\\",
-        "outputPath": "D:\\Crematorium\\Crematorium\\Crematorium.Application\\obj\\",
+        "projectPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj",
+        "packagesPath": "C:\\Users\\kosac\\.nuget\\packages\\",
+        "outputPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Dima\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kosac\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,8 +33,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Crematorium\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj": {
-                "projectPath": "D:\\Crematorium\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj"
+              "C:\\CrematoriumProject\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj": {
+                "projectPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj"
               }
             }
           }
@@ -68,20 +68,20 @@
         }
       }
     },
-    "D:\\Crematorium\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj": {
+    "C:\\CrematoriumProject\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Crematorium\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj",
+        "projectUniqueName": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj",
         "projectName": "Crematorium.Domain",
-        "projectPath": "D:\\Crematorium\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj",
-        "packagesPath": "C:\\Users\\Dima\\.nuget\\packages\\",
-        "outputPath": "D:\\Crematorium\\Crematorium\\Crematorium.Domain\\obj\\",
+        "projectPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj",
+        "packagesPath": "C:\\Users\\kosac\\.nuget\\packages\\",
+        "outputPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Dima\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kosac\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -128,20 +128,20 @@
         }
       }
     },
-    "D:\\Crematorium\\Crematorium\\Crematorium.Persistense\\Crematorium.Persistense.csproj": {
+    "C:\\CrematoriumProject\\Crematorium\\Crematorium.Persistense\\Crematorium.Persistense.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Crematorium\\Crematorium\\Crematorium.Persistense\\Crematorium.Persistense.csproj",
+        "projectUniqueName": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Persistense\\Crematorium.Persistense.csproj",
         "projectName": "Crematorium.Persistense",
-        "projectPath": "D:\\Crematorium\\Crematorium\\Crematorium.Persistense\\Crematorium.Persistense.csproj",
-        "packagesPath": "C:\\Users\\Dima\\.nuget\\packages\\",
-        "outputPath": "D:\\Crematorium\\Crematorium\\Crematorium.Persistense\\obj\\",
+        "projectPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Persistense\\Crematorium.Persistense.csproj",
+        "packagesPath": "C:\\Users\\kosac\\.nuget\\packages\\",
+        "outputPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Persistense\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Dima\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kosac\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -157,8 +157,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Crematorium\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj": {
-                "projectPath": "D:\\Crematorium\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj"
+              "C:\\CrematoriumProject\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj": {
+                "projectPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj"
               }
             }
           }
@@ -198,20 +198,20 @@
         }
       }
     },
-    "D:\\Crematorium\\Crematorium\\Crematorium.UI\\Crematorium.UI.csproj": {
+    "C:\\CrematoriumProject\\Crematorium\\Crematorium.UI\\Crematorium.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Crematorium\\Crematorium\\Crematorium.UI\\Crematorium.UI.csproj",
+        "projectUniqueName": "C:\\CrematoriumProject\\Crematorium\\Crematorium.UI\\Crematorium.UI.csproj",
         "projectName": "Crematorium.UI",
-        "projectPath": "D:\\Crematorium\\Crematorium\\Crematorium.UI\\Crematorium.UI.csproj",
-        "packagesPath": "C:\\Users\\Dima\\.nuget\\packages\\",
-        "outputPath": "D:\\Crematorium\\Crematorium\\Crematorium.UI\\obj\\",
+        "projectPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.UI\\Crematorium.UI.csproj",
+        "packagesPath": "C:\\Users\\kosac\\.nuget\\packages\\",
+        "outputPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.UI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Dima\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kosac\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -227,14 +227,14 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "D:\\Crematorium\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj": {
-                "projectPath": "D:\\Crematorium\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj"
+              "C:\\CrematoriumProject\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj": {
+                "projectPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj"
               },
-              "D:\\Crematorium\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj": {
-                "projectPath": "D:\\Crematorium\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj"
+              "C:\\CrematoriumProject\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj": {
+                "projectPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj"
               },
-              "D:\\Crematorium\\Crematorium\\Crematorium.Persistense\\Crematorium.Persistense.csproj": {
-                "projectPath": "D:\\Crematorium\\Crematorium\\Crematorium.Persistense\\Crematorium.Persistense.csproj"
+              "C:\\CrematoriumProject\\Crematorium\\Crematorium.Persistense\\Crematorium.Persistense.csproj": {
+                "projectPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Persistense\\Crematorium.Persistense.csproj"
               }
             }
           }

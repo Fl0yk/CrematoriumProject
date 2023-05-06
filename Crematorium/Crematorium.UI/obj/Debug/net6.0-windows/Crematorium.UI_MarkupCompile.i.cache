@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\
+C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\
 Crematorium.UI
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 
-61764440380
+7-1084388652
 
-9-326244959
-227-2027576502
-Pages\LoginPage.xaml;Pages\MainWindow.xaml;Pages\TestPage.xaml;Resourse\Styles\BtnStyles.xaml;Resourse\Styles\ElementsStyles.xaml;Resourse\Styles\TextStyles.xaml;
+10-1248293249
+227340908298
+Pages\LoginPage.xaml;Pages\MainWindow.xaml;Pages\TestPage.xaml;Pages\UsersPage.xaml;Resourse\Styles\BtnStyles.xaml;Resourse\Styles\ElementsStyles.xaml;Resourse\Styles\TextStyles.xaml;
 
-True
+False
 

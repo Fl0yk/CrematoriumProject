@@ -38,8 +38,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border CornerRadius="2" x:Name="Border" Background="{TemplateBinding Background}">
-                        
+                    <Border CornerRadius="10" x:Name="Border" Background="{TemplateBinding Background}">
+
                         <ContentPresenter x:Name="contentPresent" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -47,8 +47,8 @@
                             <Setter Property="BorderBrush" TargetName="Border" Value="Transparent"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" TargetName="Border" Value="#FF942F2F"/>
-                            <Setter Property="BorderBrush" TargetName="Border" Value="#FF942F2F"/>
+                            <Setter Property="Background" TargetName="Border" Value="#FFB2043E"/>
+                            <Setter Property="BorderBrush" TargetName="Border" Value="#FFB2043E"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter Property="Background" TargetName="Border" Value="Transparent"/>
@@ -94,7 +94,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Background" TargetName="Border" Value="Transparent"/>
-                            
+
                             <Setter Property="TextElement.Foreground" TargetName="Border" Value="Transparent"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -138,8 +138,8 @@
                             <Setter Property="BorderBrush" TargetName="Border" Value="Transparent"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" TargetName="Border" Value="#FF310404"/>
-                            <Setter Property="BorderBrush" TargetName="Border" Value="#FF310404"/>
+                            <Setter Property="Background" TargetName="Border" Value="#FF5A040D"/>
+                            <Setter Property="BorderBrush" TargetName="Border" Value="#FF5A040D"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Background" TargetName="Border" Value="Transparent"/>

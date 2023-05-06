@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9GC5apNubmkO7mvpphwcUU0hvp4IcGxGB5cEnD1Jj6VET7nxn0SDx8gXAd+FC9lVm5JyMJJNQQXAEsy1u1A5DQ==",
+  "dgSpecHash": "E6AJvAxQBqwc7u2qrDlujVAR0ADsdOIbQNH2SfjI01mSfwVQ4kwqYoNZDQ1WOSPwVKm9WhKjjj+O7DOiZM/ycw==",
   "success": true,
-  "projectFilePath": "D:\\Crematorium\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj",
+  "projectFilePath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -20,7 +20,7 @@
         </ResourceDictionary>
     </Window.Resources>
     <Border CornerRadius="10"
-            Background="GhostWhite">
+            Background="#FFF8D0D0">
 
         <Grid x:Name="Principal"
               Background="Transparent">
@@ -30,7 +30,7 @@
                   VerticalAlignment="Top"
                   Background="Transparent">
                 <Border CornerRadius="10, 10, 0, 0" 
-                        Background="#FF671E1E"/>
+                        Background="#FF5A040D"/>
                 <!--#FF671E1E       #FF942F2F    Style="{StaticResource st2}"-->
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -75,7 +75,7 @@
                             Margin="0, 0, 20, 0"
                             Style="{StaticResource BaseBtnStyle}"
                             HorizontalAlignment="Right"
-                            >
+                            Click="Close">
                         <Image HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                Source="pack://application:,,,/Resourse/Images/close-white.png"/>
@@ -89,7 +89,7 @@
                             Margin="10, 0, 0, 0"
                             Style="{StaticResource BaseBtnStyle}"
                             HorizontalAlignment="Left"
-                            >
+                            Click="Minimize">
                         <Image HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                Source="pack://application:,,,/Resourse/Images/minimize-white.png"/>
