@@ -17,7 +17,7 @@ namespace Crematorium.Domain.Abstractions
         /// <param name="cancellationToken"></param>
         /// <param name="includesProperties">Делегаты для подключения навигационных свойств</param>
          /// <returns></returns>
-         Task<T> GetByIdAsync(int id, CancellationToken cancellationToken = default,
+         Task<T?> GetByIdAsync(int id, CancellationToken cancellationToken = default,
          params Expression<Func<T, object>>[]? includesProperties);
         /// <summary>
         /// Получение всего списка сущностей
@@ -66,7 +66,7 @@ namespace Crematorium.Domain.Abstractions
         /// <param name="filter">Делегат-условие отбора</param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> filter, CancellationToken
+        Task<T?> FirstOrDefaultAsync(Expression<Func<T, bool>> filter, CancellationToken
        cancellationToken = default);
     }
 

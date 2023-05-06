@@ -10,12 +10,14 @@ namespace Crematorium.UI
 {
     public class App : System.Windows.Application
     {
-        readonly LogAndRegPage startWindow;
+        readonly MainWindow startWindow;
 
         // через систему внедрения зависимостей получаем объект главного окна
-        public App(LogAndRegPage mainWindow)
+        public App(MainWindow mainWindow)
         {
             this.startWindow = mainWindow;
+            //this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resourse/Styles/BtnStyle.xaaml") };
+            //this.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resourse/Styles/BtnStyles.xaml") });
         }
         protected override void OnStartup(StartupEventArgs e)
         {

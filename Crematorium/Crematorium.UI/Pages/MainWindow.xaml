@@ -5,8 +5,255 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Crematorium.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Title="MainWindow" Height="600" Width="1000"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/BtnStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/TextStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/ElementsStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Border CornerRadius="10"
+            Background="GhostWhite">
 
-    </Grid>
+        <Grid x:Name="Principal"
+              Background="Transparent">
+            <!--#region HEADER -->
+            <Grid x:Name="Header"
+                  Height="40"
+                  VerticalAlignment="Top"
+                  Background="Transparent">
+                <Border CornerRadius="10, 10, 0, 0" 
+                        Background="#FF671E1E"/>
+                <!--#FF671E1E       #FF942F2F    Style="{StaticResource st2}"-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <!--#region TITLE-->
+                    <TextBlock Text="Crematorium"
+                               
+                               Grid.Column="0"
+                               FontSize="32"
+                               FontWeight="Bold"/>
+                    <!--#endregion-->
+                    <!--#region ACCOUNT-->
+                    <Button x:Name="BtnAccount"
+                            Grid.Column="1"
+                           Style="{StaticResource BaseBtnStyle}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="My Account"
+                                       Margin="3, 0, 0, 0"
+                                        Grid.Column="1"/>
+
+                            <Image Grid.Column="0"
+                                   Width="25"
+                                   Height="25"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Source="pack://application:,,,/Resourse/Images/user-white.png"/>
+                        </Grid>
+                    </Button>
+                    <!--#endregion-->
+                    <!--#region CLOSE-->
+                    <Button x:Name="BtnClose"
+                            Grid.Column="2"
+                            Width="25"
+                            Height="25"
+                            Margin="0, 0, 20, 0"
+                            Style="{StaticResource BaseBtnStyle}"
+                            HorizontalAlignment="Right"
+                            >
+                        <Image HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Source="pack://application:,,,/Resourse/Images/close-white.png"/>
+                    </Button>
+                    <!--#endregion-->
+                    <!--#region MINIMIZE-->
+                    <Button x:Name="BtnMin"
+                            Grid.Column="2"
+                            Width="25"
+                            Height="25"
+                            Margin="10, 0, 0, 0"
+                            Style="{StaticResource BaseBtnStyle}"
+                            HorizontalAlignment="Left"
+                            >
+                        <Image HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Source="pack://application:,,,/Resourse/Images/minimize-white.png"/>
+                    </Button>
+                    <!--#endregion-->
+                </Grid>
+
+            </Grid>
+            <!--#endregion -->
+            <!--#region CONTENT-->
+            <Grid x:Name="GridContent"
+                  Background="Transparent"
+                  VerticalAlignment="Bottom"
+                  HorizontalAlignment="Right"
+                  Height="560"
+                  Width="925"
+                  PreviewMouseLeftButtonDown="GridContent_PreviewMouseLeftButtonDown">
+
+            </Grid>
+            <!--#endregion-->
+            <!--#region SIDEBAR-->
+            <Grid x:Name="GridMenu"
+                  Background="Transparent"
+                  Width="75"
+                  HorizontalAlignment="Left"
+                  Margin="0, 40, 0, 0">
+                <Border CornerRadius="0, 0, 0, 10"
+                        Background="#FF8C2727"/>
+                <!--#region MENU  FF8C2727   #FF310404-->
+                <StackPanel Background="Transparent"
+                            VerticalAlignment="Top">
+                    <!--#region SHOW/HIDE-->
+                    <Grid Background="Transparent"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Right"
+                          Margin="0, 10, 10, 0">
+                        <ToggleButton x:Name="BtnShowHide"
+                                      Width="30"
+                                      Height="30"
+                                      BorderBrush="Transparent"
+                                      Checked="ShowMenu"
+                                      Unchecked="HideMenu"
+                                      Style="{StaticResource BaseTogBtnStyle}">
+                            <ToggleButton.Background>
+                                <ImageBrush ImageSource="pack://application:,,,/Resourse/Images/menu-white.png"/>
+                            </ToggleButton.Background>
+                            <ToggleButton.Triggers>
+                                <!--#region HIDE-->
+                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="HidePanel">
+                                            <DoubleAnimation Storyboard.TargetName="GridMenu"
+                                                             Storyboard.TargetProperty="Width"
+                                                             BeginTime="0:0:0"
+                                                             From="200" To="75"
+                                                             Duration="0:0:0:0.5"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <!--#endregion-->
+                                <!--#region SHOW-->
+                                <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="ShowPanel">
+                                            <DoubleAnimation Storyboard.TargetName="GridMenu"
+                                                             Storyboard.TargetProperty="Width"
+                                                             BeginTime="0:0:0"
+                                                             From="75" To="200"
+                                                             Duration="0:0:0:0.5"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <!--#endregion-->
+                            </ToggleButton.Triggers>
+                        </ToggleButton>
+                    </Grid>
+                    <!--#endregion-->
+                    <!--#region LISTVIEW-->
+                    <ListView Background="Transparent"
+                              BorderBrush="Transparent"
+                              Margin="0, 30, 0, 0"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <!--#region HOMEVIEW-->
+                        <ListViewItem Style="{StaticResource ListViewItemsStyle}">
+                            <Button x:Name="BtnStart"
+                                    Height="70"
+                                    Width="200"
+                                    Style="{StaticResource ListBtnStyle}">
+                                <Grid Width="200">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="Home"
+                                               FontSize="22"
+                                               HorizontalAlignment="Center"
+                                                Grid.Column="1"/>
+
+                                    <Image
+                                            Width="50"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Source="pack://application:,,,/Resourse/Images/house-white.png"/>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <!--#endregion-->
+                        <!--#region ORDERSVIEW-->
+                        <ListViewItem Style="{StaticResource ListViewItemsStyle}">
+                            <Button x:Name="BtnOrders"
+                                    Height="70"
+                                    Width="200"
+                                    Style="{StaticResource ListBtnStyle}">
+                                <Grid Width="200">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="Orders"
+                                               FontSize="22"
+                                               HorizontalAlignment="Center"
+                                                Grid.Column="1"/>
+
+                                    <Image
+                                            Width="50"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Source="pack://application:,,,/Resourse/Images/orders-white.png"/>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <!--#endregion-->
+                        <!--#region USERSVIEW-->
+                        <ListViewItem Style="{StaticResource ListViewItemsStyle}">
+                            <Button x:Name="BtnUsers"
+                                    Height="70"
+                                    Width="200"
+                                    Style="{StaticResource ListBtnStyle}">
+                                <Grid Width="200">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="Users"
+                                               FontSize="22"
+                                               HorizontalAlignment="Center"
+                                                Grid.Column="1"/>
+
+                                    <Image
+                                            Width="50"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Source="pack://application:,,,/Resourse/Images/users-white.png"/>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <!--#endregion-->
+                    </ListView>
+                    <!--#endregion-->
+                </StackPanel>
+                <!--#endregion-->
+            </Grid>
+            <!--#endregion-->
+        </Grid>
+
+    </Border>
 </Window>

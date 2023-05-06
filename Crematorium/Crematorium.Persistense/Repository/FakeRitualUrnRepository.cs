@@ -32,12 +32,12 @@ namespace Crematorium.Persistense.Repository
             return Task.CompletedTask;
         }
 
-        public async Task<RitualUrn> FirstOrDefaultAsync(Expression<Func<RitualUrn, bool>> filter, CancellationToken cancellationToken = default)
+        public async Task<RitualUrn?> FirstOrDefaultAsync(Expression<Func<RitualUrn, bool>> filter, CancellationToken cancellationToken = default)
         {
             return await Task.Run(() => _ritualUrns.FirstOrDefault(filter.Compile()));
         }
 
-        public async Task<RitualUrn> GetByIdAsync(int id, CancellationToken cancellationToken = default, params Expression<Func<RitualUrn, object>>[]? includesProperties)
+        public async Task<RitualUrn?> GetByIdAsync(int id, CancellationToken cancellationToken = default, params Expression<Func<RitualUrn, object>>[]? includesProperties)
         {
             return await Task.Run(() => _ritualUrns.FirstOrDefault(u => u.Id == id));
         }

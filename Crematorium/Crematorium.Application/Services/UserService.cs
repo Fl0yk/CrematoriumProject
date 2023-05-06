@@ -24,9 +24,9 @@ namespace Crematorium.Application.Services
             return item;
         }
 
-        public async Task<User> DeleteAsync(int id)
+        public async Task<User?> DeleteAsync(int id)
         {
-            var item = await _repository.FirstOrDefaultAsync(x => x.Id == id);
+            var item = _repository.FirstOrDefaultAsync(x => x.Id == id).Result;
             if (item != default)
             {
                 await _repository.DeleteAsync(item);
@@ -40,7 +40,7 @@ namespace Crematorium.Application.Services
             return await _repository.ListAllAsync();
         }
 
-        public async Task<User> GetByIdAsync(int id)
+        public async Task<User?> GetByIdAsync(int id)
         {
             return await _repository.GetByIdAsync(id);
         }

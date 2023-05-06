@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 
-2-1874153672
+61764440380
 
-61025883308
+7-1945343344
 227-2027576502
-Pages\LogAndRegPage.xaml;Pages\MainWindow.xaml;
+Pages\LoginPage.xaml;Pages\MainWindow.xaml;Pages\TestPage.xaml;Resourse\Styles\BtnStyles.xaml;Resourse\Styles\ElementsStyles.xaml;Resourse\Styles\TextStyles.xaml;
 
 False
 

@@ -39,7 +39,7 @@ namespace Crematorium.UI
 
             //Pages
             services.AddSingleton<App>();
-            services.AddSingleton<LogAndRegPage>();
+            services.AddSingleton<MainWindow>();
 
             //ViewModels
             services.AddSingleton<LogAndRegVM>();

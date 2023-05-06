@@ -20,6 +20,7 @@ namespace Crematorium.Persistense.Repository
         {
             _context = context;
             _entities = context.Set<T>();
+
         }
 
         public async Task AddAsync(T entity, 
@@ -39,7 +40,7 @@ namespace Crematorium.Persistense.Repository
             return Task.CompletedTask;
         }
 
-        public async Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> filter, 
+        public async Task<T?> FirstOrDefaultAsync(Expression<Func<T, bool>> filter, 
             CancellationToken cancellationToken = default)
         {
             IQueryable<T>? query = _entities.AsQueryable();
@@ -55,7 +56,7 @@ namespace Crematorium.Persistense.Repository
             }
         }
 
-        public async Task<T> GetByIdAsync(int id, 
+        public async Task<T?> GetByIdAsync(int id, 
             CancellationToken cancellationToken = default, 
             params Expression<Func<T, object>>[]? includesProperties)
         {

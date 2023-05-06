@@ -24,5 +24,20 @@ namespace Crematorium.UI
         {
             InitializeComponent();
         }
+
+        private void ShowMenu(object sender, RoutedEventArgs e)
+        {
+            GridContent.Opacity = 0.5;
+        }
+
+        private void HideMenu(object sender, RoutedEventArgs e)
+        {
+            GridContent.Opacity = 1;
+        }
+
+        private void GridContent_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BtnShowHide.IsChecked = false;
+        }
     }
 }

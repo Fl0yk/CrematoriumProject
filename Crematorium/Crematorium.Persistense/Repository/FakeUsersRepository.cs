@@ -24,6 +24,28 @@ namespace Crematorium.Persistense.Repository
                 UserRole = Role.Admin,
                 MailAdress = "Admin@mail.ru"
             });
+
+            _users.Add(new User()
+            {
+                Name = "User",
+                Surname = "USerov",
+                NumPassport = "User123",
+                UserRole = Role.Emplotee,
+                MailAdress = "User@mail.ru",
+                Id = 2
+            });
+
+            _users.Add(new User()
+            {
+                Name = "Custom",
+                Surname = "Customov",
+                NumPassport = "Custom123",
+                UserRole = Role.Customer,
+                MailAdress = "Custom@mail.ru",
+                Id = 3
+            });
+
+
         }
 
         public Task AddAsync(User entity, CancellationToken cancellationToken = default)
@@ -40,17 +62,17 @@ namespace Crematorium.Persistense.Repository
 
         public Task<User?> FirstOrDefaultAsync(Expression<Func<User, bool>> filter, CancellationToken cancellationToken = default)
         {
-            return Task.Run(() => _users.FirstOrDefault(filter.Compile()));
+            return Task.FromResult(_users.FirstOrDefault(filter.Compile()));
         }
 
         public Task<User?> GetByIdAsync(int id, CancellationToken cancellationToken = default, params Expression<Func<User, object>>[]? includesProperties)
         {
-            return Task.Run(() => _users.FirstOrDefault(u => u.Id == id));
+            return Task.FromResult(_users.FirstOrDefault(u => u.Id == id));
         }
 
-        public async Task<IReadOnlyList<User>> ListAllAsync(CancellationToken cancellationToken = default)
+        public Task<IReadOnlyList<User>> ListAllAsync(CancellationToken cancellationToken = default)
         {
-            return await Task.Run(() => _users);
+            return Task.FromResult((IReadOnlyList<User>)_users.AsReadOnly());
         }
 
         public Task<IReadOnlyList<User>> ListAsync(Expression<Func<User, bool>> filter, CancellationToken cancellationToken = default, params Expression<Func<User, object>>[]? includesProperties)

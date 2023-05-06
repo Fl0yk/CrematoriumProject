@@ -5,6 +5,7 @@ using Crematorium.UI.Pages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -14,66 +15,37 @@ using System.Windows.Input;
 
 namespace Crematorium.UI.ViewModels
 {
-    public partial class LogAndRegVM :  INotifyPropertyChanged            //ObservableObject
+    public partial class LogAndRegVM : ObservableValidator //ObservableObject     
     {
         private IUserService _userService;
         public LogAndRegVM(IUserService userService) 
         {
             _userService = userService;
-            ValidatesInput = new RelayCommand(() => OpenProgram());
         }
 
-        
+        [ObservableProperty]
+        [Required]
         private string inputName = string.Empty;
 
-        public string InputName
+        [ObservableProperty]
+        [Required]
+        private string inputNumPassport = string.Empty;
+ 
+
+        [RelayCommand]
+        public void ValidesUser()
         {
-            get => inputName;
-            set
+            bool validedUser = _userService.IsValided(inputName, inputNumPassport).Result;
+
+            if (validedUser)
             {
-                if (inputName != value)
-                {
-                    inputName = value;
-                    OnPropertyChanged(nameof(InputName));
-                }
+                MessageBox.Show("Успешная авторизация!");
             }
-        }
-        
-
-        public string inputNumPassport = string.Empty;
-        public string InputNumPassport
-        {
-            get => inputNumPassport;
-            set
+            else
             {
-                if(inputNumPassport != value)
-                {
-                    inputNumPassport = value;
-                    OnPropertyChanged(nameof(InputNumPassport));
-                }
+                MessageBox.Show("Такого аккаунта нет:(");
             }
-        }
 
-        //[RelayCommand]
-        //public void ValidatesInput() => OpenProgram();
-
-        public ICommand ValidatesInput { get;  }
-
-        public bool OpenProgram()
-        {
-            if(_userService.IsValided(inputName, inputNumPassport).Result)
-            {
-                return true;
-            }
-            
-            return false;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

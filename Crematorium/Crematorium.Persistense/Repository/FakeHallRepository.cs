@@ -33,12 +33,12 @@ namespace Crematorium.Persistense.Repository
             return Task.CompletedTask;
         }
 
-        public async Task<Hall> FirstOrDefaultAsync(Expression<Func<Hall, bool>> filter, CancellationToken cancellationToken = default)
+        public async Task<Hall?> FirstOrDefaultAsync(Expression<Func<Hall, bool>> filter, CancellationToken cancellationToken = default)
         {
             return await Task.Run(() => _halls.FirstOrDefault(filter.Compile()));
         }
 
-        public async Task<Hall> GetByIdAsync(int id, CancellationToken cancellationToken = default, params Expression<Func<Hall, object>>[]? includesProperties)
+        public async Task<Hall?> GetByIdAsync(int id, CancellationToken cancellationToken = default, params Expression<Func<Hall, object>>[]? includesProperties)
         {
             return await Task.Run(() => _halls.FirstOrDefault(u => u.Id == id));
         }
