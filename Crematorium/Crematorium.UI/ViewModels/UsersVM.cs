@@ -1,0 +1,49 @@
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Crematorium.Application.Abstractions;
+using Crematorium.Domain.Entities;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Crematorium.UI.ViewModels
+{
+    public partial class UsersVM : ObservableValidator
+    {
+        private IUserService _userService;
+        public UsersVM(IUserService userService)
+        {
+            _userService = userService;
+            Users = new ObservableCollection<User>( _userService.GetAllAsync().Result);
+        }
+
+        [ObservableProperty]
+        [MaxLength(20)]
+        private string inputFindName;
+
+        public ObservableCollection<User> Users { get; set; }
+
+        [RelayCommand]
+        public void FindUsers()
+        {
+            Users.Clear();
+            if (inputFindName is null || inputFindName == string.Empty)
+            {
+                foreach(User user in _userService.GetAllAsync().Result)
+                {
+                    Users.Add(user);
+                }
+                return;
+            }
+
+            foreach (User user in _userService.FindByName(inputFindName).Result) 
+            {
+                Users.Add(user);
+            }
+        }
+    }
+}

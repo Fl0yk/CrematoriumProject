@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Crematorium.UI"
+        xmlns:pages="clr-namespace:Crematorium.UI.Pages"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
@@ -17,6 +18,12 @@
                 <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/TextStyles.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/ElementsStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <!--#region DATATEMPLATE USERS-->
+            <DataTemplate x:Name="Users"
+                      DataType="{x:Type pages:UsersPage}">
+                <pages:UsersPage DataContext="{Binding}"/>
+            </DataTemplate>
+            <!--#endregion-->
         </ResourceDictionary>
     </Window.Resources>
     <Border CornerRadius="10"
@@ -107,7 +114,7 @@
                   Height="560"
                   Width="925"
                   PreviewMouseLeftButtonDown="GridContent_PreviewMouseLeftButtonDown">
-
+                <ContentControl Content="{Binding}"/>
             </Grid>
             <!--#endregion-->
             <!--#region SIDEBAR-->
@@ -227,6 +234,7 @@
                             <Button x:Name="BtnUsers"
                                     Height="70"
                                     Width="200"
+                                    Click="UsersContent"
                                     Style="{StaticResource ListBtnStyle}">
                                 <Grid Width="200">
                                     <Grid.ColumnDefinitions>

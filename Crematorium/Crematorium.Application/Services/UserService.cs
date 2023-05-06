@@ -61,5 +61,10 @@ namespace Crematorium.Application.Services
             await _repository.UpdateAsync(item);
             return item;
         }
+
+        public async Task<IEnumerable<User>> FindByName(string name)
+        {
+            return await _repository.ListAsync(u => u.Name == name);
+        }
     }
 }

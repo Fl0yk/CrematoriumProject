@@ -69,3 +69,9 @@ D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\TestPag
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Resourse\Styles\BtnStyles.baml
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Resourse\Styles\TextStyles.baml
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Resourse\Styles\ElementsStyles.baml
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UsersPage.g.cs
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UsersPage.baml
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Resourse\Styles\DataGridStyles.baml
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UserChangePage.g.cs
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UserChangePage.baml

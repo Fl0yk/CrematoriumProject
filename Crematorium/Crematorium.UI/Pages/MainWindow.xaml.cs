@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Crematorium.UI.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace Crematorium.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private UsersPage usersPage;
+        public MainWindow(UsersPage usersPage)
         {
             InitializeComponent();
+            this.usersPage = usersPage;
         }
 
         private void ShowMenu(object sender, RoutedEventArgs e)
@@ -38,6 +41,21 @@ namespace Crematorium.UI
         private void GridContent_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             BtnShowHide.IsChecked = false;
+        }
+
+        private void Close(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Minimize(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void UsersContent(object sender, RoutedEventArgs e)
+        {
+            DataContext = usersPage;
         }
     }
 }

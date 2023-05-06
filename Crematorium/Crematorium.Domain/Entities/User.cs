@@ -24,7 +24,7 @@ namespace Crematorium.Domain.Entities
     public enum Role
     {
         Admin,
-        Emplotee,
+        Employee,
         Customer,
         NoName
     }

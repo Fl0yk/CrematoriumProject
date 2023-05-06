@@ -30,7 +30,7 @@ namespace Crematorium.Persistense.Repository
                 Name = "User",
                 Surname = "USerov",
                 NumPassport = "User123",
-                UserRole = Role.Emplotee,
+                UserRole = Role.Employee,
                 MailAdress = "User@mail.ru",
                 Id = 2
             });
@@ -77,7 +77,7 @@ namespace Crematorium.Persistense.Repository
 
         public Task<IReadOnlyList<User>> ListAsync(Expression<Func<User, bool>> filter, CancellationToken cancellationToken = default, params Expression<Func<User, object>>[]? includesProperties)
         {
-            throw new NotImplementedException();
+            return Task.FromResult((IReadOnlyList<User>)_users.Where(filter.Compile()).ToList());
         }
 
         public Task UpdateAsync(User entity, CancellationToken cancellationToken = default)

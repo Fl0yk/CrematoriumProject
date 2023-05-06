@@ -10,5 +10,6 @@ namespace Crematorium.Application.Abstractions
     public interface IUserService : IBaseService<User>
     {
         Task<bool> IsValided(string name, string numPassport);
+        public Task<IEnumerable<User>> FindByName(string name);
     }
 }
