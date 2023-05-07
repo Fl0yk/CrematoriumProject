@@ -1,4 +1,5 @@
-﻿using Crematorium.UI.Pages;
+﻿using Crematorium.UI.Fabrics;
+using Crematorium.UI.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +22,9 @@ namespace Crematorium.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private UsersPage usersPage;
-        public MainWindow(UsersPage usersPage)
+        public MainWindow()
         {
             InitializeComponent();
-            this.usersPage = usersPage;
         }
 
         private void ShowMenu(object sender, RoutedEventArgs e)
@@ -55,7 +54,7 @@ namespace Crematorium.UI
 
         private void UsersContent(object sender, RoutedEventArgs e)
         {
-            DataContext = usersPage;
+            DataContext = PagesFabric.GetPage(typeof(UsersPage));
         }
     }
 }

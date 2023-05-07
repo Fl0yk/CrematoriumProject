@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 
-91223244454
+101789997854
 
-11-211446141
+13-941897617
 227-2027576502
-Pages\LoginPage.xaml;Pages\MainWindow.xaml;Pages\TestPage.xaml;Pages\UserChangePage.xaml;Pages\UsersPage.xaml;Resourse\Styles\BtnStyles.xaml;Resourse\Styles\DataGridStyles.xaml;Resourse\Styles\ElementsStyles.xaml;Resourse\Styles\TextStyles.xaml;
+Pages\ChangeUserPage.xaml;Pages\LoginPage.xaml;Pages\MainWindow.xaml;Pages\TestPage.xaml;Pages\UsersPage.xaml;Resourse\Styles\BtnStyles.xaml;Resourse\Styles\ComboBoxStyles.xaml;Resourse\Styles\DataGridStyles.xaml;Resourse\Styles\ElementsStyles.xaml;Resourse\Styles\TextStyles.xaml;
 
 False
 

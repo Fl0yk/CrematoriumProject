@@ -75,8 +75,10 @@
             <!--#region DATAGRID-->
             <DataGrid Grid.Row="4" Grid.RowSpan="2"
                       Grid.Column="1" Grid.ColumnSpan="4"
+                      x:Name="UsersDataGrid"
                       Style="{StaticResource BaseDataGrid}"
-                      ItemsSource="{Binding Users}">
+                      ItemsSource="{Binding Users}"
+                      SelectedItem="{Binding Path=SelectedUser}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID"
                                         Width="50"
@@ -100,6 +102,7 @@
                     Grid.Row="6"
                     Width="80"
                     Background="#FFF53657"
+                    Command="{Binding Path=AddUserCommand}"
                     Style="{StaticResource BaseBtnStyle}">
                 <TextBlock Text="Add"/>
             </Button>
@@ -107,6 +110,7 @@
                     Grid.Row="6"
                     Width="80"
                     Background="#FFF53657"
+                    Command="{Binding Path=UpdateUserCommand}"
                     Style="{StaticResource BaseBtnStyle}">
                 <TextBlock Text="Edit"/>
             </Button>
@@ -114,6 +118,7 @@
                     Grid.Row="6"
                     Width="80"
                     Background="#FFF53657"
+                    Command="{Binding Path=DeleteUserCommand}"
                     Style="{StaticResource BaseBtnStyle}">
                 <TextBlock Text="Remove"/>
             </Button>

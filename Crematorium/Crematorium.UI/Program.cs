@@ -2,6 +2,7 @@
 using Crematorium.Application.Services;
 using Crematorium.Domain.Abstractions;
 using Crematorium.Persistense.Repository;
+using Crematorium.UI.Fabrics;
 using Crematorium.UI.Pages;
 using Crematorium.UI.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +28,8 @@ namespace Crematorium.UI
 
             // получаем сервис - объект класса App
             var app = host.Services.GetService<App>();
+
+            PagesFabric.Services = host.Services;
             // запускаем приложения
             app?.Run();
         }
@@ -41,10 +44,12 @@ namespace Crematorium.UI
             services.AddSingleton<App>();
             services.AddSingleton<MainWindow>();
             services.AddSingleton<UsersPage>();
+            services.AddTransient<ChangeUserPage>();
 
             //ViewModels
             services.AddSingleton<LogAndRegVM>();
             services.AddSingleton<UsersVM>();
+            services.AddSingleton<UserChangeVM>();
         }
     }
 }

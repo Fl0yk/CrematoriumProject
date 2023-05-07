@@ -73,5 +73,6 @@ D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UsersPa
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UsersPage.baml
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Resourse\Styles\DataGridStyles.baml
-D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UserChangePage.g.cs
-D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UserChangePage.baml
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\ChangeUserPage.g.cs
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\ChangeUserPage.baml
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Resourse\Styles\ComboBoxStyles.baml

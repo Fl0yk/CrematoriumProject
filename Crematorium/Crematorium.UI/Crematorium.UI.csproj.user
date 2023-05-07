@@ -2,17 +2,20 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Pages\ChangeUserPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\LoginPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Pages\TestPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Pages\UserChangePage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Pages\ChangeUserPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Pages\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -22,10 +25,10 @@
     <Page Update="Pages\TestPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Pages\UserChangePage.xaml">
+    <Page Update="Resourse\Styles\BtnStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Resourse\Styles\BtnStyles.xaml">
+    <Page Update="Resourse\Styles\ComboBoxStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resourse\Styles\DataGridStyles.xaml">

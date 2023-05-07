@@ -2,6 +2,8 @@
 using CommunityToolkit.Mvvm.Input;
 using Crematorium.Application.Abstractions;
 using Crematorium.Domain.Entities;
+using Crematorium.UI.Fabrics;
+using Crematorium.UI.Pages;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,12 +11,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Crematorium.UI.ViewModels
 {
     public partial class UsersVM : ObservableValidator
     {
         private IUserService _userService;
+
         public UsersVM(IUserService userService)
         {
             _userService = userService;
@@ -33,14 +37,56 @@ namespace Crematorium.UI.ViewModels
             Users.Clear();
             if (inputFindName is null || inputFindName == string.Empty)
             {
-                foreach(User user in _userService.GetAllAsync().Result)
-                {
-                    Users.Add(user);
-                }
+                UpdateUsersCollection();
                 return;
             }
 
             foreach (User user in _userService.FindByName(inputFindName).Result) 
+            {
+                Users.Add(user);
+            }
+        }
+
+        [RelayCommand]
+        public void AddUser()
+        {
+            var userChange = (ChangeUserPage)PagesFabric.GetPage(typeof(ChangeUserPage));
+            userChange.InitializeUser(-1);
+            userChange.OpBtnName.Text = "Registration";
+            userChange.ShowDialog();
+            UpdateUsersCollection();
+        }
+
+        [ObservableProperty]
+        private User selectedUser;
+
+        [RelayCommand]
+        public void UpdateUser()
+        {
+            if (SelectedUser is null)
+                return;
+
+            var userChange = (ChangeUserPage)PagesFabric.GetPage(typeof(ChangeUserPage));
+            userChange.InitializeUser(SelectedUser.Id);
+            userChange.OpBtnName.Text = "Update";
+            userChange.ShowDialog();
+            UpdateUsersCollection();
+        }
+
+        [RelayCommand]
+        public void DeleteUser()
+        {
+            if (SelectedUser is null || SelectedUser.Name == "Admin")
+                return;
+
+            _userService.DeleteAsync(SelectedUser.Id);
+            UpdateUsersCollection();
+        }
+
+        private void UpdateUsersCollection()
+        {
+            Users.Clear();
+            foreach (User user in _userService.GetAllAsync().Result)
             {
                 Users.Add(user);
             }

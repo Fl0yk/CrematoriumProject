@@ -22,6 +22,8 @@ namespace Crematorium.UI.Converters
                     return "Employee";
                 case Role.Customer:
                     return "Customer";
+                case Role.NoName:
+                    return "No role";
                 default:
                     throw new NotImplementedException();
             }

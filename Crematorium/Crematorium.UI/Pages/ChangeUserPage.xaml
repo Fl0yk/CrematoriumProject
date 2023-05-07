@@ -1,21 +1,23 @@
-﻿<Page x:Class="Crematorium.UI.Pages.UserChangePage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Crematorium.UI.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="600"
-      Title="UserChangePage">
-    <Page.Resources>
+﻿<Window x:Class="Crematorium.UI.Pages.ChangeUserPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Crematorium.UI.Pages"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Height="450" Width="600"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/BtnStyles.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/TextStyles.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/ElementsStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/ComboBoxStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-    </Page.Resources>
+    </Window.Resources>
     <Border CornerRadius="10"
             Background="#FFF8D0D0">
         <Grid>
@@ -53,17 +55,27 @@
                        FontSize="32"/>
             <!--#endregion-->
             <!--#region BUTTONS-->
-            
-            <!--#region REGISTRATION-->
+            <Button Grid.Column="1"
+                    Grid.Row="1"
+                    Width="80"
+                    Height="20"
+                    HorizontalAlignment="Left"
+                    Background="#FFF53657"
+                    Click="Back"
+                    Style="{StaticResource BaseBtnStyle}">
+                <TextBlock Text="Back"/>
+            </Button>
             <Button Grid.Column="3"
                     Grid.Row="13"
                     Width="110"
                     Height="35"
                     Background="#FFF53657"
+                    x:Name="OperatinBtn"
+                    Command="{Binding Path=AddUserCommand}"
+                    Click="Back"
                     Style="{StaticResource BaseBtnStyle}">
-                <TextBlock Text="Registration"/>
+                <TextBlock x:Name="OpBtnName" Text="Registration"/>
             </Button>
-            <!--#endregion-->
             <!--#endregion-->
             <!--#region CONTENT-->
             <TextBlock Text="Name:"
@@ -72,34 +84,43 @@
             <TextBox Grid.Row="3"
                      Grid.Column="2"
                      Width="260"
-                     Height="35"/>
+                     Height="35"
+                     Text="{Binding Path=Name}"/>
             <TextBlock Text="Surname:"
                        Grid.Column="1"
                        Grid.Row="5"/>
             <TextBox Grid.Row="5"
                      Grid.Column="2"
                      Width="260"
-                     Height="35"/>
+                     Height="35"
+                     Text="{Binding Path=Surname}"/>
             <TextBlock Text="Num passport:"
                        Grid.Column="1"
                        Grid.Row="7"/>
             <TextBox Grid.Row="7"
                      Grid.Column="2"
                      Width="260"
-                     Height="35"/>
+                     Height="35"
+                     Text="{Binding Path=NumPassport}"/>
             <TextBlock Text="Mail adress:"
                        Grid.Column="1"
                        Grid.Row="9"/>
             <TextBox Grid.Row="9"
                      Grid.Column="2"
                      Width="260"
-                     Height="35"/>
+                     Height="35"
+                     Text="{Binding Path=MailAdress}"/>
             <TextBlock Text="Role:"
                        Grid.Column="1"
                        Grid.Row="11"/>
             <ComboBox Grid.Row="11"
-                      Grid.Column="2"/>
+                      Grid.Column="2"
+                      x:Name="RoleComboBox"
+                      Width="150" Height="30"
+                      HorizontalAlignment="Left"
+                      Background="#FFF53657"
+                      SelectedItem="{Binding Path=SelectedRole}"/>
             <!--#endregion-->
         </Grid>
     </Border>
-</Page>
+</Window>

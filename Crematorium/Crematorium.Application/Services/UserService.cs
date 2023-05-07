@@ -45,6 +45,9 @@ namespace Crematorium.Application.Services
             return await _repository.GetByIdAsync(id);
         }
 
+        /// <summary>
+        /// Проверяет наличие пользователя по имени и номеру паспорта. Возвращает true, если пользователь существует
+        /// </summary>
         public async Task<bool> IsValided(string name, string numPassport)
         {
             var item = _repository.FirstOrDefaultAsync(u => u.Name == name && u.NumPassport == numPassport).Result;
