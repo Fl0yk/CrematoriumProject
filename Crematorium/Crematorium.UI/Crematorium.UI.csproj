@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resourse\Images\bitbucket-white.png" />
+    <None Remove="Resourse\Images\bitbucket.png" />
     <None Remove="Resourse\Images\close-white.png" />
     <None Remove="Resourse\Images\close-window.png" />
     <None Remove="Resourse\Images\house-white.png" />
@@ -16,6 +18,8 @@
     <None Remove="Resourse\Images\menu-white.png" />
     <None Remove="Resourse\Images\menu.png" />
     <None Remove="Resourse\Images\minimize-white.png" />
+    <None Remove="Resourse\Images\new-orders-white.png" />
+    <None Remove="Resourse\Images\new-orders.png" />
     <None Remove="Resourse\Images\orders-white.png" />
     <None Remove="Resourse\Images\orders.png" />
     <None Remove="Resourse\Images\user-white.png" />
@@ -37,6 +41,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resourse\Images\bitbucket-white.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resourse\Images\bitbucket.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resourse\Images\close-white.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -56,6 +66,12 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resourse\Images\minimize-white.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resourse\Images\new-orders-white.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resourse\Images\new-orders.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resourse\Images\orders-white.png">

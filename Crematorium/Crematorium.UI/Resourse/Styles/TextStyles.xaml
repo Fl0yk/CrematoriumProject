@@ -23,10 +23,10 @@
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="FontFamily" Value="Times New Roman"/>
-        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Areal Black"/>
+        <Setter Property="FontSize" Value="18"/>
         <Setter Property="FontWeight" Value="DemiBold"/>
-        <Setter Property="FontStyle" Value="Italic"/>
+        <Setter Property="FontStyle" Value="Normal"/>
     </Style>
 
     <Style x:Name="BaseTxBoxSt" TargetType="{x:Type TextBox}">
@@ -36,9 +36,9 @@
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="FontFamily" Value="Times New Roman"/>
-        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Areal Black"/>
+        <Setter Property="FontSize" Value="18"/>
         <Setter Property="FontWeight" Value="DemiBold"/>
-        <Setter Property="FontStyle" Value="Italic"/>
+        <Setter Property="FontStyle" Value="Normal"/>
     </Style>
 </ResourceDictionary>

@@ -64,12 +64,16 @@ namespace Crematorium.UI.ViewModels
         [RelayCommand]
         public void AddUser()
         {
-            if (User == null)
+            if (User is null)
                 throw new ArgumentNullException("User not initialized");
 
-            if (Name == string.Empty || Surname == string.Empty ||
-                NumPassport == string.Empty || MailAdress == string.Empty)
+            if (Name == string.Empty || Name is null ||
+                Surname == string.Empty || Surname is null ||
+                NumPassport == string.Empty || NumPassport is null ||
+                MailAdress == string.Empty || MailAdress is null)
+            {
                 throw new Exception("Not initialize data");
+            }
 
             if (Name != User.Name && _userService.IsValided(Name, NumPassport).Result)
             {

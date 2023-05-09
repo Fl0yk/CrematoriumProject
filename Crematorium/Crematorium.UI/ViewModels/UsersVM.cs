@@ -23,6 +23,7 @@ namespace Crematorium.UI.ViewModels
         {
             _userService = userService;
             Users = new ObservableCollection<User>( _userService.GetAllAsync().Result);
+            
         }
 
         [ObservableProperty]

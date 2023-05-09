@@ -10,6 +10,7 @@
         WindowStyle="None"
         Title="MainWindow" Height="600" Width="1000"
         AllowsTransparency="True"
+        MouseDown="Window_MousDown"
         Background="Transparent">
     <Window.Resources>
         <ResourceDictionary>
@@ -218,7 +219,7 @@
                                             Width="50"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
-                                            Source="pack://application:,,,/Resourse/Images/orders-white.png"/>
+                                            Source="pack://application:,,,/Resourse/Images/new-orders-white.png"/>
                                 </Grid>
                             </Button>
                         </ListViewItem>
@@ -245,6 +246,32 @@
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
                                             Source="pack://application:,,,/Resourse/Images/users-white.png"/>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <!--#endregion-->
+                        <!--#region URNSVIEW-->
+                        <ListViewItem Style="{StaticResource ListViewItemsStyle}">
+                            <Button x:Name="BtnUrns"
+                                    Height="70"
+                                    Width="200"
+                                    Click="UrnsContent"
+                                    Style="{StaticResource ListBtnStyle}">
+                                <Grid Width="200">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="Ritual Urns"
+                                               FontSize="22"
+                                               HorizontalAlignment="Center"
+                                                Grid.Column="1"/>
+
+                                    <Image
+                                            Width="50"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Source="pack://application:,,,/Resourse/Images/bitbucket-white.png"/>
                                 </Grid>
                             </Button>
                         </ListViewItem>

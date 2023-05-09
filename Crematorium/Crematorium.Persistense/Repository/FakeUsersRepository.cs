@@ -56,7 +56,9 @@ namespace Crematorium.Persistense.Repository
 
         public Task DeleteAsync(User entity, CancellationToken cancellationToken = default)
         {
-            _users.Remove(entity);
+            if(_users.Contains(entity))
+                _users.Remove(entity);
+
             return Task.CompletedTask;
         }
 

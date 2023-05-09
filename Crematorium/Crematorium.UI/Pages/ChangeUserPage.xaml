@@ -8,6 +8,7 @@
         WindowStyle="None"
         Height="450" Width="600"
         AllowsTransparency="True"
+        MouseDown="Window_MousDown"
         Background="Transparent">
     <Window.Resources>
         <ResourceDictionary>
@@ -67,7 +68,7 @@
             </Button>
             <Button Grid.Column="3"
                     Grid.Row="13"
-                    Width="110"
+                    Width="120"
                     Height="35"
                     Background="#FFF53657"
                     x:Name="OperatinBtn"

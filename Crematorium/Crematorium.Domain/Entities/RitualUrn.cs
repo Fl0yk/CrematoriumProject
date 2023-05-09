@@ -8,7 +8,8 @@ namespace Crematorium.Domain.Entities
 {
     public class RitualUrn : Entity
     {
-        public string Image { get; set; }
+        public string Name { get; set; }
+        public byte[] Image { get; set; }
         public decimal Price { get; set; }
     }
 }

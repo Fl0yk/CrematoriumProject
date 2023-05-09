@@ -56,5 +56,18 @@ namespace Crematorium.UI
         {
             DataContext = PagesFabric.GetPage(typeof(UsersPage));
         }
+
+        private void UrnsContent(object sender, RoutedEventArgs e)
+        {
+            DataContext = PagesFabric.GetPage(typeof(RitualUrnServicePage));
+        }
+
+        private void Window_MousDown(object sender, MouseButtonEventArgs e) 
+        {
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }

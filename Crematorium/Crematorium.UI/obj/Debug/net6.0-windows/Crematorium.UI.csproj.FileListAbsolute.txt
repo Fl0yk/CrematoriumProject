@@ -76,3 +76,7 @@ D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Resourse\Styl
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\ChangeUserPage.g.cs
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\ChangeUserPage.baml
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Resourse\Styles\ComboBoxStyles.baml
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\RitualUrnServicePage.g.cs
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\RitualUrnServicePage.baml
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\ChangeUrnPage.g.cs
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\ChangeUrnPage.baml

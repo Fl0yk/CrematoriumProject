@@ -16,7 +16,7 @@ namespace Crematorium.Persistense.Repository
         public FakeRitualUrnRepository()
         {
             _ritualUrns = new List<RitualUrn>();
-            throw new Exception("Создай урны!");
+            //throw new Exception("Создай урны!");
         }
         public Task AddAsync(RitualUrn entity, CancellationToken cancellationToken = default)
         {
@@ -32,24 +32,24 @@ namespace Crematorium.Persistense.Repository
             return Task.CompletedTask;
         }
 
-        public async Task<RitualUrn?> FirstOrDefaultAsync(Expression<Func<RitualUrn, bool>> filter, CancellationToken cancellationToken = default)
+        public Task<RitualUrn?> FirstOrDefaultAsync(Expression<Func<RitualUrn, bool>> filter, CancellationToken cancellationToken = default)
         {
-            return await Task.Run(() => _ritualUrns.FirstOrDefault(filter.Compile()));
+            return Task.FromResult(_ritualUrns.FirstOrDefault(filter.Compile()));
         }
 
-        public async Task<RitualUrn?> GetByIdAsync(int id, CancellationToken cancellationToken = default, params Expression<Func<RitualUrn, object>>[]? includesProperties)
+        public Task<RitualUrn?> GetByIdAsync(int id, CancellationToken cancellationToken = default, params Expression<Func<RitualUrn, object>>[]? includesProperties)
         {
-            return await Task.Run(() => _ritualUrns.FirstOrDefault(u => u.Id == id));
+            return Task.FromResult(_ritualUrns.FirstOrDefault(u => u.Id == id));
         }
 
-        public async Task<IReadOnlyList<RitualUrn>> ListAllAsync(CancellationToken cancellationToken = default)
-        { 
-            return await Task.Run(() => _ritualUrns);
+        public Task<IReadOnlyList<RitualUrn>> ListAllAsync(CancellationToken cancellationToken = default)
+        {
+            return Task.FromResult((IReadOnlyList<RitualUrn>)_ritualUrns.AsReadOnly());
         }
 
         public Task<IReadOnlyList<RitualUrn>> ListAsync(Expression<Func<RitualUrn, bool>> filter, CancellationToken cancellationToken = default, params Expression<Func<RitualUrn, object>>[]? includesProperties)
         {
-            throw new NotImplementedException();
+            return Task.FromResult((IReadOnlyList<RitualUrn>)_ritualUrns.Where(filter.Compile()).ToList());
         }
 
         public Task UpdateAsync(RitualUrn entity, CancellationToken cancellationToken = default)

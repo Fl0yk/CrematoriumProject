@@ -35,9 +35,12 @@ namespace Crematorium.UI.Pages
             _userChangeVM.SetUser(Id);
         }
 
-        private void OperationBtn(object sender, RoutedEventArgs e)
+        private void Window_MousDown(object sender, MouseButtonEventArgs e)
         {
-
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
 
         private void Back(object sender, RoutedEventArgs e)

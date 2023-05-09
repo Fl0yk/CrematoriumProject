@@ -8,6 +8,8 @@ namespace Crematorium.Domain.Entities
 {
     public class Corpose : Entity //труп
     {
+        public string Name { get; set; }
+
         public string SurName { get; set; }
 
         public string NumPassport { get; set; }

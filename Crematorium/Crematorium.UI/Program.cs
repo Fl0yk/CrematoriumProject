@@ -1,6 +1,7 @@
 ﻿using Crematorium.Application.Abstractions;
 using Crematorium.Application.Services;
 using Crematorium.Domain.Abstractions;
+using Crematorium.Domain.Entities;
 using Crematorium.Persistense.Repository;
 using Crematorium.UI.Fabrics;
 using Crematorium.UI.Pages;
@@ -39,17 +40,24 @@ namespace Crematorium.UI
             //Services
             services.AddSingleton<IUnitOfWork, FakeUnitOfWork>();
             services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<IBaseService<RitualUrn>, RitualUrnService>();
 
             //Pages
             services.AddSingleton<App>();
             services.AddSingleton<MainWindow>();
             services.AddSingleton<UsersPage>();
+            services.AddSingleton<RitualUrnServicePage>();
+
+            //Help pages
             services.AddTransient<ChangeUserPage>();
+            services.AddTransient<ChangeUrnPage>();
 
             //ViewModels
             services.AddSingleton<LogAndRegVM>();
             services.AddSingleton<UsersVM>();
             services.AddSingleton<UserChangeVM>();
+            services.AddSingleton<RitualUrnsVM>();
+            services.AddSingleton<ChangeUrnVM>();
         }
     }
 }
