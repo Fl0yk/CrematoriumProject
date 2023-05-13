@@ -14,7 +14,7 @@ namespace Crematorium.Persistense.Repository
     {
         private readonly Lazy<IRepository<User>> _userRepository;
         private readonly Lazy<IRepository<Order>> _orderRepository;
-        //private readonly Lazy<IRepository<Corpose>> _corposeRepository;
+        private readonly Lazy<IRepository<Corpose>> _corposeRepository;
         private readonly Lazy<IRepository<RitualUrn>> _ritualUrnRepository;
         private readonly Lazy<IRepository<Hall>> _hallRepository;
 
@@ -24,6 +24,8 @@ namespace Crematorium.Persistense.Repository
                                     new FakeUsersRepository());
             _orderRepository = new Lazy<IRepository<Order>>(() =>
                                     new FakeOrderRepository());
+            _corposeRepository = new Lazy<IRepository<Corpose>>(() =>
+                                    new FakeCorposeRepository());
             _hallRepository = new Lazy<IRepository<Hall>>(() => 
                                     new FakeHallRepository());
             _ritualUrnRepository = new Lazy<IRepository<RitualUrn>>(() => 
@@ -33,7 +35,7 @@ namespace Crematorium.Persistense.Repository
 
         public IRepository<Order> OrderRepository => _orderRepository.Value;
 
-        //public IRepository<Corpose> CorposeRepository => _corposeRepository.Value;
+        public IRepository<Corpose> CorposeRepository => _corposeRepository.Value;
 
         public IRepository<RitualUrn> RitualUrnRepository => _ritualUrnRepository.Value;
 

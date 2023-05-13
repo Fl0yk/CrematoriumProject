@@ -16,14 +16,14 @@ namespace Crematorium.UI.ViewModels
 {
     public partial class ChangeUrnVM : ObservableValidator
     {
-        private IBaseService<RitualUrn> _urnService;
+        private IHelpersService<RitualUrn> _urnService;
 
         private RitualUrn changedUrn;
         private bool _isNewUrn = false;
 
         private int maxId;
 
-        public ChangeUrnVM(IBaseService<RitualUrn> userService)
+        public ChangeUrnVM(IHelpersService<RitualUrn> userService)
         {
             _urnService = userService;
             maxId = _urnService.GetAllAsync().Result is null ? _urnService.GetAllAsync().Result.MaxBy(u => u.Id).Id : 0;

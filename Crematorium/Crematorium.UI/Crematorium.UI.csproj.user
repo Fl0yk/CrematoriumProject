@@ -2,10 +2,16 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Pages\ChangeCorposePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\ChangeUrnPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Pages\ChangeUserPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\CorposesServicePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Pages\LoginPage.xaml.cs">
@@ -19,10 +25,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Pages\ChangeCorposePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Pages\ChangeUrnPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\ChangeUserPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\CorposesServicePage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\MainWindow.xaml">

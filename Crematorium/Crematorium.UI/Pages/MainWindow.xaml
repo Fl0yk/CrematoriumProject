@@ -204,6 +204,7 @@
                             <Button x:Name="BtnOrders"
                                     Height="70"
                                     Width="200"
+                                    Click="CorposeContent"
                                     Style="{StaticResource ListBtnStyle}">
                                 <Grid Width="200">
                                     <Grid.ColumnDefinitions>

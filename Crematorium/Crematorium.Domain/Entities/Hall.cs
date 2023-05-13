@@ -8,7 +8,6 @@ namespace Crematorium.Domain.Entities
 {
     public class Hall : Entity
     {
-        public string Name { get; set; }
         public int Capacity { get; set; }
 
         public decimal Price { get; set; }

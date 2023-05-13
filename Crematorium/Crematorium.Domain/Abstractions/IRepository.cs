@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Crematorium.Domain.Abstractions
 {
-    public interface IRepository<T> where T : Entity
+    public interface IRepository<T> where T : Base
     {
         /// <summary>
         /// Поиск сущности по Id

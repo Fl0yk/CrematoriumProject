@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Crematorium.Domain.Entities
 {
-    public class Entity
+    public class Entity : Base
     {
-        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

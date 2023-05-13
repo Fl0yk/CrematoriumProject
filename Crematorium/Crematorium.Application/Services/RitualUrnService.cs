@@ -9,16 +9,11 @@ using System.Threading.Tasks;
 
 namespace Crematorium.Application.Services
 {
-    public class RitualUrnService : BaseService<RitualUrn>
+    public class RitualUrnService : HelpersService<RitualUrn>
     {
        public RitualUrnService(IUnitOfWork unitOfWork) 
        {
             _repository = unitOfWork.RitualUrnRepository;
        }
-
-        public async Task<IEnumerable<User>> FindByName(string name)
-        {
-            return (IEnumerable<User>)await _repository.ListAsync(u => u.Name == name);
-        }
     }
 }

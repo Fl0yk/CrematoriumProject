@@ -11,7 +11,7 @@ namespace Crematorium.Domain.Abstractions
     {
         IRepository<User> UserRepository { get; }
         IRepository<Order> OrderRepository { get; }
-        //IRepository<Corpose> CorposeRepository { get; }
+        IRepository<Corpose> CorposeRepository { get; }
         IRepository<RitualUrn> RitualUrnRepository { get; }
         IRepository<Hall> HallRepository { get; }
         public Task RemoveDatbaseAsync();

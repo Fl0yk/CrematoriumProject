@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Crematorium.Domain.Entities
 {
-    public class Order : Entity
+    public class Order : Base
     {
         public User Customer { get; set; } = null!;
         public DateTime? RegistrationDate { get; init; }

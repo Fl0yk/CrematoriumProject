@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Crematorium.Persistense.Repository
 {
-    public class EfRepository<T> : IRepository<T> where T : Entity
+    public class EfRepository<T> : IRepository<T> where T : Base
     {
         protected readonly CrematoriumDbContext _context;
         protected readonly DbSet<T> _entities;

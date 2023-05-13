@@ -18,10 +18,10 @@ namespace Crematorium.UI.ViewModels
 {
     public partial class RitualUrnsVM : ObservableValidator
     {
-        private IBaseService<RitualUrn> _urnService;
+        private IHelpersService<RitualUrn> _urnService;
 
         public ObservableCollection<RitualUrn> RitualUrns { get; set; }
-        public RitualUrnsVM(IBaseService<RitualUrn> baseService)
+        public RitualUrnsVM(IHelpersService<RitualUrn> baseService)
         {
             _urnService = baseService;
             RitualUrns = new ObservableCollection<RitualUrn>(_urnService.GetAllAsync().Result);
@@ -34,7 +34,17 @@ namespace Crematorium.UI.ViewModels
         [RelayCommand]
         public void FindUrns()
         {
+            RitualUrns.Clear();
+            if (inputFindName is null || inputFindName == string.Empty)
+            {
+                UpdateUrnsCollection();
+                return;
+            }
 
+            foreach (RitualUrn urn in _urnService.FindByName(inputFindName).Result)
+            {
+                RitualUrns.Add(urn);
+            }
         }
 
         [RelayCommand]
