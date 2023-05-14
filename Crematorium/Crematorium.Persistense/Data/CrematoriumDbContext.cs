@@ -19,26 +19,25 @@ namespace Crematorium.Persistense.Data
         public CrematoriumDbContext(DbContextOptions<CrematoriumDbContext> contextOptions)
             : base(contextOptions)
         {
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>()
-                    .HasAlternateKey(u => u.NumPassport);
+            modelBuilder.Entity<Order>(entity =>
+            {
+                entity.HasOne(o => o.Customer)
+                .WithMany(o => o.Orders);
+                
 
-            modelBuilder.Entity<User>()
-                        .HasMany(u => u.Orders)
-                        .WithOne(o => o.Customer);
+                entity.HasOne<RitualUrn>();
+                entity.HasOne<Corpose>();
+                entity.HasOne<Hall>();
+            });
 
-            modelBuilder.Entity<Order>()
-                        .HasOne(o => o.RitualUrnId);
-
-            modelBuilder.Entity<Order>()
-                        .HasOne(o => o.CorposeId);
-
-            modelBuilder.Entity<Order>()
-                        .HasOne(o => o.HallId);
+            modelBuilder.Entity<Hall>().HasMany(h => h.FreeDates);
         }
     }
 }
+

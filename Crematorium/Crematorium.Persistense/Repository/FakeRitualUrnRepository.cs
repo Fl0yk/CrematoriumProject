@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Crematorium.Persistense.Repository
@@ -17,6 +18,15 @@ namespace Crematorium.Persistense.Repository
         {
             _ritualUrns = new List<RitualUrn>();
             //throw new Exception("Создай урны!");
+            using (FileStream fs = new FileStream("urn.json", FileMode.OpenOrCreate))
+            {
+                RitualUrn? urn = JsonSerializer.Deserialize<RitualUrn>(fs);
+                for (int i = 0; i < 15; i++)
+                {
+                    urn.Name = "Ангел" + i.ToString();
+                    _ritualUrns.Add(urn);
+                }
+            }
         }
         public Task AddAsync(RitualUrn entity, CancellationToken cancellationToken = default)
         {

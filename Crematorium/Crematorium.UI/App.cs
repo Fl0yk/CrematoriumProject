@@ -16,8 +16,6 @@ namespace Crematorium.UI
         public App(MainWindow mainWindow)
         {
             this.startWindow = mainWindow;
-            //this.Resources = new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resourse/Styles/BtnStyle.xaaml") };
-            //this.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("pack://application:,,,/Resourse/Styles/BtnStyles.xaml") });
         }
         protected override void OnStartup(StartupEventArgs e)
         {

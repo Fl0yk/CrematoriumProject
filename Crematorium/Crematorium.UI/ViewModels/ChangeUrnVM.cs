@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Crematorium.UI.ViewModels
@@ -96,6 +97,10 @@ namespace Crematorium.UI.ViewModels
                 changedUrn.Id = maxId;
                 maxId++;
                 _urnService.AddAsync(changedUrn);
+                //using (FileStream fs = new FileStream("urn.json", FileMode.OpenOrCreate))
+                //{
+                //    JsonSerializer.Serialize<RitualUrn>(fs, changedUrn);
+                //}
             }
             else
             {

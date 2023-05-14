@@ -12,6 +12,6 @@ namespace Crematorium.Domain.Entities
 
         public decimal Price { get; set; }
 
-        public List<DateTime> FreeDates { get; set; } = new();
+        public List<Date>? FreeDates { get; set; }
     }
 }

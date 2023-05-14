@@ -27,7 +27,7 @@ namespace Crematorium.Persistense.Repository
             CancellationToken cancellationToken = default)
         {
             await _entities.AddAsync(entity, cancellationToken);
-
+            await _context.SaveChangesAsync();
             return;
         }
 
@@ -36,7 +36,7 @@ namespace Crematorium.Persistense.Repository
         {
             if(_entities.Contains(entity))
                     _entities.Remove(entity);
-
+            _context.SaveChanges();
             return Task.CompletedTask;
         }
 
@@ -60,7 +60,7 @@ namespace Crematorium.Persistense.Repository
             CancellationToken cancellationToken = default, 
             params Expression<Func<T, object>>[]? includesProperties)
         {
-            throw new NotImplementedException();
+            return await FirstOrDefaultAsync(e => e.Id == id);
         }
 
         public async Task<IReadOnlyList<T>> ListAllAsync(CancellationToken cancellationToken = default)
@@ -97,7 +97,7 @@ namespace Crematorium.Persistense.Repository
             CancellationToken cancellationToken = default)
         {
             _context.Entry(entity).State = EntityState.Modified;
-
+            _context.SaveChanges();
             return Task.CompletedTask;
         }
     }

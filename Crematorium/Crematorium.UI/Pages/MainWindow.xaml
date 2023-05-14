@@ -179,6 +179,7 @@
                             <Button x:Name="BtnStart"
                                     Height="70"
                                     Width="200"
+                                    Click="HomeContent"
                                     Style="{StaticResource ListBtnStyle}">
                                 <Grid Width="200">
                                     <Grid.ColumnDefinitions>
@@ -204,7 +205,7 @@
                             <Button x:Name="BtnOrders"
                                     Height="70"
                                     Width="200"
-                                    Click="CorposeContent"
+                                    Click="OrdersContent"
                                     Style="{StaticResource ListBtnStyle}">
                                 <Grid Width="200">
                                     <Grid.ColumnDefinitions>
@@ -273,6 +274,32 @@
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
                                             Source="pack://application:,,,/Resourse/Images/bitbucket-white.png"/>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <!--#endregion-->
+                        <!--#region HALLVIEW-->
+                        <ListViewItem Style="{StaticResource ListViewItemsStyle}">
+                            <Button x:Name="BtnHall"
+                                    Height="70"
+                                    Width="200"
+                                    Click="HallsContent"
+                                    Style="{StaticResource ListBtnStyle}">
+                                <Grid Width="200">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="Halls"
+                                               FontSize="22"
+                                               HorizontalAlignment="Center"
+                                                Grid.Column="1"/>
+
+                                    <Image
+                                            Width="50"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Source="pack://application:,,,/Resourse/Images/hall-white.png"/>
                                 </Grid>
                             </Button>
                         </ListViewItem>

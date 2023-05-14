@@ -5,6 +5,9 @@
     <Compile Update="Pages\ChangeCorposePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\ChangeHallPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\ChangeUrnPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -12,6 +15,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Pages\CorposesServicePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\HallServicePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\HomePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Pages\LoginPage.xaml.cs">
@@ -28,6 +37,9 @@
     <Page Update="Pages\ChangeCorposePage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Pages\ChangeHallPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Pages\ChangeUrnPage.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -35,6 +47,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\CorposesServicePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\HallServicePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\HomePage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\MainWindow.xaml">
@@ -59,6 +77,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resourse\Styles\ElementsStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resourse\Styles\ScrollBarStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resourse\Styles\TextStyles.xaml">

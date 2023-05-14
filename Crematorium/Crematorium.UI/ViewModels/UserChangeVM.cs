@@ -62,7 +62,7 @@ namespace Crematorium.UI.ViewModels
         private string mailAdress;
 
         [RelayCommand]
-        public void AddUser()
+        public async void AddUser()
         {
             if (User is null)
                 throw new ArgumentNullException("User not initialized");
@@ -88,11 +88,12 @@ namespace Crematorium.UI.ViewModels
 
             if(_isNewUser)
             {
-                _userService.AddAsync(User);
+                //User.Id = 0;
+                await _userService.AddAsync(User);
             }
             else
             {
-                _userService.UpdateAsync(User);
+                await _userService.UpdateAsync(User);
             }
         }
     }

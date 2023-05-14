@@ -15,8 +15,12 @@ namespace Crematorium.Persistense.Repository
 
         public FakeHallRepository()
         {
-            _halls = new List<Hall>();
-            throw new Exception("Создай залы!");
+            _halls = new List<Hall>
+            {
+                new Hall() { Capacity = 30, Id = 1, Name = "Hall 1", Price = 280, FreeDates = new() { new Date() { Id = 1, Data = "16.05.2023" }, new Date() { Id = 2, Data = "18.05.2023" } } },
+                new Hall() { Capacity = 12, Id = 2, Name = "Hall 2", Price = 200, FreeDates = new() { new Date() { Id = 3, Data = "17.05.2023" }, new Date() { Id = 4, Data = "20.05.2023" } } }
+            };
+            //throw new Exception("Создай залы!");
         }
 
         public Task AddAsync(Hall entity, CancellationToken cancellationToken = default)
@@ -33,24 +37,24 @@ namespace Crematorium.Persistense.Repository
             return Task.CompletedTask;
         }
 
-        public async Task<Hall?> FirstOrDefaultAsync(Expression<Func<Hall, bool>> filter, CancellationToken cancellationToken = default)
+        public Task<Hall?> FirstOrDefaultAsync(Expression<Func<Hall, bool>> filter, CancellationToken cancellationToken = default)
         {
-            return await Task.Run(() => _halls.FirstOrDefault(filter.Compile()));
+            return Task.FromResult(_halls.FirstOrDefault(filter.Compile()));
         }
 
-        public async Task<Hall?> GetByIdAsync(int id, CancellationToken cancellationToken = default, params Expression<Func<Hall, object>>[]? includesProperties)
+        public Task<Hall?> GetByIdAsync(int id, CancellationToken cancellationToken = default, params Expression<Func<Hall, object>>[]? includesProperties)
         {
-            return await Task.Run(() => _halls.FirstOrDefault(u => u.Id == id));
+            return Task.FromResult(_halls.FirstOrDefault(u => u.Id == id));
         }
 
-        public async Task<IReadOnlyList<Hall>> ListAllAsync(CancellationToken cancellationToken = default)
+        public Task<IReadOnlyList<Hall>> ListAllAsync(CancellationToken cancellationToken = default)
         {
-            return await Task.Run(() => _halls);
+            return Task.FromResult((IReadOnlyList<Hall>)_halls.AsReadOnly());
         }
 
         public Task<IReadOnlyList<Hall>> ListAsync(Expression<Func<Hall, bool>> filter, CancellationToken cancellationToken = default, params Expression<Func<Hall, object>>[]? includesProperties)
         {
-            throw new NotImplementedException();
+            return Task.FromResult((IReadOnlyList<Hall>)_halls.Where(filter.Compile()).ToList());
         }
 
         public Task UpdateAsync(Hall entity, CancellationToken cancellationToken = default)

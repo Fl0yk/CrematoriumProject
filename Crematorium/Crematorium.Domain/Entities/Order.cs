@@ -9,17 +9,17 @@ namespace Crematorium.Domain.Entities
     public class Order : Base
     {
         public User Customer { get; set; } = null!;
-        public DateTime? RegistrationDate { get; init; }
+        public Date? RegistrationDate { get; set; }
 
         public StateOrder State { get; set; } = StateOrder.Decorated;
 
-        public DateTime? DateOfStart { get; init; }
+        public Date? DateOfStart { get; set; }
 
-        public Corpose CorposeId { get; init; } = null!;
+        public Corpose CorposeId { get; set; } = null!;
 
-        public RitualUrn RitualUrnId { get; init; } = null!;
+        public RitualUrn RitualUrnId { get; set; } = null!;
 
-        public Hall HallId { get; init; } = null!;
+        public Hall HallId { get; set; } = null!;
     }
 
     public enum StateOrder
