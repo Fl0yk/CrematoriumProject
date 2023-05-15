@@ -59,7 +59,7 @@ namespace Crematorium.Persistense.Repository
 
         public Task UpdateAsync(Hall entity, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return Task.CompletedTask;
         }
     }
 }

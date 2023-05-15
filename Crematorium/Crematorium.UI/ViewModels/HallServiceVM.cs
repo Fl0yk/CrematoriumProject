@@ -47,10 +47,10 @@ namespace Crematorium.UI.ViewModels
         [RelayCommand]
         public void AddHall()
         {
-            //var userChange = (ChangeHallPage)PagesFabric.GetPage(typeof(ChangehallPage));
-            //userChange.Initializehall(-1);
-            //userChange.OpBtnName.Text = "Registration";
-            //userChange.ShowDialog();
+            var userChange = (ChangeHallPage)PagesFabric.GetPage(typeof(ChangeHallPage));
+            userChange.InitializeHall(-1);
+            userChange.OpBtnName.Text = "Registration";
+            userChange.ShowDialog();
             UpdateHallsCollection();
         }
 
@@ -63,10 +63,10 @@ namespace Crematorium.UI.ViewModels
             if (SelectedHall is null)
                 return;
 
-            //var userChange = (ChangehallPage)PagesFabric.GetPage(typeof(ChangehallPage));
-            //userChange.Initializehall(Selectedhall.Id);
-            //userChange.OpBtnName.Text = "Update";
-            //userChange.ShowDialog();
+            var userChange = (ChangeHallPage)PagesFabric.GetPage(typeof(ChangeHallPage));
+            userChange.InitializeHall(SelectedHall.Id);
+            userChange.OpBtnName.Text = "Update";
+            userChange.ShowDialog();
             UpdateHallsCollection();
         }
 

@@ -73,6 +73,7 @@ namespace Crematorium.UI
             services.AddTransient<ChangeUserPage>();
             services.AddTransient<ChangeUrnPage>();
             services.AddTransient<ChangeCorposePage>();
+            services.AddTransient<ChangeHallPage>();
 
             //ViewModels
             services.AddSingleton<LogAndRegVM>();
@@ -84,6 +85,7 @@ namespace Crematorium.UI
             services.AddSingleton<CorposesVM>();
             services.AddSingleton<ChangeCorposeVM>();
             services.AddSingleton<HallServiceVM>();
+            services.AddSingleton<ChangeHallVM>();
         }
     }
 }

@@ -84,7 +84,9 @@ namespace Crematorium.Persistense.Repository
 
         public Task UpdateAsync(User entity, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            //_users.Remove(_users.First(u => u.Id == entity.Id));
+            //_users.Add(entity);
+            return Task.CompletedTask;
         }
     }
 }

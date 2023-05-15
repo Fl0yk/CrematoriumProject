@@ -112,14 +112,14 @@
                       Width="150" Height="30"
                       HorizontalAlignment="Left"
                       Background="#FFF53657"
-                      SelectedItem="{Binding Path=SelectedRole}"/>
+                      ItemsSource="{Binding Path=FreeDates}"
+                      DisplayMemberPath="Data"/>
             <Button Grid.Column="1"
                     Grid.Row="9"
                     Width="120"
                     Height="35"
                     Background="#FFF53657"
-                    Command="{Binding Path=AddNewDate}"
-                    Click="Back"
+                    Command="{Binding Path=AddNewDateCommand}"
                     Style="{StaticResource BaseBtnStyle}">
                 <TextBlock Text="Add date"/>
                 
