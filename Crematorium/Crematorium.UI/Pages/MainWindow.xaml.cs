@@ -42,7 +42,7 @@ namespace Crematorium.UI
             BtnShowHide.IsChecked = false;
         }
 
-        private void Close(object sender, RoutedEventArgs e)
+        private void ClosePr(object sender, RoutedEventArgs e)
         {
             Close();
         }

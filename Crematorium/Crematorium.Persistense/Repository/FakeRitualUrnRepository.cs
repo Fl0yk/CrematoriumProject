@@ -21,11 +21,7 @@ namespace Crematorium.Persistense.Repository
             using (FileStream fs = new FileStream("urn.json", FileMode.OpenOrCreate))
             {
                 RitualUrn? urn = JsonSerializer.Deserialize<RitualUrn>(fs);
-                for (int i = 0; i < 15; i++)
-                {
-                    urn.Name = "Ангел" + i.ToString();
-                    _ritualUrns.Add(urn);
-                }
+                _ritualUrns.Add(urn);
             }
         }
         public Task AddAsync(RitualUrn entity, CancellationToken cancellationToken = default)

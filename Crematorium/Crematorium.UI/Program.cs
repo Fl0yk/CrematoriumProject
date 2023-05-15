@@ -38,6 +38,7 @@ namespace Crematorium.UI
 
             PagesFabric.Services = host.Services;
             // запускаем приложения
+            app.ShutdownMode = System.Windows.ShutdownMode.OnMainWindowClose;
             app?.Run();
         }
 
@@ -70,10 +71,10 @@ namespace Crematorium.UI
             services.AddSingleton<HallServicePage>();
 
             //Help pages
-            services.AddTransient<ChangeUserPage>();
-            services.AddTransient<ChangeUrnPage>();
-            services.AddTransient<ChangeCorposePage>();
-            services.AddTransient<ChangeHallPage>();
+            services.AddSingleton<ChangeUserPage>();
+            services.AddSingleton<ChangeUrnPage>();
+            services.AddSingleton<ChangeCorposePage>();
+            services.AddSingleton<ChangeHallPage>();
 
             //ViewModels
             services.AddSingleton<LogAndRegVM>();

@@ -43,7 +43,8 @@ namespace Crematorium.UI.Pages
 
         private void Back(object sender, RoutedEventArgs e)
         {
-            Close();
+            //Close();
+            Hide();
         }
     }
 }

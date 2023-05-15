@@ -18,9 +18,13 @@
                 <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/ElementsStyles.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/DataGridStyles.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/ScrollBarStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/ComboBoxStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <converters:ConverterBytesToImage x:Key="BytesToImg"/>
             <converters:PriceToStringConverter x:Key="PriceToStr"/>
+            <converters:CapacityToStringConverter x:Key="CapacityToStr"/>
+            <converters:HallToComboBoxConverter x:Key="FreeDatesConv"/>
+            <converters:IsVisibleFreeDatesConverter x:Key="VisFreeDates"/>
         </ResourceDictionary>
     </UserControl.Resources>
     <!--#endregion-->
@@ -42,9 +46,10 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition Height="20"/>
                 <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition/>
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
@@ -61,7 +66,8 @@
                      Grid.Row="2" Grid.RowSpan="3"
                      Grid.Column="1" Grid.ColumnSpan="4"
                      Style="{StaticResource BaseListBox}"
-                     ItemsSource="{Binding Path=RitualUrns}">
+                     ItemsSource="{Binding Path=RitualUrns}"
+                     SelectedValue="{Binding Path=SelectedUrn}">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel IsItemsHost="True" />
@@ -84,11 +90,66 @@
             </ListBox>
             <!--#endregion-->
             <!--#region HALL-->
+            <ListBox ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                     Grid.Row="6" Grid.RowSpan="2"
+                     Grid.Column="1" Grid.ColumnSpan="4"
+                     Style="{StaticResource BaseListBox}"
+                     ItemsSource="{Binding Path=Halls}"
+                     SelectedValue="{Binding Path=SelectedHall}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Path=Name}"/>
+                            <TextBlock Text="{Binding Path=Price, 
+                                            Converter={StaticResource PriceToStr}}"/>
+                            <TextBlock Text="{Binding Path=Capacity, 
+                                            Converter={StaticResource CapacityToStr}}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <!--#endregion-->
+            <!--#region CHANGEDATE-->
+            <ComboBox Grid.Row="9"
+                      Grid.Column="1"
+                      Width="150" Height="30"
+                      HorizontalAlignment="Center"
+                      Background="#FFF53657"
+                      Visibility="{Binding Path=SelectedHall, 
+                                    Converter={StaticResource VisFreeDates}}"
+                      ItemsSource="{Binding Path=SelectedHall, 
+                                    Converter={StaticResource FreeDatesConv}}"
+                      SelectedItem="{Binding Path=SelectedDate}"
+                      DisplayMemberPath="Data"/>
             <!--#endregion-->
             <!--#region BUTTONS-->
             <!--#region REGCORPOSE-->
+            <Button Grid.Column="2"
+                    Grid.Row="9"
+                    Width="140"
+                    Height="35"
+                    Background="#FFF53657"
+                    Command="{Binding Path=RegCorposeCommand}"
+                    Style="{StaticResource BaseBtnStyle}">
+                <TextBlock Text="Reg corpose"/>
+            </Button>
             <!--#endregion-->
             <!--#region CREATEORDER-->
+            <Button Grid.Column="4"
+                    Grid.Row="9"
+                    Width="160"
+                    Height="35"
+                    Background="#FFF53657"
+                    Command="{Binding Path=CreateOrderCommand}"
+                    Style="{StaticResource BaseBtnStyle}">
+                <TextBlock Text="Create order"/>
+            </Button>
             <!--#endregion-->
             <!--#endregion-->
         </Grid>

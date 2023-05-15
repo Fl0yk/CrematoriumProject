@@ -77,9 +77,9 @@
                             Margin="0, 0, 20, 0"
                             Style="{StaticResource BaseBtnStyle}"
                             HorizontalAlignment="Right"
-                            Click="Close">
+                            Click="ClosePr">
                         <Image HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
+                               VerticalAlignment="Bottom"
                                Source="pack://application:,,,/Resourse/Images/close-white.png"/>
                     </Button>
                     <!--#endregion-->
