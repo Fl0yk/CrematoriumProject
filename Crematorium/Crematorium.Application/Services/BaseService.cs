@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Crematorium.Application.Services
 {
-    public abstract class BaseService<T> : IBaseService<T> where T : Entity
+    public abstract class BaseService<T> : IBaseService<T> where T : Base
     {
         protected IRepository<T> _repository;
 

@@ -9,11 +9,11 @@ namespace Crematorium.Domain.Entities
     public class Order : Base
     {
         public User Customer { get; set; } = null!;
-        public Date? RegistrationDate { get; set; }
+        //public Date? RegistrationDate { get; set; }
 
         public StateOrder State { get; set; } = StateOrder.Decorated;
 
-        //public Date? DateOfStart { get; set; }
+        public Date DateOfStart { get; set; } = null!;
 
         public Corpose CorposeId { get; set; } = null!;
 

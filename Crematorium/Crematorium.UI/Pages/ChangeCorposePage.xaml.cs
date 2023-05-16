@@ -1,4 +1,5 @@
-﻿using Crematorium.UI.ViewModels;
+﻿using Crematorium.Domain.Entities;
+using Crematorium.UI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,11 @@ namespace Crematorium.UI.Pages
         public void InitializeCorpose(int Id)
         {
             _urnVM.SetCorpose(Id);
+        }
+
+        public void InitializeCorpose(ref Corpose corpose)
+        {
+            _urnVM.SetCorpose(ref corpose);
         }
 
         private void Window_MousDown(object sender, MouseButtonEventArgs e)

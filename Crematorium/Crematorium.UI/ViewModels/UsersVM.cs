@@ -4,14 +4,8 @@ using Crematorium.Application.Abstractions;
 using Crematorium.Domain.Entities;
 using Crematorium.UI.Fabrics;
 using Crematorium.UI.Pages;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace Crematorium.UI.ViewModels
 {

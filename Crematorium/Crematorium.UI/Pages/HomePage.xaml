@@ -93,6 +93,7 @@
             <ListBox ScrollViewer.VerticalScrollBarVisibility="Disabled"
                      Grid.Row="6" Grid.RowSpan="2"
                      Grid.Column="1" Grid.ColumnSpan="4"
+                     SelectionChanged="ListBox_Selected"
                      Style="{StaticResource BaseListBox}"
                      ItemsSource="{Binding Path=Halls}"
                      SelectedValue="{Binding Path=SelectedHall}">
@@ -123,8 +124,7 @@
                       Background="#FFF53657"
                       Visibility="{Binding Path=SelectedHall, 
                                     Converter={StaticResource VisFreeDates}}"
-                      ItemsSource="{Binding Path=SelectedHall, 
-                                    Converter={StaticResource FreeDatesConv}}"
+                      ItemsSource="{Binding Path=HallDates}"
                       SelectedItem="{Binding Path=SelectedDate}"
                       DisplayMemberPath="Data"/>
             <!--#endregion-->

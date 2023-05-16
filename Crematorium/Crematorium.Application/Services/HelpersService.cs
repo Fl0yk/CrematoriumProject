@@ -12,7 +12,7 @@ namespace Crematorium.Application.Services
     {
         public async Task<IEnumerable<T>> FindByName(string name)
         {
-            return (IEnumerable<T>)await _repository.ListAsync(u => u.Name == name);
+            return await _repository.ListAsync(u => u.Name == name);
         }
     }
 }

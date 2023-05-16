@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Crematorium.Application.Abstractions
 {
-    public interface IUserService : IBaseService<User>
+    public interface IUserService : IHelpersService<User>
     {
         Task<bool> IsValided(string name, string numPassport);
-        public Task<IEnumerable<User>> FindByName(string name);
     }
 }

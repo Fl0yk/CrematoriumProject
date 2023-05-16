@@ -44,6 +44,24 @@ namespace Crematorium.UI.ViewModels
             this.NumPassport = Corpose.NumPassport;
         }
 
+        public void SetCorpose(ref Corpose selCorpose)
+        {
+            if (selCorpose is null)
+            {
+                Corpose = new Corpose();
+                selCorpose = Corpose;
+                _isNewCorpose = true;
+            }
+            else
+            {
+                this.Corpose = selCorpose;
+                _isNewCorpose = false;
+            }
+            this.Name = Corpose.Name;
+            this.Surname = Corpose.SurName;
+            this.NumPassport = Corpose.NumPassport;
+        }
+
         [ObservableProperty]
         private string name;
 

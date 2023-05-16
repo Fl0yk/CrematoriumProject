@@ -59,6 +59,11 @@ namespace Crematorium.UI
             //DataContext = PagesFabric.GetPage(typeof(HomePage));
         }
 
+        private void AllOrdersContent(object sender, RoutedEventArgs e)
+        {
+            DataContext = PagesFabric.GetPage(typeof(AllOrdersPage));
+        }
+
         private void HomeContent(object sender, RoutedEventArgs e)
         {
             DataContext = PagesFabric.GetPage(typeof(HomePage));

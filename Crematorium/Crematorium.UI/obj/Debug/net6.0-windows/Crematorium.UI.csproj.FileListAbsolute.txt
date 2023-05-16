@@ -244,3 +244,5 @@ C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\
 C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\HomePage.baml
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\ChangeHallPage.g.cs
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\ChangeHallPage.baml
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\AllOrdersPage.g.cs
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\AllOrdersPage.baml

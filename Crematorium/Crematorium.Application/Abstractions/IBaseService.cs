@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Crematorium.Application.Abstractions
 {
-    public interface IBaseService<T> where T : Entity
+    public interface IBaseService<T> where T : Base
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<T?> GetByIdAsync(int id);

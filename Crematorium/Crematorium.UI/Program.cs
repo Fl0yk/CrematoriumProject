@@ -59,6 +59,7 @@ namespace Crematorium.UI
             services.AddSingleton<IHelpersService<RitualUrn>, RitualUrnService>();
             services.AddSingleton<IHelpersService<Corpose>,  CorposeService>();
             services.AddSingleton<IHelpersService<Hall>, HallService>();
+            services.AddSingleton<IOrderService, OrderService>();
 
             //Pages
             services.AddSingleton<App>();
@@ -68,6 +69,7 @@ namespace Crematorium.UI
             services.AddSingleton<RitualUrnServicePage>();
             services.AddSingleton<CorposesServicePage>();
             services.AddSingleton<HallServicePage>();
+            services.AddSingleton<AllOrdersPage>();
 
             //Help pages
             services.AddSingleton<ChangeUserPage>();
@@ -86,6 +88,7 @@ namespace Crematorium.UI
             services.AddSingleton<ChangeCorposeVM>();
             services.AddSingleton<HallServiceVM>();
             services.AddSingleton<ChangeHallVM>();
+            services.AddSingleton<AllOrdersVM>();
         }
     }
 }

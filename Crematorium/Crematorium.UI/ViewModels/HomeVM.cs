@@ -5,9 +5,13 @@ using Crematorium.Domain.Entities;
 using Crematorium.UI.Fabrics;
 using Crematorium.UI.Pages;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Text.Json;
 
 namespace Crematorium.UI.ViewModels
 {
+    //Сделать отдельные свойства и кним привязаться!
+    //Делать ли страницу с полной инфой?...
     public partial class HomeVM : ObservableValidator
     {
         private IHelpersService<RitualUrn> _urnService;
@@ -24,10 +28,26 @@ namespace Crematorium.UI.ViewModels
             _hallService = hallService;
             RitualUrns = new ObservableCollection<RitualUrn>(_urnService.GetAllAsync().Result);
             Halls = new ObservableCollection<Hall>(_hallService.GetAllAsync().Result);
+            HallDates = new ObservableCollection<Date>();
         }
 
         [ObservableProperty]
         private Hall selectedHall;
+
+        public ObservableCollection<Date> HallDates { get; set; }
+
+        [RelayCommand]
+        public void UpdateDates()
+        {
+            HallDates.Clear();
+            if (SelectedHall is null)
+                return;
+
+            foreach (var date in SelectedHall.FreeDates) 
+            {
+                HallDates.Add(date);
+            }
+        }
 
         [ObservableProperty]
         private Date selectedDate;
@@ -35,7 +55,7 @@ namespace Crematorium.UI.ViewModels
         [ObservableProperty]
         private RitualUrn selectedUrn;
 
-        [ObservableProperty]
+        //[ObservableProperty]
         private Corpose selectedCorpose;
 
         private Order order;
@@ -43,19 +63,26 @@ namespace Crematorium.UI.ViewModels
         [RelayCommand]
         public void CreateOrder()
         {
-            if (SelectedHall is null || SelectedDate is null || SelectedUrn is null || SelectedCorpose is null)
+            if (SelectedHall is null || SelectedDate is null || SelectedUrn is null || selectedCorpose is null)
                 throw new System.Exception("Чего-то не хватает");
 
-            order = new Order() {HallId = SelectedHall, CorposeId = SelectedCorpose, RegistrationDate = SelectedDate, RitualUrnId = SelectedUrn };
+            order = new Order() {HallId = SelectedHall, CorposeId = selectedCorpose, DateOfStart = SelectedDate, RitualUrnId = SelectedUrn };
             SelectedHall.FreeDates.Remove(SelectedDate);
+            SelectedHall = null;
+            SelectedDate = null;
+            SelectedUrn = null;
+            selectedCorpose = null;
+            using (FileStream fs = new FileStream("order.json", FileMode.OpenOrCreate))
+            {
+                JsonSerializer.Serialize<Order>(fs, order);
+            }
         }
 
         [RelayCommand]
         public void RegCorpose()
         {
-            //Передвать ref переменной труппа, который изначально null. А там получим уже зарегестрированного
             var userChange = (ChangeCorposePage)PagesFabric.GetPage(typeof(ChangeCorposePage));
-            userChange.InitializeCorpose(-1);
+            userChange.InitializeCorpose(ref selectedCorpose);
             userChange.OpBtnName.Text = "Registration";
             userChange.ShowDialog();
         }

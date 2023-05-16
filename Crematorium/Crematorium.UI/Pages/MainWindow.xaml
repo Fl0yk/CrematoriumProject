@@ -12,6 +12,7 @@
         AllowsTransparency="True"
         MouseDown="Window_MousDown"
         Background="Transparent">
+    <!--#region RESOURCES-->
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -21,6 +22,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+    <!--#endregion-->
     <Border CornerRadius="10"
             Background="#FFF8D0D0">
 
@@ -33,7 +35,6 @@
                   Background="Transparent">
                 <Border CornerRadius="10, 10, 0, 0" 
                         Background="#FF5A040D"/>
-                <!--#FF671E1E       #FF942F2F    Style="{StaticResource st2}"-->
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -222,6 +223,31 @@
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
                                             Source="pack://application:,,,/Resourse/Images/new-orders-white.png"/>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <!--#endregion-->
+                        <!--#region ALLORDERSVIEW-->
+                        <ListViewItem Style="{StaticResource ListViewItemsStyle}">
+                            <Button x:Name="BtnAllOrders"
+                                    Height="70"
+                                    Width="200"
+                                    Click="AllOrdersContent"
+                                    Style="{StaticResource ListBtnStyle}">
+                                <Grid Width="200">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="All orders"
+                                               FontSize="22"
+                                               HorizontalAlignment="Center"
+                                                Grid.Column="1"/>
+                                    <Image
+                                            Width="40"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Source="pack://application:,,,/Resourse/Images/all-orders-white.png"/>
                                 </Grid>
                             </Button>
                         </ListViewItem>

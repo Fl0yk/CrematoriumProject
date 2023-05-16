@@ -21,5 +21,10 @@ namespace Crematorium.UI.Pages
         {
             _homeVM.UpdateCollections();
         }
+
+        private void ListBox_Selected(object sender, RoutedEventArgs e)
+        {
+            _homeVM.UpdateDates();
+        }
     }
 }

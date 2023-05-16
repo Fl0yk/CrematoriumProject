@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <None Remove="appsettings.json" />
+    <None Remove="Resourse\Images\all-orders-white.png" />
+    <None Remove="Resourse\Images\all-orders.png" />
     <None Remove="Resourse\Images\bitbucket-white.png" />
     <None Remove="Resourse\Images\bitbucket.png" />
     <None Remove="Resourse\Images\close-white.png" />
@@ -50,6 +52,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resourse\Images\all-orders-white.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resourse\Images\all-orders.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resourse\Images\bitbucket-white.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
