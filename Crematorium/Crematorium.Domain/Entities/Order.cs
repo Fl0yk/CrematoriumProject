@@ -13,7 +13,7 @@ namespace Crematorium.Domain.Entities
 
         public StateOrder State { get; set; } = StateOrder.Decorated;
 
-        public Date? DateOfStart { get; set; }
+        //public Date? DateOfStart { get; set; }
 
         public Corpose CorposeId { get; set; } = null!;
 

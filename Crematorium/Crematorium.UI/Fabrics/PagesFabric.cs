@@ -1,4 +1,5 @@
 ﻿using Crematorium.Application.Abstractions;
+using Crematorium.Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ namespace Crematorium.UI.Fabrics
     public static class PagesFabric
     {
         public static IServiceProvider Services { get; set; }
+
+        public static User? CurrentUser { get; set; }
 
         public static object GetPage(Type typeOfPage)
         {

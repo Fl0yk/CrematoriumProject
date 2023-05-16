@@ -2,6 +2,8 @@
 using CommunityToolkit.Mvvm.Input;
 using Crematorium.Application.Abstractions;
 using Crematorium.Domain.Entities;
+using Crematorium.UI.Fabrics;
+using Crematorium.UI.Pages;
 using System.Collections.ObjectModel;
 
 namespace Crematorium.UI.ViewModels
@@ -33,16 +35,29 @@ namespace Crematorium.UI.ViewModels
         [ObservableProperty]
         private RitualUrn selectedUrn;
 
+        [ObservableProperty]
+        private Corpose selectedCorpose;
+
+        private Order order;
+
         [RelayCommand]
         public void CreateOrder()
         {
+            if (SelectedHall is null || SelectedDate is null || SelectedUrn is null || SelectedCorpose is null)
+                throw new System.Exception("Чего-то не хватает");
 
+            order = new Order() {HallId = SelectedHall, CorposeId = SelectedCorpose, RegistrationDate = SelectedDate, RitualUrnId = SelectedUrn };
+            SelectedHall.FreeDates.Remove(SelectedDate);
         }
 
         [RelayCommand]
         public void RegCorpose()
         {
-
+            //Передвать ref переменной труппа, который изначально null. А там получим уже зарегестрированного
+            var userChange = (ChangeCorposePage)PagesFabric.GetPage(typeof(ChangeCorposePage));
+            userChange.InitializeCorpose(-1);
+            userChange.OpBtnName.Text = "Registration";
+            userChange.ShowDialog();
         }
 
         public void UpdateCollections()

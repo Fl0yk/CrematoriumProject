@@ -38,7 +38,6 @@ namespace Crematorium.UI
 
             PagesFabric.Services = host.Services;
             // запускаем приложения
-            app.ShutdownMode = System.Windows.ShutdownMode.OnMainWindowClose;
             app?.Run();
         }
 
