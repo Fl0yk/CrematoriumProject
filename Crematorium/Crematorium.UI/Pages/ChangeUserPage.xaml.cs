@@ -30,10 +30,11 @@ namespace Crematorium.UI.Pages
             DataContext = _userChangeVM;
         }
 
-        public void InitializeUser(int Id)
+        public void InitializeUser(int Id, bool isRegUser = false)
         {
-            _userChangeVM.SetUser(Id);
+            _userChangeVM.SetUser(Id, isRegUser);
         }
+
 
         private void Window_MousDown(object sender, MouseButtonEventArgs e)
         {

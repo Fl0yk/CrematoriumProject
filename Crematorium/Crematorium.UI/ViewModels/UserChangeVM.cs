@@ -2,13 +2,9 @@
 using CommunityToolkit.Mvvm.Input;
 using Crematorium.Application.Abstractions;
 using Crematorium.Domain.Entities;
+using Crematorium.UI.Fabrics;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Crematorium.UI.ViewModels
 {
@@ -23,14 +19,18 @@ namespace Crematorium.UI.ViewModels
         }
 
         [ObservableProperty]
+        private bool isRegistration;
+
+        [ObservableProperty]
         private Role selectedRole;
 
         [ObservableProperty]
         [Required]
         private User user;
 
-        public void SetUser(int userId)
+        public void SetUser(int userId, bool isRegUser)
         {
+            IsRegistration = isRegUser;
             User = _userService.GetByIdAsync(userId).Result;
 
             if (User is null)
@@ -83,8 +83,15 @@ namespace Crematorium.UI.ViewModels
             User.Name = this.Name;
             User.Surname = this.Surname;
             User.NumPassport = this.NumPassport;
-            User.UserRole = this.SelectedRole;
             User.MailAdress = this.MailAdress;
+            if(IsRegistration)
+            {
+                User.UserRole = Role.Customer;
+            }
+            else
+            {
+                User.UserRole = this.SelectedRole;
+            }
 
             if(_isNewUser)
             {
@@ -94,6 +101,11 @@ namespace Crematorium.UI.ViewModels
             else
             {
                 await _userService.UpdateAsync(User);
+            }
+
+            if(IsRegistration)
+            {
+                ServicesFabric.CurrentUser = this.User;
             }
         }
     }

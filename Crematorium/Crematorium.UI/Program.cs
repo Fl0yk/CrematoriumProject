@@ -36,7 +36,10 @@ namespace Crematorium.UI
             // получаем сервис - объект класса App
             var app = host.Services.GetService<App>();
 
-            PagesFabric.Services = host.Services;
+            //Настраиваем фабрику сервисов
+            ServicesFabric.Services = host.Services;
+            ServicesFabric.CurrentUser = null;
+
             // запускаем приложения
             app?.Run();
         }
@@ -72,13 +75,15 @@ namespace Crematorium.UI
             services.AddSingleton<AllOrdersPage>();
 
             //Help pages
+            services.AddSingleton<LoginPage>();
             services.AddSingleton<ChangeUserPage>();
             services.AddSingleton<ChangeUrnPage>();
             services.AddSingleton<ChangeCorposePage>();
             services.AddSingleton<ChangeHallPage>();
+            services.AddSingleton<OrderInformationPage>();
 
             //ViewModels
-            services.AddSingleton<LogAndRegVM>();
+            services.AddSingleton<LoginVM>();
             services.AddSingleton<HomeVM>();
             services.AddSingleton<UsersVM>();
             services.AddSingleton<UserChangeVM>();
@@ -89,6 +94,7 @@ namespace Crematorium.UI
             services.AddSingleton<HallServiceVM>();
             services.AddSingleton<ChangeHallVM>();
             services.AddSingleton<AllOrdersVM>();
+            services.AddSingleton<OrderInformationVM>();
         }
     }
 }

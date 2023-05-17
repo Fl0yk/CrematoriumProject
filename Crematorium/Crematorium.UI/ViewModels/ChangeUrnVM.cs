@@ -22,12 +22,12 @@ namespace Crematorium.UI.ViewModels
         private RitualUrn changedUrn;
         private bool _isNewUrn = false;
 
-        private int maxId;
+        //private int maxId;
 
         public ChangeUrnVM(IHelpersService<RitualUrn> userService)
         {
             _urnService = userService;
-            maxId = _urnService.GetAllAsync().Result is null ? _urnService.GetAllAsync().Result.MaxBy(u => u.Id).Id : 0;
+            //maxId = _urnService.GetAllAsync().Result is null ? _urnService.GetAllAsync().Result.MaxBy(u => u.Id).Id : 0;
         }
 
         public void SetUrn(int id)
@@ -94,8 +94,8 @@ namespace Crematorium.UI.ViewModels
 
             if(_isNewUrn)
             {
-                changedUrn.Id = maxId;
-                maxId++;
+                //changedUrn.Id = maxId;
+                //maxId++;
                 _urnService.AddAsync(changedUrn);
                 //using (FileStream fs = new FileStream("urn.json", FileMode.OpenOrCreate))
                 //{

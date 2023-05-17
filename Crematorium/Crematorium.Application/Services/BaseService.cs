@@ -4,6 +4,7 @@ using Crematorium.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,6 +45,11 @@ namespace Crematorium.Application.Services
         {
             await _repository.UpdateAsync(item);
             return item;
+        }
+
+        public async Task<T?> FirstOrDefaultAsync(Expression<Func<T, bool>> filter)
+        {
+            return await _repository.FirstOrDefaultAsync(filter);
         }
     }
 }

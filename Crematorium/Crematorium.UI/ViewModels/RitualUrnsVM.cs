@@ -50,7 +50,7 @@ namespace Crematorium.UI.ViewModels
         [RelayCommand]
         public void AddUrn()
         {
-            var userChange = (ChangeUrnPage)PagesFabric.GetPage(typeof(ChangeUrnPage));
+            var userChange = (ChangeUrnPage)ServicesFabric.GetPage(typeof(ChangeUrnPage));
             userChange.InitializeUrn(-1);
             userChange.OpBtnName.Text = "Registration";
             userChange.ShowDialog();
@@ -66,7 +66,7 @@ namespace Crematorium.UI.ViewModels
             if (SelectedUrn is null)
                 return;
 
-            var userChange = (ChangeUrnPage)PagesFabric.GetPage(typeof(ChangeUrnPage));
+            var userChange = (ChangeUrnPage)ServicesFabric.GetPage(typeof(ChangeUrnPage));
             userChange.InitializeUrn(SelectedUrn.Id);
             userChange.OpBtnName.Text = "Update";
             userChange.ShowDialog();

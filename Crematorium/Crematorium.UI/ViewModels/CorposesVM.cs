@@ -48,7 +48,7 @@ namespace Crematorium.UI.ViewModels
         [RelayCommand]
         public void AddCorpose()
         {
-            var userChange = (ChangeCorposePage)PagesFabric.GetPage(typeof(ChangeCorposePage));
+            var userChange = (ChangeCorposePage)ServicesFabric.GetPage(typeof(ChangeCorposePage));
             userChange.InitializeCorpose(-1);
             userChange.OpBtnName.Text = "Registration";
             userChange.ShowDialog();
@@ -64,7 +64,7 @@ namespace Crematorium.UI.ViewModels
             if (SelectedCorpose is null)
                 return;
 
-            var userChange = (ChangeCorposePage)PagesFabric.GetPage(typeof(ChangeCorposePage));
+            var userChange = (ChangeCorposePage)ServicesFabric.GetPage(typeof(ChangeCorposePage));
             userChange.InitializeCorpose(SelectedCorpose.Id);
             userChange.OpBtnName.Text = "Update";
             userChange.ShowDialog();

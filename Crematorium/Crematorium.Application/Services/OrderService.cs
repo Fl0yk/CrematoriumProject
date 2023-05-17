@@ -1,11 +1,6 @@
 ﻿using Crematorium.Application.Abstractions;
 using Crematorium.Domain.Abstractions;
 using Crematorium.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Crematorium.Application.Services
 {
@@ -26,7 +21,7 @@ namespace Crematorium.Application.Services
 
         public Task CancelOrder(ref Order? order)
         {
-            if (order is null)
+            if (order is null || order.State == StateOrder.Closed)
                 return Task.CompletedTask;
 
             order.State = StateOrder.Cancelled;

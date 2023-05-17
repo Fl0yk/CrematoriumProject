@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Crematorium.UI.Fabrics
 {
-    public static class PagesFabric
+    public static class ServicesFabric
     {
         public static IServiceProvider Services { get; set; }
 

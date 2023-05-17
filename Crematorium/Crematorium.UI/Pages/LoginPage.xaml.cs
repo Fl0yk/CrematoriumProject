@@ -1,17 +1,6 @@
 ﻿using Crematorium.UI.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Crematorium.UI.Pages
 {
@@ -20,12 +9,26 @@ namespace Crematorium.UI.Pages
     /// </summary>
     public partial class LoginPage : Window
     {
-        private LogAndRegVM logAndRegVM;
-        public LoginPage(LogAndRegVM VM)
+        private LoginVM loginVM;
+        public LoginPage(LoginVM VM)
         {
-            logAndRegVM = VM;
+            loginVM = VM;
             InitializeComponent();
-            DataContext = logAndRegVM;
+            DataContext = loginVM;
+        }
+
+        private void Window_MousDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+        private void Back(object sender, RoutedEventArgs e)
+        {
+            //this.Close();
+            this.Hide();
         }
     }
 }

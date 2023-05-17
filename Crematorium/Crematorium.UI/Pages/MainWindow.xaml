@@ -51,14 +51,16 @@
                     <!--#region ACCOUNT-->
                     <Button x:Name="BtnAccount"
                             Grid.Column="1"
+                            Click="Login"
                            Style="{StaticResource BaseBtnStyle}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="30"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="My Account"
-                                       Margin="3, 0, 0, 0"
+                            <TextBlock  x:Name="Account"
+                                        Text="My Account"
+                                        Margin="3, 0, 0, 0"
                                         Grid.Column="1"/>
 
                             <Image Grid.Column="0"

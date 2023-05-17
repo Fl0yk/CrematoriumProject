@@ -36,7 +36,6 @@ namespace Crematorium.UI
             {
                 w.Close();
             }
-            //Close();
         }
 
         private void Minimize(object sender, RoutedEventArgs e)
@@ -46,12 +45,12 @@ namespace Crematorium.UI
 
         private void UsersContent(object sender, RoutedEventArgs e)
         {
-            DataContext = PagesFabric.GetPage(typeof(UsersPage));
+            DataContext = ServicesFabric.GetPage(typeof(UsersPage));
         }
 
         private void UrnsContent(object sender, RoutedEventArgs e)
         {
-            DataContext = PagesFabric.GetPage(typeof(RitualUrnServicePage));
+            DataContext = ServicesFabric.GetPage(typeof(RitualUrnServicePage));
         }
 
         private void OrdersContent(object sender, RoutedEventArgs e)
@@ -61,17 +60,17 @@ namespace Crematorium.UI
 
         private void AllOrdersContent(object sender, RoutedEventArgs e)
         {
-            DataContext = PagesFabric.GetPage(typeof(AllOrdersPage));
+            DataContext = ServicesFabric.GetPage(typeof(AllOrdersPage));
         }
 
         private void HomeContent(object sender, RoutedEventArgs e)
         {
-            DataContext = PagesFabric.GetPage(typeof(HomePage));
+            DataContext = ServicesFabric.GetPage(typeof(HomePage));
         }
 
         private void HallsContent(object sender, RoutedEventArgs e)
         {
-            DataContext = PagesFabric.GetPage(typeof(HallServicePage));
+            DataContext = ServicesFabric.GetPage(typeof(HallServicePage));
         }
 
         private void Window_MousDown(object sender, MouseButtonEventArgs e) 
@@ -79,6 +78,20 @@ namespace Crematorium.UI
             if(e.LeftButton == MouseButtonState.Pressed)
             {
                 DragMove();
+            }
+        }
+
+        private void Login(object sender, RoutedEventArgs e)
+        {
+            var loginPage = (LoginPage)ServicesFabric.GetPage(typeof(LoginPage));
+            loginPage.ShowDialog();
+            if(ServicesFabric.CurrentUser is not null)
+            {
+                Account.Text = ServicesFabric.CurrentUser.Name;
+            }
+            else
+            {
+                Account.Text = "My Account";
             }
         }
     }

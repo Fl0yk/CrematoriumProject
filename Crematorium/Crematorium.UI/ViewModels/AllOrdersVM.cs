@@ -4,13 +4,7 @@ using Crematorium.Application.Abstractions;
 using Crematorium.Domain.Entities;
 using Crematorium.UI.Fabrics;
 using Crematorium.UI.Pages;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Crematorium.UI.ViewModels
 {
@@ -21,8 +15,6 @@ namespace Crematorium.UI.ViewModels
 
         public AllOrdersVM(IOrderService orderService)
         {
-            //_userService = userService;
-            //Users = new ObservableCollection<User>(_userService.GetAllAsync().Result);
             _orderService = orderService;
             Orders = new ObservableCollection<Order>(_orderService.GetAllAsync().Result);
         }
@@ -33,27 +25,44 @@ namespace Crematorium.UI.ViewModels
         [RelayCommand]
         public void NextStateOrder()
         {
-            
+            if (SelectedOrder is null)
+                return;
+
+            _orderService.NextState(ref selectedOrder);
+            UpdateOrdersCollection();
         }
 
         [ObservableProperty]
-        private User selectedOrder;
+        private Order selectedOrder;
 
         [RelayCommand]
         public void ViewOrder()
         {
-            
+            if (SelectedOrder is null)
+                return;
+
+            var orderInfo = (OrderInformationPage)ServicesFabric.GetPage(typeof(OrderInformationPage));
+            orderInfo.InitializeOrder(SelectedOrder);
+            orderInfo.ShowDialog();
         }
 
         [RelayCommand]
-        public void CancelOrderUser()
+        public void CancelOrder()
         {
-            
+            if (SelectedOrder is null)
+                return;
+
+            _orderService.CancelOrder(ref selectedOrder);
+            UpdateOrdersCollection();
         }
 
-        private void UpdateOrdersCollection()
+        public void UpdateOrdersCollection()
         {
-            
+            Orders.Clear();
+            foreach (var order in _orderService.GetAllAsync().Result)
+            {
+                Orders.Add(order);
+            }
         }
     }
 }

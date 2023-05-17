@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 
-19950444048
+20-53452680
 
-35-620999248
+43-1967171779
 234283411728
-Pages\AllOrdersPage.xaml;Pages\ChangeCorposePage.xaml;Pages\ChangeHallPage.xaml;Pages\ChangeUrnPage.xaml;Pages\ChangeUserPage.xaml;Pages\CorposesServicePage.xaml;Pages\HallServicePage.xaml;Pages\HomePage.xaml;Pages\LoginPage.xaml;Pages\MainWindow.xaml;Pages\RitualUrnServicePage.xaml;Pages\TestPage.xaml;Pages\UsersPage.xaml;Resourse\Styles\BtnStyles.xaml;Resourse\Styles\ComboBoxStyles.xaml;Resourse\Styles\DataGridStyles.xaml;Resourse\Styles\ElementsStyles.xaml;Resourse\Styles\ScrollBarStyles.xaml;Resourse\Styles\TextStyles.xaml;
+Pages\AllOrdersPage.xaml;Pages\ChangeCorposePage.xaml;Pages\ChangeHallPage.xaml;Pages\ChangeUrnPage.xaml;Pages\ChangeUserPage.xaml;Pages\CorposesServicePage.xaml;Pages\HallServicePage.xaml;Pages\HomePage.xaml;Pages\LoginPage.xaml;Pages\MainWindow.xaml;Pages\OrderInformationPage.xaml;Pages\RitualUrnServicePage.xaml;Pages\TestPage.xaml;Pages\UsersPage.xaml;Resourse\Styles\BtnStyles.xaml;Resourse\Styles\ComboBoxStyles.xaml;Resourse\Styles\DataGridStyles.xaml;Resourse\Styles\ElementsStyles.xaml;Resourse\Styles\ScrollBarStyles.xaml;Resourse\Styles\TextStyles.xaml;
 
 False
 

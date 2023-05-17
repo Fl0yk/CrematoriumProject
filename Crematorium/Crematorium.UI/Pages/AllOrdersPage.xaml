@@ -4,8 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:converters="clr-namespace:Crematorium.UI.Converters"
+             xmlns:properties="clr-namespace:Crematorium.UI.Converters.PropertyConverters"
              xmlns:local="clr-namespace:Crematorium.UI.Pages"
              mc:Ignorable="d" 
+             Loaded="UserControl_Loaded"
              d:DesignHeight="560" d:DesignWidth="925"
              Background="Transparent">
     <!--#region RESOURCES-->
@@ -18,6 +20,11 @@
                 <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/DataGridStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <converters:RoleToStrConverter x:Key="RoleToStr"/>
+            <properties:StateToStringConverter x:Key="StateToStr"/>
+            <properties:GetCustomerSurNameConverter x:Key="GetCustomerSurname"/>
+            <properties:DateOfStartToStringConverter x:Key="GetDateOfStart"/>
+            <properties:GetCorposeSurNameConverter x:Key="GetCorposeSurname"/>
+            <properties:GetHallNameConverter x:Key="GetHallName"/>
         </ResourceDictionary>
     </UserControl.Resources>
     <!--#endregion-->
@@ -62,16 +69,21 @@
                                         Width="50"
                                         Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Customer"
-                                        Width="120"
-                                        Binding="{Binding Source=Customer, Path=Name}"/>
+                                        Width="*"
+                                        Binding="{Binding Path=Customer, 
+                                                    Converter={StaticResource GetCustomerSurname}}"/>
                     <DataGridTextColumn Header="Date"
-                                        Width="120" Binding="{Binding Path=DateOfStart.Date}"/>
+                                        Width="120" Binding="{Binding Path=DateOfStart,
+                                                    Converter={StaticResource GetDateOfStart}}"/>
                     <DataGridTextColumn Header="State"
-                                        Width="*" Binding="{Binding Path=NumPassport}"/>
+                                        Width="120" Binding="{Binding Path=State, 
+                                                    Converter={StaticResource StateToStr}}"/>
                     <DataGridTextColumn Header="Corpose"
-                                        Width="*" Binding="{Binding Source=CorposeId, Path=SurName}"/>
+                                        Width="*" Binding="{Binding Path=CorposeId,
+                                                    Converter={StaticResource GetCorposeSurname}}"/>
                     <DataGridTextColumn Header="Hall"
-                                        Width="100" Binding="{Binding Source=HallId, Path=Name}"/>
+                                        Width="180" Binding="{Binding Path=HallId,
+                                                    Converter={StaticResource GetHallName}}"/>
                 </DataGrid.Columns>
             </DataGrid>
             <!--#endregion-->
