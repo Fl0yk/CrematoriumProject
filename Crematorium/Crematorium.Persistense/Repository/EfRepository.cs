@@ -2,12 +2,7 @@
 using Crematorium.Domain.Entities;
 using Crematorium.Persistense.Data;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Crematorium.Persistense.Repository
 {
@@ -20,7 +15,6 @@ namespace Crematorium.Persistense.Repository
         {
             _context = context;
             _entities = context.Set<T>();
-
         }
 
         public async Task AddAsync(T entity, 
@@ -36,6 +30,7 @@ namespace Crematorium.Persistense.Repository
         {
             if(_entities.Contains(entity))
                     _entities.Remove(entity);
+
             _context.SaveChanges();
             return Task.CompletedTask;
         }

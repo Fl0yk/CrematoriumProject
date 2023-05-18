@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:converters="clr-namespace:Crematorium.UI.Converters"
+             xmlns:visConverters="clr-namespace:Crematorium.UI.Converters.VisibleConverters"
              xmlns:local="clr-namespace:Crematorium.UI.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="560" d:DesignWidth="925"
@@ -25,6 +26,7 @@
             <converters:CapacityToStringConverter x:Key="CapacityToStr"/>
             <converters:HallToComboBoxConverter x:Key="FreeDatesConv"/>
             <converters:IsVisibleFreeDatesConverter x:Key="VisFreeDates"/>
+            <visConverters:CustomerVisiblility x:Key="CustomerAccess"/>
         </ResourceDictionary>
     </UserControl.Resources>
     <!--#endregion-->
@@ -136,7 +138,9 @@
                     Height="35"
                     Background="#FFF53657"
                     Command="{Binding Path=RegCorposeCommand}"
-                    Style="{StaticResource BaseBtnStyle}">
+                    Style="{StaticResource BaseBtnStyle}"
+                    Visibility="{Binding Path=CurUser,
+                                   Converter={StaticResource CustomerAccess}}">
                 <TextBlock Text="Reg corpose"/>
             </Button>
             <!--#endregion-->
@@ -147,7 +151,9 @@
                     Height="35"
                     Background="#FFF53657"
                     Command="{Binding Path=CreateOrderCommand}"
-                    Style="{StaticResource BaseBtnStyle}">
+                    Style="{StaticResource BaseBtnStyle}"
+                    Visibility="{Binding Path=CurUser,
+                                    Converter={StaticResource CustomerAccess}}">
                 <TextBlock Text="Create order"/>
             </Button>
             <!--#endregion-->

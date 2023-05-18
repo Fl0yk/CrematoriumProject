@@ -248,3 +248,5 @@ D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\AllOrde
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\AllOrdersPage.baml
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\OrderInformationPage.g.cs
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\OrderInformationPage.baml
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UserOrdersPage.g.cs
+D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UserOrdersPage.baml

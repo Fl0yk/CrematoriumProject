@@ -1,28 +1,28 @@
 ﻿using Crematorium.Domain.Abstractions;
 using Crematorium.Domain.Entities;
 using Crematorium.Persistense.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Crematorium.Persistense.Repository
 {
     public class EfUnitOfWork : IUnitOfWork
     {
         private readonly CrematoriumDbContext _context;
+
         private readonly Lazy<IRepository<User>> _userRepository;
         private readonly Lazy<IRepository<Order>> _orderRepository;
         private readonly Lazy<IRepository<Corpose>> _corposeRepository;
         private readonly Lazy<IRepository<RitualUrn>> _ritualUrnRepository;
         private readonly Lazy<IRepository<Hall>> _hallRepository;
+        //private readonly IRepository<User> _userRepository;
+        //private readonly IRepository<Order> _orderRepository;
+        //private readonly IRepository<Corpose> _corposeRepository;
+        //private readonly IRepository<RitualUrn> _ritualUrnRepository;
+        //private readonly IRepository<Hall> _hallRepository;
 
         public EfUnitOfWork(CrematoriumDbContext dbContext)
         {
             _context = dbContext;
-            _userRepository = new Lazy<IRepository<User>>(() => 
+            _userRepository = new Lazy<IRepository<User>>(() =>
                                     new EfRepository<User>(dbContext));
             _orderRepository = new Lazy<IRepository<Order>>(() =>
                                     new EfRepository<Order>(dbContext));
@@ -32,6 +32,11 @@ namespace Crematorium.Persistense.Repository
                                     new EfRepository<RitualUrn>(dbContext));
             _hallRepository = new Lazy<IRepository<Hall>>(() =>
                                     new EfRepository<Hall>(dbContext));
+            //_userRepository = new EfRepository<User>(dbContext);
+            //_orderRepository = new EfRepository<Order>(dbContext);
+            //_corposeRepository = new EfRepository<Corpose>(dbContext);
+            //_ritualUrnRepository = new EfRepository<RitualUrn>(dbContext);
+            //_hallRepository = new EfRepository<Hall>(dbContext);
         }
 
         public IRepository<User> UserRepository => _userRepository.Value;
@@ -43,6 +48,16 @@ namespace Crematorium.Persistense.Repository
         public IRepository<RitualUrn> RitualUrnRepository => _ritualUrnRepository.Value;
 
         public IRepository<Hall> HallRepository => _hallRepository.Value;
+
+        //public IRepository<User> UserRepository => _userRepository;
+
+        //public IRepository<Order> OrderRepository => _orderRepository;
+
+        //public IRepository<Corpose> CorposeRepository => _corposeRepository;
+
+        //public IRepository<RitualUrn> RitualUrnRepository => _ritualUrnRepository;
+
+        //public IRepository<Hall> HallRepository => _hallRepository;
 
         public async Task CreateDatabaseAsync()
         {

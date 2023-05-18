@@ -18,10 +18,14 @@ namespace Crematorium.UI.ViewModels
 
         public ObservableCollection<Hall> Halls { get; set; }
 
+        [ObservableProperty]
+        private User? curUser;
+
         public HomeVM(IHelpersService<RitualUrn> urnService,
                         IHelpersService<Hall> hallService,
                         IOrderService orderService)
         {
+            CurUser = ServicesFabric.CurrentUser;
             _urnService = urnService;
             _hallService = hallService;
             _orderService = orderService;

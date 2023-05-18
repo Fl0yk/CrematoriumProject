@@ -38,6 +38,9 @@
     <Compile Update="Pages\TestPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\UserOrdersPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\AllOrdersPage.xaml">
@@ -77,6 +80,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\TestPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\UserOrdersPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resourse\Styles\BtnStyles.xaml">

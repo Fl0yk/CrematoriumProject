@@ -4,6 +4,7 @@ using Crematorium.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,6 +15,7 @@ namespace Crematorium.Application.Services
         public UserService(IUnitOfWork unitOfWork)
         {
             _repository = unitOfWork.UserRepository;
+            //_repository.AddAsync(new User() { Id = 1, Name = "Admin", MailAdress = "admin@mail.ru", NumPassport = "Admin123", Surname = "Adminov", UserRole = Role.Admin });
         }
 
         /// <summary>

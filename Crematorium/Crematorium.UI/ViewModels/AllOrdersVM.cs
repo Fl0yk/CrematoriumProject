@@ -12,11 +12,13 @@ namespace Crematorium.UI.ViewModels
     public partial class AllOrdersVM : ObservableValidator
     {
         private IOrderService _orderService;
+        private User curUser = null!;
 
         public AllOrdersVM(IOrderService orderService)
         {
             _orderService = orderService;
             Orders = new ObservableCollection<Order>(_orderService.GetAllAsync().Result);
+            curUser = ServicesFabric.CurrentUser!;
         }
 
         public ObservableCollection<Order> Orders { get; set; }
@@ -26,6 +28,10 @@ namespace Crematorium.UI.ViewModels
         public void NextStateOrder()
         {
             if (SelectedOrder is null)
+                return;
+
+            if (SelectedOrder.State == StateOrder.Decorated 
+                                 && curUser.UserRole == Role.Employee)
                 return;
 
             _orderService.NextState(ref selectedOrder);
@@ -49,7 +55,7 @@ namespace Crematorium.UI.ViewModels
         [RelayCommand]
         public void CancelOrder()
         {
-            if (SelectedOrder is null)
+            if (SelectedOrder is null || curUser.UserRole == Role.Employee)
                 return;
 
             _orderService.CancelOrder(ref selectedOrder);

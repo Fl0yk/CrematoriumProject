@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Crematorium.UI"
         xmlns:pages="clr-namespace:Crematorium.UI.Pages"
+        xmlns:converters="clr-namespace:Crematorium.UI.Converters.VisibleConverters"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Title="MainWindow" Height="600" Width="1000"
+        Height="600" Width="1000"
+        Loaded="Window_Loaded"
         AllowsTransparency="True"
         MouseDown="Window_MousDown"
         Background="Transparent">
@@ -20,6 +22,9 @@
                 <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/TextStyles.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/ElementsStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <converters:AdminConverter x:Key="AdminAccess"/>
+            <converters:EmployeeVisibility x:Key="EmployeeAccess"/>
+            <converters:CustomerVisiblility x:Key="CustomerAccess"/>
         </ResourceDictionary>
     </Window.Resources>
     <!--#endregion-->
@@ -59,7 +64,7 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <TextBlock  x:Name="Account"
-                                        Text="My Account"
+                                        Text="{Binding Path=LoginBtn}"
                                         Margin="3, 0, 0, 0"
                                         Grid.Column="1"/>
 
@@ -173,7 +178,8 @@
                     </Grid>
                     <!--#endregion-->
                     <!--#region LISTVIEW-->
-                    <ListView Background="Transparent"
+                    <ListView x:Name="MainListView"
+                              Background="Transparent"
                               BorderBrush="Transparent"
                               Margin="0, 30, 0, 0"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled">
@@ -204,7 +210,9 @@
                         </ListViewItem>
                         <!--#endregion-->
                         <!--#region ORDERSVIEW-->
-                        <ListViewItem Style="{StaticResource ListViewItemsStyle}">
+                        <ListViewItem Style="{StaticResource ListViewItemsStyle}"
+                                      Visibility="{Binding Path=CurUser,
+                                            Converter={StaticResource CustomerAccess}}">
                             <Button x:Name="BtnOrders"
                                     Height="70"
                                     Width="200"
@@ -230,7 +238,9 @@
                         </ListViewItem>
                         <!--#endregion-->
                         <!--#region ALLORDERSVIEW-->
-                        <ListViewItem Style="{StaticResource ListViewItemsStyle}">
+                        <ListViewItem Style="{StaticResource ListViewItemsStyle}"
+                                      Visibility="{Binding Path=CurUser,
+                                            Converter={StaticResource EmployeeAccess}}">
                             <Button x:Name="BtnAllOrders"
                                     Height="70"
                                     Width="200"
@@ -255,7 +265,9 @@
                         </ListViewItem>
                         <!--#endregion-->
                         <!--#region USERSVIEW-->
-                        <ListViewItem Style="{StaticResource ListViewItemsStyle}">
+                        <ListViewItem Style="{StaticResource ListViewItemsStyle}"
+                                      Visibility="{Binding Path=CurUser,
+                                            Converter={StaticResource AdminAccess}}">
                             <Button x:Name="BtnUsers"
                                     Height="70"
                                     Width="200"
@@ -281,7 +293,9 @@
                         </ListViewItem>
                         <!--#endregion-->
                         <!--#region URNSVIEW-->
-                        <ListViewItem Style="{StaticResource ListViewItemsStyle}">
+                        <ListViewItem Style="{StaticResource ListViewItemsStyle}"
+                                      Visibility="{Binding Path=CurUser,
+                                            Converter={StaticResource AdminAccess}}">
                             <Button x:Name="BtnUrns"
                                     Height="70"
                                     Width="200"
@@ -307,7 +321,9 @@
                         </ListViewItem>
                         <!--#endregion-->
                         <!--#region HALLVIEW-->
-                        <ListViewItem Style="{StaticResource ListViewItemsStyle}">
+                        <ListViewItem Style="{StaticResource ListViewItemsStyle}"
+                                      Visibility="{Binding Path=CurUser,
+                                                Converter={StaticResource AdminAccess}}">
                             <Button x:Name="BtnHall"
                                     Height="70"
                                     Width="200"

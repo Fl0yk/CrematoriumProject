@@ -1,5 +1,7 @@
-﻿using Crematorium.UI.Fabrics;
+﻿using Crematorium.Domain.Entities;
+using Crematorium.UI.Fabrics;
 using Crematorium.UI.Pages;
+using Crematorium.UI.ViewModels;
 using System.Windows;
 using System.Windows.Input;
 
@@ -10,9 +12,13 @@ namespace Crematorium.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        MainWindowVM _mainWindowVM;
+        public MainWindow(MainWindowVM VM)
         {
+            _mainWindowVM = VM;
             InitializeComponent();
+            MainListView.DataContext = _mainWindowVM;
+            BtnAccount.DataContext = _mainWindowVM;
         }
 
         private void ShowMenu(object sender, RoutedEventArgs e)
@@ -55,7 +61,7 @@ namespace Crematorium.UI
 
         private void OrdersContent(object sender, RoutedEventArgs e)
         {
-            //DataContext = PagesFabric.GetPage(typeof(HomePage));
+            DataContext = ServicesFabric.GetPage(typeof(UserOrdersPage));
         }
 
         private void AllOrdersContent(object sender, RoutedEventArgs e)
@@ -83,16 +89,13 @@ namespace Crematorium.UI
 
         private void Login(object sender, RoutedEventArgs e)
         {
-            var loginPage = (LoginPage)ServicesFabric.GetPage(typeof(LoginPage));
-            loginPage.ShowDialog();
-            if(ServicesFabric.CurrentUser is not null)
-            {
-                Account.Text = ServicesFabric.CurrentUser.Name;
-            }
-            else
-            {
-                Account.Text = "My Account";
-            }
+            _mainWindowVM.LoginUser();
+            DataContext = ServicesFabric.GetPage(typeof(HomePage));
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataContext = ServicesFabric.GetPage(typeof(HomePage));
         }
     }
 }

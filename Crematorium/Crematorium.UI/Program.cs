@@ -56,8 +56,8 @@ namespace Crematorium.UI
             });
 
             //Services
-            services.AddSingleton<IUnitOfWork, FakeUnitOfWork>();
-            //services.AddSingleton<IUnitOfWork, EfUnitOfWork>();
+            //services.AddSingleton<IUnitOfWork, FakeUnitOfWork>();
+            services.AddSingleton<IUnitOfWork, EfUnitOfWork>();
             services.AddSingleton<IUserService, UserService>();
             services.AddSingleton<IHelpersService<RitualUrn>, RitualUrnService>();
             services.AddSingleton<IHelpersService<Corpose>,  CorposeService>();
@@ -65,14 +65,15 @@ namespace Crematorium.UI
             services.AddSingleton<IOrderService, OrderService>();
 
             //Pages
-            services.AddSingleton<App>();
-            services.AddSingleton<MainWindow>();
-            services.AddSingleton<HomePage>();
-            services.AddSingleton<UsersPage>();
-            services.AddSingleton<RitualUrnServicePage>();
-            services.AddSingleton<CorposesServicePage>();
-            services.AddSingleton<HallServicePage>();
-            services.AddSingleton<AllOrdersPage>();
+            services.AddTransient<App>();
+            services.AddTransient<MainWindow>();
+            services.AddTransient<HomePage>();
+            services.AddTransient<UsersPage>();
+            services.AddTransient<RitualUrnServicePage>();
+            services.AddTransient<CorposesServicePage>();
+            services.AddTransient<HallServicePage>();
+            services.AddTransient<AllOrdersPage>();
+            services.AddTransient<UserOrdersPage>();
 
             //Help pages
             services.AddSingleton<LoginPage>();
@@ -83,18 +84,20 @@ namespace Crematorium.UI
             services.AddSingleton<OrderInformationPage>();
 
             //ViewModels
-            services.AddSingleton<LoginVM>();
-            services.AddSingleton<HomeVM>();
-            services.AddSingleton<UsersVM>();
-            services.AddSingleton<UserChangeVM>();
-            services.AddSingleton<RitualUrnsVM>();
-            services.AddSingleton<ChangeUrnVM>();
-            services.AddSingleton<CorposesVM>();
-            services.AddSingleton<ChangeCorposeVM>();
-            services.AddSingleton<HallServiceVM>();
-            services.AddSingleton<ChangeHallVM>();
-            services.AddSingleton<AllOrdersVM>();
-            services.AddSingleton<OrderInformationVM>();
+            services.AddTransient<MainWindowVM>();
+            services.AddTransient<LoginVM>();
+            services.AddTransient<HomeVM>();
+            services.AddTransient<UsersVM>();
+            services.AddTransient<UserChangeVM>();
+            services.AddTransient<RitualUrnsVM>();
+            services.AddTransient<ChangeUrnVM>();
+            services.AddTransient<CorposesVM>();
+            services.AddTransient<ChangeCorposeVM>();
+            services.AddTransient<HallServiceVM>();
+            services.AddTransient<ChangeHallVM>();
+            services.AddTransient<AllOrdersVM>();
+            services.AddTransient<UserOrdersVM>();
+            services.AddTransient<OrderInformationVM>();
         }
     }
 }
