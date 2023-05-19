@@ -25,7 +25,7 @@ namespace Crematorium.Domain.Abstractions
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         Task<IReadOnlyList<T>> ListAllAsync(CancellationToken cancellationToken =
-       default);
+       default, params Expression<Func<T, object>>[]? includesProperties);
         /// <summary>
         /// Получение отфильтрованного списка
         /// </summary>
@@ -67,7 +67,7 @@ namespace Crematorium.Domain.Abstractions
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         Task<T?> FirstOrDefaultAsync(Expression<Func<T, bool>> filter, CancellationToken
-       cancellationToken = default);
+       cancellationToken = default, params Expression<Func<T, object>>[]? includesProperties);
     }
 
 }

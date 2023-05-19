@@ -38,7 +38,7 @@ namespace Crematorium.Persistense.Repository
             return Task.CompletedTask;
         }
 
-        public Task<RitualUrn?> FirstOrDefaultAsync(Expression<Func<RitualUrn, bool>> filter, CancellationToken cancellationToken = default)
+        public Task<RitualUrn?> FirstOrDefaultAsync(Expression<Func<RitualUrn, bool>> filter, CancellationToken cancellationToken = default, params Expression<Func<RitualUrn, object>>[]? includesProperties)
         {
             return Task.FromResult(_ritualUrns.FirstOrDefault(filter.Compile()));
         }
@@ -48,7 +48,7 @@ namespace Crematorium.Persistense.Repository
             return Task.FromResult(_ritualUrns.FirstOrDefault(u => u.Id == id));
         }
 
-        public Task<IReadOnlyList<RitualUrn>> ListAllAsync(CancellationToken cancellationToken = default)
+        public Task<IReadOnlyList<RitualUrn>> ListAllAsync(CancellationToken cancellationToken = default, params Expression<Func<RitualUrn, object>>[]? includesProperties)
         {
             return Task.FromResult((IReadOnlyList<RitualUrn>)_ritualUrns.AsReadOnly());
         }

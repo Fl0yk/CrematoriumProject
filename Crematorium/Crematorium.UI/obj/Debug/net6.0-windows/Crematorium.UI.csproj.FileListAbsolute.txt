@@ -250,3 +250,9 @@ D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\OrderIn
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\OrderInformationPage.baml
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UserOrdersPage.g.cs
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UserOrdersPage.baml
+C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\AllOrdersPage.g.cs
+C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\OrderInformationPage.g.cs
+C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UserOrdersPage.g.cs
+C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\AllOrdersPage.baml
+C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\OrderInformationPage.baml
+C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UserOrdersPage.baml

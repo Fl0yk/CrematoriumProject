@@ -36,9 +36,16 @@ namespace Crematorium.Persistense.Repository
         }
 
         public async Task<T?> FirstOrDefaultAsync(Expression<Func<T, bool>> filter, 
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken = default, params Expression<Func<T, object>>[]? includesProperties)
         {
             IQueryable<T>? query = _entities.AsQueryable();
+            if (includesProperties.Any())
+            {
+                foreach (Expression<Func<T, object>>? included in includesProperties)
+                {
+                    query = query.Include(included);
+                }
+            }
             try
             {
                 var result = await query.FirstAsync(filter, cancellationToken);
@@ -55,12 +62,21 @@ namespace Crematorium.Persistense.Repository
             CancellationToken cancellationToken = default, 
             params Expression<Func<T, object>>[]? includesProperties)
         {
-            return await FirstOrDefaultAsync(e => e.Id == id);
+            return await FirstOrDefaultAsync(e => e.Id == id, CancellationToken.None,  includesProperties);
         }
 
-        public async Task<IReadOnlyList<T>> ListAllAsync(CancellationToken cancellationToken = default)
+        public async Task<IReadOnlyList<T>> ListAllAsync(CancellationToken cancellationToken = default,
+                                                    params Expression<Func<T, object>>[]? includesProperties)
         {
             IQueryable<T>? query = _entities.AsQueryable();
+
+            if (includesProperties.Any())
+            {
+                foreach (Expression<Func<T, object>>? included in includesProperties)
+                {
+                    query = query.Include(included);
+                }
+            }
 
             return await query.ToListAsync();
         }

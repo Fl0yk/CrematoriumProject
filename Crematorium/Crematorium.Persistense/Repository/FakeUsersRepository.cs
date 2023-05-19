@@ -62,7 +62,7 @@ namespace Crematorium.Persistense.Repository
             return Task.CompletedTask;
         }
 
-        public Task<User?> FirstOrDefaultAsync(Expression<Func<User, bool>> filter, CancellationToken cancellationToken = default)
+        public Task<User?> FirstOrDefaultAsync(Expression<Func<User, bool>> filter, CancellationToken cancellationToken = default, params Expression<Func<User, object>>[]? includesProperties)
         {
             return Task.FromResult(_users.FirstOrDefault(filter.Compile()));
         }
@@ -72,7 +72,7 @@ namespace Crematorium.Persistense.Repository
             return Task.FromResult(_users.FirstOrDefault(u => u.Id == id));
         }
 
-        public Task<IReadOnlyList<User>> ListAllAsync(CancellationToken cancellationToken = default)
+        public Task<IReadOnlyList<User>> ListAllAsync(CancellationToken cancellationToken = default, params Expression<Func<User, object>>[]? includesProperties)
         {
             return Task.FromResult((IReadOnlyList<User>)_users.AsReadOnly());
         }
