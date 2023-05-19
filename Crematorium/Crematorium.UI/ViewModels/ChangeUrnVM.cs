@@ -1,17 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Crematorium.Application.Abstractions;
-using Crematorium.Application.Services;
 using Crematorium.Domain.Entities;
+using Crematorium.UI.Fabrics;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace Crematorium.UI.ViewModels
 {
@@ -79,13 +73,15 @@ namespace Crematorium.UI.ViewModels
         [RelayCommand]
         public void AddUrn()
         {
-            if(changedUrn is null)
+            if (changedUrn is null)
                 throw new ArgumentNullException("Urn not initialized");
 
-            if (Name is null || Name == string.Empty ||
-                Image is null)
+            if (string.IsNullOrEmpty(Name) || string.IsNullOrWhiteSpace(Name) ||
+                Image is null || Price == 0)
             {
-                throw new Exception("Not initialize data");
+                var er = ServicesFabric.GetErrorPage("Что-то не заполнили");
+                er.ShowDialog();
+                return;
             }
 
             changedUrn.Name = Name;

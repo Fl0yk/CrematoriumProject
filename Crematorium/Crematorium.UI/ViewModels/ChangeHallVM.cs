@@ -1,16 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Crematorium.Application.Abstractions;
-using Crematorium.Application.Services;
 using Crematorium.Domain.Entities;
+using Crematorium.UI.Fabrics;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net.Mail;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Crematorium.UI.ViewModels
 {
@@ -44,7 +40,7 @@ namespace Crematorium.UI.ViewModels
             Name = SelectedHall.Name;
             Capacity = SelectedHall.Capacity;
             Price = SelectedHall.Price;
-            NewDate = "01.01.0001";
+            NewDate = DateTime.Now.Date.ToString();
             FreeDates.Clear();
             if(SelectedHall.FreeDates is not null)
             {
@@ -72,15 +68,21 @@ namespace Crematorium.UI.ViewModels
         [RelayCommand]
         public void AddNewDate()
         {
-            if (NewDate is not null && Regex.IsMatch(NewDate, @"(\d\d|\d)\.(\d\d|\d)\.\d\d\d\d"))
+            if (NewDate is null)
+                return;
+            
+            //if (Regex.IsMatch(NewDate, @"(\d\d|\d)\.(\d\d|\d)\.\d\d\d\d"))
+            if(DateOnly.TryParse(NewDate, out DateOnly dateOnly))
             {
-                Date d = new Date() { Data = NewDate};
+                Date d = new Date() { Data = dateOnly.ToString()};
                 FreeDates.Add(d);
                 //SelectedHall.FreeDates.Add(d);
             }
             else
             {
-                NewDate = string.Empty;
+                var er = ServicesFabric.GetErrorPage("Некорректная дата");
+                er.ShowDialog();
+                NewDate = DateTime.Now.Date.ToString();
             }
         }
 
@@ -88,13 +90,14 @@ namespace Crematorium.UI.ViewModels
         public async void AddHall()
         {
             if (SelectedHall is null)
-                throw new ArgumentNullException("User not initialized");
+                throw new ArgumentNullException("Hall not initialized");
 
             if (Name == string.Empty || Name is null ||
                 Price == 0  ||
                 Capacity == 0)
             {
-                throw new Exception("Not initialize data");
+                var er = ServicesFabric.GetErrorPage("Что-то не заполнили");
+                er.ShowDialog();
             }
 
             SelectedHall.Name = this.Name;

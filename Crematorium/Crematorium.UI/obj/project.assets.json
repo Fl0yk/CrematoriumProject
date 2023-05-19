@@ -18,6 +18,19 @@
           "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
         }
       },
+      "FluentValidation/11.5.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Data.Sqlite.Core/7.0.5": {
         "type": "package",
         "dependencies": {
@@ -1056,6 +1069,29 @@
         "lib/netstandard2.1/CommunityToolkit.Mvvm.dll",
         "lib/netstandard2.1/CommunityToolkit.Mvvm.pdb",
         "lib/netstandard2.1/CommunityToolkit.Mvvm.xml"
+      ]
+    },
+    "FluentValidation/11.5.2": {
+      "sha512": "kj/hW/iusp2zq1Vt1YPLgDj6UG0DhoJXGkLwjLwm3j7vUtRF8DVA5vHJfItG3BxDjLWJUR2pvw8fK7rnuysZNA==",
+      "type": "package",
+      "path": "fluentvalidation/11.5.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.11.5.2.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/net7.0/FluentValidation.dll",
+        "lib/net7.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml",
+        "lib/netstandard2.1/FluentValidation.dll",
+        "lib/netstandard2.1/FluentValidation.xml"
       ]
     },
     "Microsoft.Data.Sqlite.Core/7.0.5": {
@@ -2296,29 +2332,30 @@
       "Crematorium.Application >= 1.0.0",
       "Crematorium.Domain >= 1.0.0",
       "Crematorium.Persistense >= 1.0.0",
+      "FluentValidation >= 11.5.2",
       "Microsoft.EntityFrameworkCore.Sqlite >= 7.0.5",
       "Microsoft.Extensions.Configuration.Json >= 7.0.0",
       "Microsoft.Extensions.Hosting >= 7.0.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kosac\\.nuget\\packages\\": {},
+    "C:\\Users\\Dima\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\CrematoriumProject\\Crematorium\\Crematorium.UI\\Crematorium.UI.csproj",
+      "projectUniqueName": "D:\\Crematorium\\Crematorium\\Crematorium.UI\\Crematorium.UI.csproj",
       "projectName": "Crematorium.UI",
-      "projectPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.UI\\Crematorium.UI.csproj",
-      "packagesPath": "C:\\Users\\kosac\\.nuget\\packages\\",
-      "outputPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.UI\\obj\\",
+      "projectPath": "D:\\Crematorium\\Crematorium\\Crematorium.UI\\Crematorium.UI.csproj",
+      "packagesPath": "C:\\Users\\Dima\\.nuget\\packages\\",
+      "outputPath": "D:\\Crematorium\\Crematorium\\Crematorium.UI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\kosac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dima\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2334,14 +2371,14 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\CrematoriumProject\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj": {
-              "projectPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj"
+            "D:\\Crematorium\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj": {
+              "projectPath": "D:\\Crematorium\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj"
             },
-            "C:\\CrematoriumProject\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj": {
-              "projectPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj"
+            "D:\\Crematorium\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj": {
+              "projectPath": "D:\\Crematorium\\Crematorium\\Crematorium.Domain\\Crematorium.Domain.csproj"
             },
-            "C:\\CrematoriumProject\\Crematorium\\Crematorium.Persistense\\Crematorium.Persistense.csproj": {
-              "projectPath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Persistense\\Crematorium.Persistense.csproj"
+            "D:\\Crematorium\\Crematorium\\Crematorium.Persistense\\Crematorium.Persistense.csproj": {
+              "projectPath": "D:\\Crematorium\\Crematorium\\Crematorium.Persistense\\Crematorium.Persistense.csproj"
             }
           }
         }
@@ -2359,6 +2396,10 @@
           "CommunityToolkit.Mvvm": {
             "target": "Package",
             "version": "[8.2.0, )"
+          },
+          "FluentValidation": {
+            "target": "Package",
+            "version": "[11.5.2, )"
           },
           "Microsoft.EntityFrameworkCore.Sqlite": {
             "target": "Package",
@@ -2392,7 +2433,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

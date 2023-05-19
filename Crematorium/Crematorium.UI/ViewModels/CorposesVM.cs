@@ -11,6 +11,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Crematorium.UI.ViewModels
 {
@@ -33,13 +34,13 @@ namespace Crematorium.UI.ViewModels
         public void FindCorposes()
         {
             Corposes.Clear();
-            if (inputFindName is null || inputFindName == string.Empty)
+            if (string.IsNullOrEmpty(InputFindName) || string.IsNullOrWhiteSpace(InputFindName))
             {
                 UpdateUrnsCollection();
                 return;
             }
 
-            foreach (Corpose corpose in _corposeService.FindByName(inputFindName).Result)
+            foreach (Corpose corpose in _corposeService.FindByName(InputFindName).Result)
             {
                 Corposes.Add(corpose);
             }

@@ -82,6 +82,7 @@ namespace Crematorium.UI
             services.AddSingleton<ChangeCorposePage>();
             services.AddSingleton<ChangeHallPage>();
             services.AddSingleton<OrderInformationPage>();
+            services.AddSingleton<ErrorPage>();
 
             //ViewModels
             services.AddTransient<MainWindowVM>();

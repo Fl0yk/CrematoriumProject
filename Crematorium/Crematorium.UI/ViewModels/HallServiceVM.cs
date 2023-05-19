@@ -4,13 +4,9 @@ using Crematorium.Application.Abstractions;
 using Crematorium.Domain.Entities;
 using Crematorium.UI.Fabrics;
 using Crematorium.UI.Pages;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Crematorium.UI.ViewModels
 {
@@ -32,13 +28,13 @@ namespace Crematorium.UI.ViewModels
         public void FindHalls()
         {
             Halls.Clear();
-            if (inputFindName is null || inputFindName == string.Empty)
+            if (string.IsNullOrEmpty(InputFindName) || string.IsNullOrWhiteSpace(InputFindName))
             {
                 UpdateHallsCollection();
                 return;
             }
 
-            foreach (Hall hall in _hallService.FindByName(inputFindName).Result)
+            foreach (Hall hall in _hallService.FindByName(InputFindName).Result)
             {
                 Halls.Add(hall);
             }

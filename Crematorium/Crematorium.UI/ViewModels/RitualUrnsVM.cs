@@ -13,6 +13,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Crematorium.UI.ViewModels
 {
@@ -35,13 +36,13 @@ namespace Crematorium.UI.ViewModels
         public void FindUrns()
         {
             RitualUrns.Clear();
-            if (inputFindName is null || inputFindName == string.Empty)
+            if (string.IsNullOrEmpty(InputFindName) || string.IsNullOrWhiteSpace(InputFindName))
             {
                 UpdateUrnsCollection();
                 return;
             }
 
-            foreach (RitualUrn urn in _urnService.FindByName(inputFindName).Result)
+            foreach (RitualUrn urn in _urnService.FindByName(InputFindName).Result)
             {
                 RitualUrns.Add(urn);
             }

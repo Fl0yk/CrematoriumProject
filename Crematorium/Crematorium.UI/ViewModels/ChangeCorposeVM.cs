@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Crematorium.Application.Abstractions;
 using Crematorium.Domain.Entities;
+using Crematorium.UI.Fabrics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -82,7 +83,8 @@ namespace Crematorium.UI.ViewModels
                 Surname == string.Empty || Surname is null ||
                 NumPassport == string.Empty || NumPassport is null)
             {
-                throw new Exception("Not initialize data");
+                var er = ServicesFabric.GetErrorPage("Что-то не заполнили");
+                er.ShowDialog();
             }
 
             Corpose.Name = this.Name;

@@ -1,12 +1,7 @@
 ﻿using Crematorium.Application.Abstractions;
 using Crematorium.Domain.Abstractions;
 using Crematorium.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace Crematorium.Application.Services
 {
@@ -16,6 +11,16 @@ namespace Crematorium.Application.Services
         {
             _repository = unitOfWork.UserRepository;
             //_repository.AddAsync(new User() { Id = 1, Name = "Admin", MailAdress = "admin@mail.ru", NumPassport = "Admin123", Surname = "Adminov", UserRole = Role.Admin });
+        }
+
+        public override async Task<IEnumerable<User>> GetAllAsync()
+        {
+            return await _repository.ListAllAsync(CancellationToken.None, u => u.Orders);
+        }
+
+        public override async Task<User?> FirstOrDefaultAsync(Expression<Func<User, bool>> filter)
+        {
+            return await _repository.FirstOrDefaultAsync(filter, CancellationToken.None, u => u.Orders);
         }
 
         /// <summary>
@@ -34,7 +39,7 @@ namespace Crematorium.Application.Services
 
         public async Task<IEnumerable<User>> FindByName(string name)
         {
-            return await _repository.ListAsync(u => u.Name == name);
+            return await _repository.ListAsync(u => u.Name == name, CancellationToken.None, u => u.Orders);
         }
     }
 }

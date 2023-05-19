@@ -1,6 +1,7 @@
 ﻿using Crematorium.Application.Abstractions;
 using Crematorium.Domain.Abstractions;
 using Crematorium.Domain.Entities;
+using System.Linq.Expressions;
 
 namespace Crematorium.Application.Services
 {
@@ -9,6 +10,26 @@ namespace Crematorium.Application.Services
         public OrderService(IUnitOfWork unitOfWork) 
         {
             _repository = unitOfWork.OrderRepository;
+        }
+
+        public override async Task<IEnumerable<Order>> GetAllAsync()
+        {
+            return await _repository.ListAllAsync(CancellationToken.None, o => o.RitualUrnId, o => o.DateOfStart, o => o.Customer, o => o.HallId, o => o.CorposeId);
+        }
+
+        public virtual async Task<IEnumerable<Order>> GetListAsync(Expression<Func<Order, bool>> filter)
+        {
+            return await _repository.ListAsync(filter, CancellationToken.None, o => o.RitualUrnId, o => o.DateOfStart, o => o.Customer, o => o.HallId, o => o.CorposeId);
+        }
+
+        public override async Task<Order?> GetByIdAsync(int id)
+        {
+            return await _repository.GetByIdAsync(id, CancellationToken.None, o => o.RitualUrnId, o => o.DateOfStart, o => o.Customer, o => o.HallId, o => o.CorposeId);
+        }
+
+        public override async Task<Order?> FirstOrDefaultAsync(Expression<Func<Order, bool>> filter)
+        {
+            return await _repository.FirstOrDefaultAsync(filter, CancellationToken.None, o => o.RitualUrnId, o => o.DateOfStart, o => o.Customer, o => o.HallId, o => o.CorposeId);
         }
 
         public Task CancelOrder(int Id)
@@ -32,19 +53,7 @@ namespace Crematorium.Application.Services
         public Task NextState(int Id)
         {
             var order = _repository.GetByIdAsync(Id).Result;
-            if (order is null)
-                return Task.CompletedTask;
-
-            switch(order.State)
-            {
-                case StateOrder.Decorated:
-                    order.State = StateOrder.Approved;
-                    break;
-
-                case StateOrder.Approved:
-                    order.State = StateOrder.Closed;
-                    break;
-            }
+            NextState(ref order);
 
             return Task.CompletedTask;
         }

@@ -1,12 +1,6 @@
-﻿using Crematorium.Application.Abstractions;
-using Crematorium.Domain.Entities;
-using Crematorium.UI.Converters.PropertyConverters;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Crematorium.Domain.Entities;
+using Crematorium.UI.Pages;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Crematorium.UI.Fabrics
 {
@@ -28,6 +22,11 @@ namespace Crematorium.UI.Fabrics
             return page;
         }
 
-        
+        public static ErrorPage GetErrorPage(string errorInfo)
+        {
+            var page = (ErrorPage)GetPage(typeof(ErrorPage));
+            page.ErorText.Text = errorInfo;
+            return page;
+        }
     }
 }

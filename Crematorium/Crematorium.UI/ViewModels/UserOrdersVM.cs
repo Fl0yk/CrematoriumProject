@@ -4,12 +4,7 @@ using Crematorium.Application.Abstractions;
 using Crematorium.Domain.Entities;
 using Crematorium.UI.Fabrics;
 using Crematorium.UI.Pages;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Crematorium.UI.ViewModels
 {
@@ -22,7 +17,8 @@ namespace Crematorium.UI.ViewModels
         {
             _orderService = orderService;
             curUser = ServicesFabric.CurrentUser!;
-            Orders = new ObservableCollection<Order>(curUser.Orders);
+            //Orders = new ObservableCollection<Order>(curUser.Orders);
+            Orders = new ObservableCollection<Order>(_orderService.GetListAsync(o => o.Customer == curUser).Result);
         }
 
         public ObservableCollection<Order> Orders { get; set; }
@@ -44,7 +40,7 @@ namespace Crematorium.UI.ViewModels
         [RelayCommand]
         public void CancelOrder()
         {
-            if (SelectedOrder is null || curUser.UserRole == Role.Employee)
+            if (SelectedOrder is null)
                 return;
 
             _orderService.CancelOrder(ref selectedOrder);

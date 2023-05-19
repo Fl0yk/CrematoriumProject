@@ -26,7 +26,9 @@ namespace Crematorium.UI.ViewModels
             if (string.IsNullOrEmpty(InputName) ||
                 string.IsNullOrEmpty(InputNumPassport))
             {
-                throw new System.Exception("Что-то не заполнили");
+                var er = ServicesFabric.GetErrorPage("Что-то не заполнили");
+                er.ShowDialog();
+                return;
             }
 
             bool validedUser = _userService.IsValided(InputName, InputNumPassport).Result;
@@ -38,7 +40,8 @@ namespace Crematorium.UI.ViewModels
             }
             else
             {
-                //throw new System.Exception("Такого пользователя нет");
+                var er = ServicesFabric.GetErrorPage("Такого пользователя нет");
+                er.ShowDialog();
                 ServicesFabric.CurrentUser = null;
             }
         }

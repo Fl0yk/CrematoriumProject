@@ -30,9 +30,13 @@ namespace Crematorium.UI.ViewModels
             if (SelectedOrder is null)
                 return;
 
-            if (SelectedOrder.State == StateOrder.Decorated 
+            if (SelectedOrder.State == StateOrder.Decorated
                                  && curUser.UserRole == Role.Employee)
+            {
+                var er = ServicesFabric.GetErrorPage("Заказ подтвердить должен админ");
+                er.ShowDialog();
                 return;
+            }
 
             _orderService.NextState(ref selectedOrder);
             UpdateOrdersCollection();

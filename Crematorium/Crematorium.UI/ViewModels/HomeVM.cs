@@ -65,7 +65,12 @@ namespace Crematorium.UI.ViewModels
         public async void CreateOrder()
         {
             if (SelectedHall is null || SelectedDate is null || SelectedUrn is null || selectedCorpose is null)
-                throw new System.Exception("Чего-то не хватает");
+            {
+                var er = ServicesFabric.GetErrorPage("Что-то не заполнили/выбрали");
+                er.ShowDialog();
+                return;
+            }
+
             User curUser = ServicesFabric.CurrentUser;
             await _orderService.AddAsync( new Order() {HallId = SelectedHall,
                                                         Customer = curUser!,
@@ -73,6 +78,7 @@ namespace Crematorium.UI.ViewModels
                                                         DateOfStart = SelectedDate,
                                                         RitualUrnId = SelectedUrn });
             SelectedHall.FreeDates.Remove(SelectedDate);
+            await _hallService.UpdateAsync(selectedHall);
             SelectedHall = null;
             SelectedDate = null;
             SelectedUrn = null;

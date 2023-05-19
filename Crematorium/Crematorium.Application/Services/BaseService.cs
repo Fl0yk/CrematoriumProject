@@ -14,13 +14,13 @@ namespace Crematorium.Application.Services
     {
         protected IRepository<T> _repository;
 
-        public async Task<T> AddAsync(T item)
+        public virtual async Task<T> AddAsync(T item)
         {
             await _repository.AddAsync(item);
             return item;
         }
 
-        public async Task<T?> DeleteAsync(int id)
+        public virtual async Task<T?> DeleteAsync(int id)
         {
             var item = _repository.FirstOrDefaultAsync(x => x.Id == id).Result;
             if (item != default)
@@ -36,20 +36,25 @@ namespace Crematorium.Application.Services
             return await _repository.ListAllAsync();
         }
 
-        public async Task<T?> GetByIdAsync(int id)
+        public virtual async Task<T?> GetByIdAsync(int id)
         {
             return await _repository.GetByIdAsync(id);
         }
 
-        public async Task<T> UpdateAsync(T item)
+        public virtual async Task<T> UpdateAsync(T item)
         {
             await _repository.UpdateAsync(item);
             return item;
         }
 
-        public async Task<T?> FirstOrDefaultAsync(Expression<Func<T, bool>> filter)
+        public virtual async Task<T?> FirstOrDefaultAsync(Expression<Func<T, bool>> filter)
         {
             return await _repository.FirstOrDefaultAsync(filter);
+        }
+
+        public virtual async Task<IEnumerable<T>> GetListAsync(Expression<Func<T, bool>> filter)
+        {
+            return await _repository.ListAsync(filter);
         }
     }
 }

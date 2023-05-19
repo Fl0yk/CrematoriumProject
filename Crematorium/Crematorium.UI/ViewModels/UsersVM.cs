@@ -6,6 +6,7 @@ using Crematorium.UI.Fabrics;
 using Crematorium.UI.Pages;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
 namespace Crematorium.UI.ViewModels
 {
@@ -30,13 +31,13 @@ namespace Crematorium.UI.ViewModels
         public void FindUsers()
         {
             Users.Clear();
-            if (inputFindName is null || inputFindName == string.Empty)
+            if (string.IsNullOrEmpty(InputFindName) || string.IsNullOrWhiteSpace(InputFindName))
             {
                 UpdateUsersCollection();
                 return;
             }
 
-            foreach (User user in _userService.FindByName(inputFindName).Result) 
+            foreach (User user in _userService.FindByName(InputFindName).Result) 
             {
                 Users.Add(user);
             }

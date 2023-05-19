@@ -72,12 +72,16 @@ namespace Crematorium.UI.ViewModels
                 NumPassport == string.Empty || NumPassport is null ||
                 MailAdress == string.Empty || MailAdress is null)
             {
-                throw new Exception("Not initialize data");
+                var er = ServicesFabric.GetErrorPage("Что-то не заполнили");
+                er.ShowDialog();
+                return;
             }
 
             if (Name != User.Name && _userService.IsValided(Name, NumPassport).Result)
             {
-                throw new Exception("Такой пользователь уже существует");
+                var er = ServicesFabric.GetErrorPage("Такой ползователь уже существует");
+                er.ShowDialog();
+                return;
             }
 
             User.Name = this.Name;
