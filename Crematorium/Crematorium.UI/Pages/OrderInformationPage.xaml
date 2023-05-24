@@ -104,6 +104,15 @@
                     <TextBlock Grid.Row="2"
                                HorizontalAlignment="Center"
                                Text="{Binding Path=Name}"/>
+                    <TextBlock Grid.Row="4"
+                               HorizontalAlignment="Center"
+                               Text="{Binding Path=Surname}"/>
+                    <TextBlock Grid.Row="6"
+                               HorizontalAlignment="Center"
+                               Text="{Binding Path=NumPassport}"/>
+                    <TextBlock Grid.Row="8"
+                               HorizontalAlignment="Center"
+                               Text="{Binding Path=MailAdress}"/>
                 </Grid>
             </Border>
             <!--#endregion-->

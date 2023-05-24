@@ -4,7 +4,7 @@
 winexe
 C#
 .cs
-D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\
+C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\
 Crematorium.UI
 none
 false
@@ -13,7 +13,7 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 21-602330954
 
 49-602418128
-235236609222
+2351011222421
 Pages\AllOrdersPage.xaml;Pages\ChangeCorposePage.xaml;Pages\ChangeHallPage.xaml;Pages\ChangeUrnPage.xaml;Pages\ChangeUserPage.xaml;Pages\CorposesServicePage.xaml;Pages\ErrorPage.xaml;Pages\HallServicePage.xaml;Pages\HomePage.xaml;Pages\LoginPage.xaml;Pages\MainWindow.xaml;Pages\OrderInformationPage.xaml;Pages\RitualUrnServicePage.xaml;Pages\UserOrdersPage.xaml;Pages\UsersPage.xaml;Resourse\Styles\BtnStyles.xaml;Resourse\Styles\ComboBoxStyles.xaml;Resourse\Styles\DataGridStyles.xaml;Resourse\Styles\ElementsStyles.xaml;Resourse\Styles\ScrollBarStyles.xaml;Resourse\Styles\TextStyles.xaml;
 
 False

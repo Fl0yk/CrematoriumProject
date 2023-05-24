@@ -6,7 +6,6 @@ using Crematorium.UI.Fabrics;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace Crematorium.UI.ViewModels
 {
@@ -40,7 +39,7 @@ namespace Crematorium.UI.ViewModels
             Name = SelectedHall.Name;
             Capacity = SelectedHall.Capacity;
             Price = SelectedHall.Price;
-            NewDate = DateTime.Now.Date.ToString();
+            NewDate = DateTime.Now.Date.ToString("dd.MM.yyyy");
             FreeDates.Clear();
             if(SelectedHall.FreeDates is not null)
             {

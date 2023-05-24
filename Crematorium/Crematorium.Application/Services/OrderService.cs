@@ -46,6 +46,7 @@ namespace Crematorium.Application.Services
                 return Task.CompletedTask;
 
             order.State = StateOrder.Cancelled;
+            _repository.UpdateAsync(order).Wait();
 
             return Task.CompletedTask;
         }
@@ -73,6 +74,7 @@ namespace Crematorium.Application.Services
                     order.State = StateOrder.Closed;
                     break;
             }
+            _repository.UpdateAsync(order).Wait();
 
             return Task.CompletedTask;
         }

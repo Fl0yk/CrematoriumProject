@@ -137,7 +137,6 @@ C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\
 C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\LoginPage.g.cs
 C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\MainWindow.g.cs
 C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\RitualUrnServicePage.g.cs
-C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\TestPage.g.cs
 C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UsersPage.g.cs
 C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Crematorium.UI_MarkupCompile.cache
@@ -147,7 +146,6 @@ C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\
 C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\LoginPage.baml
 C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\MainWindow.baml
 C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\RitualUrnServicePage.baml
-C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\TestPage.baml
 C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UsersPage.baml
 C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Crematorium.UI.g.resources
 C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Crematorium.UI.GeneratedMSBuildEditorConfig.editorconfig
@@ -257,3 +255,6 @@ C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\ErrorPage.g.cs
 D:\Crematorium\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\ErrorPage.baml
 D:\Crematorium\Crematorium\Crematorium.UI\bin\Debug\net6.0-windows\FluentValidation.dll
+C:\CrematoriumProject\Crematorium\Crematorium.UI\bin\Debug\net6.0-windows\FluentValidation.dll
+C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\ErrorPage.g.cs
+C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\ErrorPage.baml
