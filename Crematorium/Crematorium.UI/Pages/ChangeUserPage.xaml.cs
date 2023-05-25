@@ -1,5 +1,7 @@
 ﻿using Crematorium.Domain.Entities;
+using Crematorium.UI.Fabrics;
 using Crematorium.UI.ViewModels;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +24,7 @@ namespace Crematorium.UI.Pages
     public partial class ChangeUserPage : Window
     {
         private UserChangeVM _userChangeVM;
+        private bool isRegistration;
         public ChangeUserPage(UserChangeVM VM)
         {
             _userChangeVM = VM;
@@ -30,9 +33,9 @@ namespace Crematorium.UI.Pages
             DataContext = _userChangeVM;
         }
 
-        public void InitializeUser(int Id, bool isRegUser = false)
+        public void InitializeUser(int Id, UserChangeOperation op)
         {
-            _userChangeVM.SetUser(Id, isRegUser);
+            _userChangeVM.SetUser(Id, op);
         }
 
 
@@ -48,6 +51,20 @@ namespace Crematorium.UI.Pages
         {
             //this.Close();
             this.Hide();
+        }
+
+        private async void AddOrUpdateUser(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                await _userChangeVM.DoUserOperation();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                var er = ServicesFabric.GetErrorPage(ex.Message);
+                er.ShowDialog();
+            }
         }
     }
 }

@@ -74,6 +74,7 @@ namespace Crematorium.UI
             services.AddTransient<HallServicePage>();
             services.AddTransient<AllOrdersPage>();
             services.AddTransient<UserOrdersPage>();
+            services.AddTransient<UserAccountPage>();
 
             //Help pages
             services.AddSingleton<LoginPage>();
@@ -99,6 +100,7 @@ namespace Crematorium.UI
             services.AddTransient<AllOrdersVM>();
             services.AddTransient<UserOrdersVM>();
             services.AddTransient<OrderInformationVM>();
+            services.AddTransient<UserAccountVM>();
         }
     }
 }

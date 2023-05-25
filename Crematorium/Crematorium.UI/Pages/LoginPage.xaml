@@ -9,6 +9,7 @@
         WindowStyle="None"
         Height="250" Width="460"
         AllowsTransparency="True"
+        Loaded="Login_Loaded"
         MouseDown="Window_MousDown"
         Background="Transparent">
     <!--#region RESOURCES-->
@@ -71,8 +72,7 @@
                     Width="120"
                     Height="35"
                     Background="#FFF53657"
-                    Command="{Binding Path=LoginUserCommand}"
-                    Click="Back"
+                    Click="Login"
                     Style="{StaticResource BaseBtnStyle}">
                 <TextBlock Text="Login"/>
             </Button>

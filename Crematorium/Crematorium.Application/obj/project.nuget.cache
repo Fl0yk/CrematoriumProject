@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "njjAb+H5PFvB2BrumFWjA2mTrH8jOKZEo5DDztQNRN6xUkLoWkIfXaPGHO7VMYROkkJDH3+k1jLncC1wuTiBkw==",
+  "dgSpecHash": "3gqk36gSAK9xdhhAobkmkZpHgugQF/40Jxzb90xdvQeVwEy4WPLPNM09LOWFiDGPfpJlG9ceHllYYjF+sTPBCw==",
   "success": true,
   "projectFilePath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\kosac\\.nuget\\packages\\fluentvalidation\\8.6.1\\fluentvalidation.8.6.1.nupkg.sha512",
+    "C:\\Users\\kosac\\.nuget\\packages\\fluentvalidation.validatorattribute\\8.6.1\\fluentvalidation.validatorattribute.8.6.1.nupkg.sha512",
+    "C:\\Users\\kosac\\.nuget\\packages\\system.componentmodel.annotations\\4.4.1\\system.componentmodel.annotations.4.4.1.nupkg.sha512"
+  ],
   "logs": []
 }

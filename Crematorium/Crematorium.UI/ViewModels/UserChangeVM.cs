@@ -1,10 +1,13 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Crematorium.Application.Abstractions;
+using Crematorium.Application.Validators;
 using Crematorium.Domain.Entities;
 using Crematorium.UI.Fabrics;
+using FluentValidation;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 
 namespace Crematorium.UI.ViewModels
 {
@@ -17,6 +20,8 @@ namespace Crematorium.UI.ViewModels
             _userService = userService;
             SelectedRole = Role.NoName;
         }
+        [ObservableProperty]
+        private UserChangeOperation operation;
 
         [ObservableProperty]
         private bool isRegistration;
@@ -28,9 +33,10 @@ namespace Crematorium.UI.ViewModels
         [Required]
         private User user;
 
-        public void SetUser(int userId, bool isRegUser)
+        public void SetUser(int userId, UserChangeOperation op)
         {
-            IsRegistration = isRegUser;
+            //IsRegistration = isRegUser;
+            operation = op;
             User = _userService.GetByIdAsync(userId).Result;
 
             if (User is null)
@@ -44,7 +50,7 @@ namespace Crematorium.UI.ViewModels
             }
             this.Name = User.Name;
             this.Surname = User.Surname;
-            this.NumPassport = User.NumPassport;
+            //this.NumPassport = User.NumPassport;
             this.SelectedRole = User.UserRole;
             this.MailAdress = User.MailAdress;
         }
@@ -67,10 +73,9 @@ namespace Crematorium.UI.ViewModels
             if (User is null)
                 throw new ArgumentNullException("User not initialized");
 
-            if (Name == string.Empty || Name is null ||
-                Surname == string.Empty || Surname is null ||
-                NumPassport == string.Empty || NumPassport is null ||
-                MailAdress == string.Empty || MailAdress is null)
+            if (string.IsNullOrEmpty(Name) || string.IsNullOrWhiteSpace(Name) ||
+                string.IsNullOrEmpty(Surname) || string.IsNullOrWhiteSpace(Surname) ||
+                string.IsNullOrEmpty(MailAdress) || string.IsNullOrWhiteSpace(MailAdress))
             {
                 var er = ServicesFabric.GetErrorPage("Что-то не заполнили");
                 er.ShowDialog();
@@ -104,7 +109,21 @@ namespace Crematorium.UI.ViewModels
             }
             else
             {
-                await _userService.UpdateAsync(User);
+                //Админ изменяет любого пользователя(у него не будет доступа к номеру паспорта)
+                if (ServicesFabric.CurrentUser!.UserRole == Role.Admin && ServicesFabric.CurrentUser! != User)
+                {
+                    await _userService.UpdateAsync(User);
+                }
+                //Пользователь изменяет свой аккаунт, введенный номер паспорта совпадает с изначальным
+                else if (ServicesFabric.CurrentUser! == User && NumPassportMatch())
+                {
+                    await _userService.UpdateAsync(User);
+                }
+                //Введенный номер не совпадает с изначальным, выдаем ошибку о неверном номере
+                else
+                {
+
+                }
             }
 
             if(IsRegistration)
@@ -112,5 +131,112 @@ namespace Crematorium.UI.ViewModels
                 ServicesFabric.CurrentUser = this.User;
             }
         }
+
+        public async Task DoUserOperation()
+        {
+            if (User is null)
+                throw new ArgumentNullException("User not initialized");
+
+            UserValidator validations = new UserValidator();
+
+            switch (operation)
+            {
+                case UserChangeOperation.UserRegistration:
+                    //CheckInputValue();
+                    User.NumPassport = this.NumPassport;
+                    InitializeValue(true);
+                    validations.ValidateAndThrow(User);
+                    await _userService.AddAsync(User);
+                    ServicesFabric.CurrentUser = this.User;
+                    break;
+
+                case UserChangeOperation.UserUpdate:
+                    NumPassportMatch();
+                    InitializeValue(true);
+                    validations.ValidateAndThrow(User);
+                    await _userService.UpdateAsync(User);
+                    break;
+
+                case UserChangeOperation.AdminAdd:
+                    //CheckInputValue();
+                    User.NumPassport = this.NumPassport;
+                    InitializeValue(false);
+                    validations.ValidateAndThrow(User);
+                    await _userService.AddAsync(User);
+                    break;
+
+                case UserChangeOperation.AdminUpdate:
+                    InitializeValue(true);
+                    validations.ValidateAndThrow(User);
+                    await _userService.UpdateAsync(User);
+                    break;
+
+                default:
+                    throw new ArgumentException("Несуществующая операция");
+            }
+        }
+
+        private bool CheckInputValue()
+        {
+            if (string.IsNullOrEmpty(Name) || string.IsNullOrWhiteSpace(Name) ||
+                string.IsNullOrEmpty(Surname) || string.IsNullOrWhiteSpace(Surname) ||
+                string.IsNullOrEmpty(MailAdress) || string.IsNullOrWhiteSpace(MailAdress))
+            {
+                //var er = ServicesFabric.GetErrorPage("Что-то не заполнили");
+                //er.ShowDialog();
+                //return false;
+                throw new Exception("Что-то не заполнили");
+            }
+
+            if (Name != User.Name && _userService.IsValided(Name, NumPassport).Result)
+            {
+                //var er = ServicesFabric.GetErrorPage("Такой ползователь уже существует");
+                //er.ShowDialog();
+                //return false;
+                throw new Exception("Такой пользователь уже существует");
+            }
+
+            return true;
+        }
+
+        private void InitializeValue(bool isUserRegistration)
+        {
+            User.Name = this.Name;
+            User.Surname = this.Surname;
+            //User.NumPassport = this.NumPassport;
+            User.MailAdress = this.MailAdress;
+            if (isUserRegistration)
+            {
+                User.UserRole = Role.Customer;
+            }
+            else
+            {
+                User.UserRole = this.SelectedRole;
+            }
+        }
+
+        /// <summary>
+        /// Проверяет совпадение изначального номера паспорта с введеным для подтверждения изменений
+        /// </summary>
+        private bool NumPassportMatch()
+        {
+            if (ServicesFabric.CurrentUser!.NumPassport != NumPassport)
+                throw new Exception("Введенный номер паспорта не совпадает с номером пользователя");
+
+            return true;
+        }
     }
+
+    public enum UserChangeOperation
+    {
+        UserRegistration,  //Вводятся все поля, валидация паспорта и почты, проверка на существование такого пользователя
+
+        UserUpdate, //Заполнются полученными данными все поля, кроме паспорта.
+                    //Валидация почты, проверка на совпадение паспорта, проверка на существование
+
+        AdminAdd,   // Вводятся все данные, выбор роли, валидация почты и паспорта
+
+        AdminUpdate // Не видно номера паспорта, валидация почты, выбор роли
+    }
+
 }

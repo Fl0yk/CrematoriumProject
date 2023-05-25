@@ -1,14 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using Crematorium.Domain.Entities;
 using Crematorium.UI.Fabrics;
 using Crematorium.UI.Pages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Crematorium.UI.ViewModels
 {
@@ -23,20 +16,29 @@ namespace Crematorium.UI.ViewModels
         private User? curUser;
 
         [ObservableProperty]
-        private string loginBtn = "My Account";
+        private string loginBtn = "Login";
 
         public void LoginUser()
         {
-            var loginPage = (LoginPage)ServicesFabric.GetPage(typeof(LoginPage));
-            loginPage.ShowDialog();
-            CurUser = ServicesFabric.CurrentUser;
-            if (ServicesFabric.CurrentUser is not null)
+            if (ServicesFabric.CurrentUser is null)
             {
-                LoginBtn = CurUser!.Name;
+                var loginPage = (LoginPage)ServicesFabric.GetPage(typeof(LoginPage));
+                loginPage.ShowDialog();
             }
             else
             {
-                LoginBtn = "My Account";
+                ServicesFabric.CurrentUser = null;
+            }
+            //var loginPage = (LoginPage)ServicesFabric.GetPage(typeof(LoginPage));
+            //loginPage.ShowDialog();
+            CurUser = ServicesFabric.CurrentUser;
+            if (ServicesFabric.CurrentUser is not null)
+            {
+                LoginBtn = "Logout";
+            }
+            else
+            {
+                LoginBtn = "Login";
             }
         }
     }

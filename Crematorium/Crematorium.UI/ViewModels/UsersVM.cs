@@ -47,7 +47,7 @@ namespace Crematorium.UI.ViewModels
         public void AddUser()
         {
             var userChange = (ChangeUserPage)ServicesFabric.GetPage(typeof(ChangeUserPage));
-            userChange.InitializeUser(-1);
+            userChange.InitializeUser(-1, UserChangeOperation.AdminAdd);
             userChange.OpBtnName.Text = "Registration";
             userChange.ShowDialog();
             UpdateUsersCollection();
@@ -63,7 +63,7 @@ namespace Crematorium.UI.ViewModels
                 return;
 
             var userChange = (ChangeUserPage)ServicesFabric.GetPage(typeof(ChangeUserPage));
-            userChange.InitializeUser(SelectedUser.Id);
+            userChange.InitializeUser(SelectedUser.Id, UserChangeOperation.AdminUpdate);
             userChange.OpBtnName.Text = "Update";
             userChange.ShowDialog();
             UpdateUsersCollection();

@@ -15,20 +15,20 @@ namespace Crematorium.UI.ViewModels
         }
 
         [ObservableProperty]
-        private string inputName;
+        private string inputName = "";
 
         [ObservableProperty]
-        private string inputNumPassport;
+        private string inputNumPassport = "";
 
-        [RelayCommand]
-        public void LoginUser()
+        //[RelayCommand]
+        public bool LoginUser()
         {
             if (string.IsNullOrEmpty(InputName) ||
                 string.IsNullOrEmpty(InputNumPassport))
             {
                 var er = ServicesFabric.GetErrorPage("Что-то не заполнили");
                 er.ShowDialog();
-                return;
+                return false;
             }
 
             bool validedUser = _userService.IsValided(InputName, InputNumPassport).Result;
@@ -37,20 +37,28 @@ namespace Crematorium.UI.ViewModels
                 ServicesFabric.CurrentUser = _userService
                     .FirstOrDefaultAsync(u => u.NumPassport == InputNumPassport && u.Name == InputName)
                     .Result;
+                return true;
             }
             else
             {
                 var er = ServicesFabric.GetErrorPage("Такого пользователя нет");
                 er.ShowDialog();
                 ServicesFabric.CurrentUser = null;
+                return false;
             }
+        }
+
+        public void ClearFields()
+        {
+            InputName = "";
+            InputNumPassport = "";
         }
 
         [RelayCommand]
         public void RegistrationUser()
         {
             var userChange = (ChangeUserPage)ServicesFabric.GetPage(typeof(ChangeUserPage));
-            userChange.InitializeUser(-1, true);
+            userChange.InitializeUser(-1, UserChangeOperation.UserRegistration);
             userChange.OpBtnName.Text = "Registration";
             userChange.ShowDialog();
         }

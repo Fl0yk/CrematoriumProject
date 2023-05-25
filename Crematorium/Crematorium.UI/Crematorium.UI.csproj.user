@@ -38,6 +38,9 @@
     <Compile Update="Pages\RitualUrnServicePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\UserAccountPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\UserOrdersPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -80,6 +83,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\RitualUrnServicePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\UserAccountPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\UserOrdersPage.xaml">

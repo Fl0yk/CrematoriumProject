@@ -28,7 +28,9 @@
     </Window.Resources>
     <!--#endregion-->
     <Border CornerRadius="10"
-            Background="#FFF8D0D0">
+            Background="#FFF8D0D0"
+            BorderBrush="#FFB2043E"
+            BorderThickness="3">
         <Grid>
             <!--#region ROW/COLUMNS-->
             <Grid.ColumnDefinitions>

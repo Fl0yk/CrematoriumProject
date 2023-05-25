@@ -18,7 +18,8 @@
                 <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/TextStyles.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/Resourse/Styles/ComboBoxStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <visibility:BoolIsVisibleConverter x:Key="BoolVisible"/>
+            <visibility:UserOpComboBoxConverter x:Key="RoleVisible"/>
+            <visibility:UserOpNumPassportConverter x:Key="PassportVisible"/>
         </ResourceDictionary>
     </Window.Resources>
     <!--#endregion-->
@@ -77,8 +78,7 @@
                     Height="35"
                     Background="#FFF53657"
                     x:Name="OperatinBtn"
-                    Command="{Binding Path=AddUserCommand}"
-                    Click="Back"
+                    Click="AddOrUpdateUser"
                     Style="{StaticResource BaseBtnStyle}">
                 <TextBlock x:Name="OpBtnName" Text="Registration"/>
             </Button>
@@ -100,35 +100,39 @@
                      Width="260"
                      Height="35"
                      Text="{Binding Path=Surname}"/>
-            <TextBlock Text="Num passport:"
+            <TextBlock Text="Mail adress:"
                        Grid.Column="1"
                        Grid.Row="7"/>
             <TextBox Grid.Row="7"
                      Grid.Column="2"
                      Width="260"
                      Height="35"
-                     Text="{Binding Path=NumPassport}"/>
-            <TextBlock Text="Mail adress:"
+                     Text="{Binding Path=MailAdress}"/>
+            <TextBlock Text="Num passport:"
                        Grid.Column="1"
-                       Grid.Row="9"/>
+                       Grid.Row="9"
+                       Visibility="{Binding Path=Operation,
+                                    Converter={StaticResource PassportVisible}}"/>
             <TextBox Grid.Row="9"
                      Grid.Column="2"
                      Width="260"
                      Height="35"
-                     Text="{Binding Path=MailAdress}"/>
+                     Text="{Binding Path=NumPassport}"
+                     Visibility="{Binding Path=Operation,
+                                    Converter={StaticResource PassportVisible}}"/>
             <TextBlock Text="Role:"
                        Grid.Column="1"
                        Grid.Row="11"
-                       Visibility="{Binding Path=IsRegistration,
-                                    Converter={StaticResource BoolVisible}}"/>
+                       Visibility="{Binding Path=Operation,
+                                    Converter={StaticResource RoleVisible}}"/>
             <ComboBox Grid.Row="11"
                       Grid.Column="2"
                       x:Name="RoleComboBox"
                       Width="150" Height="30"
                       HorizontalAlignment="Left"
                       Background="#FFF53657"
-                      Visibility="{Binding Path=IsRegistration,
-                                    Converter={StaticResource BoolVisible}}"
+                      Visibility="{Binding Path=Operation,
+                                    Converter={StaticResource RoleVisible}}"
                       SelectedItem="{Binding Path=SelectedRole}"/>
             <!--#endregion-->
         </Grid>

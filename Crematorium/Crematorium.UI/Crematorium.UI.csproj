@@ -27,6 +27,8 @@
     <None Remove="Resourse\Images\new-orders.png" />
     <None Remove="Resourse\Images\orders-white.png" />
     <None Remove="Resourse\Images\orders.png" />
+    <None Remove="Resourse\Images\user-conf-white.png" />
+    <None Remove="Resourse\Images\user-conf.png" />
     <None Remove="Resourse\Images\user-white.png" />
     <None Remove="Resourse\Images\users-white.png" />
     <None Remove="Resourse\Images\users.png" />
@@ -46,7 +48,6 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
-    <PackageReference Include="FluentValidation" Version="11.5.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.5" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
@@ -102,6 +103,12 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resourse\Images\orders.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resourse\Images\user-conf-white.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resourse\Images\user-conf.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resourse\Images\user-white.png">

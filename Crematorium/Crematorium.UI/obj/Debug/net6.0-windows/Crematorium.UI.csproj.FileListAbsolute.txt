@@ -258,3 +258,6 @@ D:\Crematorium\Crematorium\Crematorium.UI\bin\Debug\net6.0-windows\FluentValidat
 C:\CrematoriumProject\Crematorium\Crematorium.UI\bin\Debug\net6.0-windows\FluentValidation.dll
 C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\ErrorPage.g.cs
 C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\ErrorPage.baml
+C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UserAccountPage.g.cs
+C:\CrematoriumProject\Crematorium\Crematorium.UI\obj\Debug\net6.0-windows\Pages\UserAccountPage.baml
+C:\CrematoriumProject\Crematorium\Crematorium.UI\bin\Debug\net6.0-windows\FluentValidation.ValidatorAttribute.dll

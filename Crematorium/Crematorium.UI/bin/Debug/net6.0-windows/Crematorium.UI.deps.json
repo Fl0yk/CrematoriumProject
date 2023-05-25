@@ -12,7 +12,6 @@
           "Crematorium.Application": "1.0.0",
           "Crematorium.Domain": "1.0.0",
           "Crematorium.Persistense": "1.0.0",
-          "FluentValidation": "11.5.2",
           "Microsoft.EntityFrameworkCore.Sqlite": "7.0.5",
           "Microsoft.Extensions.Configuration.Json": "7.0.0",
           "Microsoft.Extensions.Hosting": "7.0.1"
@@ -29,11 +28,25 @@
           }
         }
       },
-      "FluentValidation/11.5.2": {
+      "FluentValidation/8.6.1": {
+        "dependencies": {
+          "System.ComponentModel.Annotations": "4.4.1"
+        },
         "runtime": {
-          "lib/net6.0/FluentValidation.dll": {
-            "assemblyVersion": "11.0.0.0",
-            "fileVersion": "11.5.2.0"
+          "lib/netstandard2.0/FluentValidation.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.6.1.0"
+          }
+        }
+      },
+      "FluentValidation.ValidatorAttribute/8.6.1": {
+        "dependencies": {
+          "FluentValidation": "8.6.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.ValidatorAttribute.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.6.1.0"
           }
         }
       },
@@ -632,6 +645,7 @@
           }
         }
       },
+      "System.ComponentModel.Annotations/4.4.1": {},
       "System.Diagnostics.DiagnosticSource/7.0.1": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
@@ -700,7 +714,8 @@
       },
       "Crematorium.Application/1.0.0": {
         "dependencies": {
-          "Crematorium.Domain": "1.0.0"
+          "Crematorium.Domain": "1.0.0",
+          "FluentValidation.ValidatorAttribute": "8.6.1"
         },
         "runtime": {
           "Crematorium.Application.dll": {}
@@ -736,12 +751,19 @@
       "path": "communitytoolkit.mvvm/8.2.0",
       "hashPath": "communitytoolkit.mvvm.8.2.0.nupkg.sha512"
     },
-    "FluentValidation/11.5.2": {
+    "FluentValidation/8.6.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kj/hW/iusp2zq1Vt1YPLgDj6UG0DhoJXGkLwjLwm3j7vUtRF8DVA5vHJfItG3BxDjLWJUR2pvw8fK7rnuysZNA==",
-      "path": "fluentvalidation/11.5.2",
-      "hashPath": "fluentvalidation.11.5.2.nupkg.sha512"
+      "sha512": "sha512-g0xw/YCVgJ1IYpBgKF9iuci/Arf6Dsq9H/WeeT9zaBpjrEA+Cr2GjWXHu1F0DKqVzp4J4hta4gGrRt6H4aESqQ==",
+      "path": "fluentvalidation/8.6.1",
+      "hashPath": "fluentvalidation.8.6.1.nupkg.sha512"
+    },
+    "FluentValidation.ValidatorAttribute/8.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OJOMPvZIeSD/X6TBNFSRhn5j/kvsBIuyn9k7coSgUoaillH4QXJn+LyPp8T9aSbZt3r+VIvzhkg782QeaHNnAQ==",
+      "path": "fluentvalidation.validatorattribute/8.6.1",
+      "hashPath": "fluentvalidation.validatorattribute.8.6.1.nupkg.sha512"
     },
     "Microsoft.Data.Sqlite.Core/7.0.5": {
       "type": "package",
@@ -1015,6 +1037,13 @@
       "sha512": "sha512-CSlb5dUp1FMIkez9Iv5EXzpeq7rHryVNqwJMWnpq87j9zWZexaEMdisDktMsnnrzKM6ahNrsTkjqNodTBPBxtQ==",
       "path": "sqlitepclraw.provider.e_sqlite3/2.1.4",
       "hashPath": "sqlitepclraw.provider.e_sqlite3.2.1.4.nupkg.sha512"
+    },
+    "System.ComponentModel.Annotations/4.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ToiYqSCioqhtspq2O/jYKtyTC/T0uwWHBTYlzCi6PRbSSHArN1IaRWeHffDamvms5sye5FDUWCfNZgubQpNRsA==",
+      "path": "system.componentmodel.annotations/4.4.1",
+      "hashPath": "system.componentmodel.annotations.4.4.1.nupkg.sha512"
     },
     "System.Diagnostics.DiagnosticSource/7.0.1": {
       "type": "package",
