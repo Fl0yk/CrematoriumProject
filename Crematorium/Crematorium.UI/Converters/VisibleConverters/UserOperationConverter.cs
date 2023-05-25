@@ -43,4 +43,21 @@ namespace Crematorium.UI.Converters.VisibleConverters
             throw new NotImplementedException();
         }
     }
+
+    class UserOpRepeatNumConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var op = (UserChangeOperation)value;
+            if (op == UserChangeOperation.UserRegistration)
+                return Visibility.Visible;
+
+            return Visibility.Hidden;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

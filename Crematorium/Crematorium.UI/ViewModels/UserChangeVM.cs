@@ -36,7 +36,7 @@ namespace Crematorium.UI.ViewModels
         public void SetUser(int userId, UserChangeOperation op)
         {
             //IsRegistration = isRegUser;
-            operation = op;
+            Operation = op;
             User = _userService.GetByIdAsync(userId).Result;
 
             if (User is null)
@@ -65,71 +65,17 @@ namespace Crematorium.UI.ViewModels
         private string numPassport;
 
         [ObservableProperty]
+        private string repNumPassport;
+
+        [ObservableProperty]
         private string mailAdress;
 
-        [RelayCommand]
-        public async void AddUser()
+        public void ClearFields()
         {
-            if (User is null)
-                throw new ArgumentNullException("User not initialized");
-
-            if (string.IsNullOrEmpty(Name) || string.IsNullOrWhiteSpace(Name) ||
-                string.IsNullOrEmpty(Surname) || string.IsNullOrWhiteSpace(Surname) ||
-                string.IsNullOrEmpty(MailAdress) || string.IsNullOrWhiteSpace(MailAdress))
-            {
-                var er = ServicesFabric.GetErrorPage("Что-то не заполнили");
-                er.ShowDialog();
-                return;
-            }
-
-            if (Name != User.Name && _userService.IsValided(Name, NumPassport).Result)
-            {
-                var er = ServicesFabric.GetErrorPage("Такой ползователь уже существует");
-                er.ShowDialog();
-                return;
-            }
-
-            User.Name = this.Name;
-            User.Surname = this.Surname;
-            User.NumPassport = this.NumPassport;
-            User.MailAdress = this.MailAdress;
-            if(IsRegistration)
-            {
-                User.UserRole = Role.Customer;
-            }
-            else
-            {
-                User.UserRole = this.SelectedRole;
-            }
-
-            if(_isNewUser)
-            {
-                //User.Id = 0;
-                await _userService.AddAsync(User);
-            }
-            else
-            {
-                //Админ изменяет любого пользователя(у него не будет доступа к номеру паспорта)
-                if (ServicesFabric.CurrentUser!.UserRole == Role.Admin && ServicesFabric.CurrentUser! != User)
-                {
-                    await _userService.UpdateAsync(User);
-                }
-                //Пользователь изменяет свой аккаунт, введенный номер паспорта совпадает с изначальным
-                else if (ServicesFabric.CurrentUser! == User && NumPassportMatch())
-                {
-                    await _userService.UpdateAsync(User);
-                }
-                //Введенный номер не совпадает с изначальным, выдаем ошибку о неверном номере
-                else
-                {
-
-                }
-            }
-
-            if(IsRegistration)
-            {
-                ServicesFabric.CurrentUser = this.User;
-            }
+            Name = string.Empty;
+            Surname = string.Empty;
+            NumPassport = string.Empty;
+            MailAdress = string.Empty;
         }
 
         public async Task DoUserOperation()
@@ -139,10 +85,11 @@ namespace Crematorium.UI.ViewModels
 
             UserValidator validations = new UserValidator();
 
-            switch (operation)
+            switch (Operation)
             {
                 case UserChangeOperation.UserRegistration:
                     //CheckInputValue();
+                    NumPassportCoincide();
                     User.NumPassport = this.NumPassport;
                     InitializeValue(true);
                     validations.ValidateAndThrow(User);
@@ -166,7 +113,7 @@ namespace Crematorium.UI.ViewModels
                     break;
 
                 case UserChangeOperation.AdminUpdate:
-                    InitializeValue(true);
+                    InitializeValue(false);
                     validations.ValidateAndThrow(User);
                     await _userService.UpdateAsync(User);
                     break;
@@ -174,29 +121,6 @@ namespace Crematorium.UI.ViewModels
                 default:
                     throw new ArgumentException("Несуществующая операция");
             }
-        }
-
-        private bool CheckInputValue()
-        {
-            if (string.IsNullOrEmpty(Name) || string.IsNullOrWhiteSpace(Name) ||
-                string.IsNullOrEmpty(Surname) || string.IsNullOrWhiteSpace(Surname) ||
-                string.IsNullOrEmpty(MailAdress) || string.IsNullOrWhiteSpace(MailAdress))
-            {
-                //var er = ServicesFabric.GetErrorPage("Что-то не заполнили");
-                //er.ShowDialog();
-                //return false;
-                throw new Exception("Что-то не заполнили");
-            }
-
-            if (Name != User.Name && _userService.IsValided(Name, NumPassport).Result)
-            {
-                //var er = ServicesFabric.GetErrorPage("Такой ползователь уже существует");
-                //er.ShowDialog();
-                //return false;
-                throw new Exception("Такой пользователь уже существует");
-            }
-
-            return true;
         }
 
         private void InitializeValue(bool isUserRegistration)
@@ -222,6 +146,17 @@ namespace Crematorium.UI.ViewModels
         {
             if (ServicesFabric.CurrentUser!.NumPassport != NumPassport)
                 throw new Exception("Введенный номер паспорта не совпадает с номером пользователя");
+
+            return true;
+        }
+
+        /// <summary>
+        /// Проверяет совпадение изначальный номер паспорта и повторный
+        /// </summary>
+        private bool NumPassportCoincide()
+        {
+            if (NumPassport != RepNumPassport)
+                throw new Exception("Введенные номера паспорта не совпадают");
 
             return true;
         }

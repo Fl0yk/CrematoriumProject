@@ -9,8 +9,8 @@
         WindowStyle="None"
         Height="250" Width="460"
         AllowsTransparency="True"
-        Loaded="Login_Loaded"
         MouseDown="Window_MousDown"
+        Activated="Window_Activated"
         Background="Transparent">
     <!--#region RESOURCES-->
     <Window.Resources>

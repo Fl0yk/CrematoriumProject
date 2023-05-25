@@ -368,10 +368,10 @@
                                                 Grid.Column="1"/>
 
                                     <Image
-                                            Width="50"
+                                            Width="45"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
-                                            Source="pack://application:,,,/Resourse/Images/user-conf.png"/>
+                                            Source="pack://application:,,,/Resourse/Images/user-conf-white.png"/>
                                 </Grid>
                             </Button>
                         </ListViewItem>

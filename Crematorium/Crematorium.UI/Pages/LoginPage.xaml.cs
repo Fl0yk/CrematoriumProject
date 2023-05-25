@@ -42,5 +42,10 @@ namespace Crematorium.UI.Pages
         {
             loginVM.ClearFields();
         }
+
+        private void Window_Activated(object sender, System.EventArgs e)
+        {
+            loginVM.ClearFields();
+        }
     }
 }

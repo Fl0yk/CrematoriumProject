@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "3gqk36gSAK9xdhhAobkmkZpHgugQF/40Jxzb90xdvQeVwEy4WPLPNM09LOWFiDGPfpJlG9ceHllYYjF+sTPBCw==",
+  "dgSpecHash": "bLLVTkMWHnU+3dCpBvLy25klMgjn+8kSMMSvhc4LOw14169W+Ig9WbGeq4/XCvcREGGo02BabpQgxcIte6vsxA==",
   "success": true,
-  "projectFilePath": "C:\\CrematoriumProject\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj",
+  "projectFilePath": "D:\\Crematorium\\Crematorium\\Crematorium.Application\\Crematorium.Application.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\kosac\\.nuget\\packages\\fluentvalidation\\8.6.1\\fluentvalidation.8.6.1.nupkg.sha512",
-    "C:\\Users\\kosac\\.nuget\\packages\\fluentvalidation.validatorattribute\\8.6.1\\fluentvalidation.validatorattribute.8.6.1.nupkg.sha512",
-    "C:\\Users\\kosac\\.nuget\\packages\\system.componentmodel.annotations\\4.4.1\\system.componentmodel.annotations.4.4.1.nupkg.sha512"
+    "C:\\Users\\Dima\\.nuget\\packages\\fluentvalidation\\8.6.1\\fluentvalidation.8.6.1.nupkg.sha512",
+    "C:\\Users\\Dima\\.nuget\\packages\\fluentvalidation.validatorattribute\\8.6.1\\fluentvalidation.validatorattribute.8.6.1.nupkg.sha512",
+    "C:\\Users\\Dima\\.nuget\\packages\\system.componentmodel.annotations\\4.4.1\\system.componentmodel.annotations.4.4.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -15,7 +15,7 @@ namespace Crematorium.Application.Validators
             RuleFor(u => u.Name).NotNull().NotEmpty().Length(1, 20).WithMessage("Некорректное имя");
             RuleFor(u => u.Surname).NotNull().NotEmpty().Length(1, 20).WithMessage("Некорректная фамилия");
             RuleFor(u => u.MailAdress).MaximumLength(20).EmailAddress().WithMessage("Некорректная почта");
-            RuleFor(u => u.NumPassport).NotNull().Matches(@"\d\{7}\w\d\{3}(PB|BA|BI)\d").WithMessage("Некорректный номер паспорта");
+            RuleFor(u => u.NumPassport).NotNull().Matches(@"\d{7}\w\d{3}(PB|BI|BA)\d").WithMessage("Некорректный номер паспорта");
         }
     }
 }

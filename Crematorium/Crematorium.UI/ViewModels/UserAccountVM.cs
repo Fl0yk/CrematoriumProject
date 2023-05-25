@@ -3,11 +3,6 @@ using CommunityToolkit.Mvvm.Input;
 using Crematorium.Domain.Entities;
 using Crematorium.UI.Fabrics;
 using Crematorium.UI.Pages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Crematorium.UI.ViewModels
 {
@@ -19,8 +14,24 @@ namespace Crematorium.UI.ViewModels
         public UserAccountVM()
         {
             CurUser = ServicesFabric.CurrentUser!;
+            UpdateFields();
         }
 
+        [ObservableProperty]
+        private string name;
+
+        [ObservableProperty]
+        private string surname;
+
+        [ObservableProperty]
+        private string mailAdress;
+
+        private void UpdateFields()
+        {
+            Name = CurUser.Name;
+            Surname = CurUser.Surname;
+            MailAdress = CurUser.MailAdress;
+        }
 
         [RelayCommand]
         public void UpdateUser()
@@ -29,6 +40,7 @@ namespace Crematorium.UI.ViewModels
             userChange.InitializeUser( CurUser.Id, UserChangeOperation.UserUpdate);
             userChange.OpBtnName.Text = "Update";
             userChange.ShowDialog();
+            UpdateFields();
         }
     }
 }

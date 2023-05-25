@@ -20,6 +20,7 @@
             </ResourceDictionary.MergedDictionaries>
             <visibility:UserOpComboBoxConverter x:Key="RoleVisible"/>
             <visibility:UserOpNumPassportConverter x:Key="PassportVisible"/>
+            <visibility:UserOpRepeatNumConverter x:Key="RepNumVisible"/>
         </ResourceDictionary>
     </Window.Resources>
     <!--#endregion-->
@@ -120,11 +121,26 @@
                      Text="{Binding Path=NumPassport}"
                      Visibility="{Binding Path=Operation,
                                     Converter={StaticResource PassportVisible}}"/>
+            <!--#region REPEATPASSPORT-->
+            <TextBlock Text="Repeat Num:"
+                       Grid.Column="1"
+                       Grid.Row="11"
+                       Visibility="{Binding Path=Operation,
+                                    Converter={StaticResource RepNumVisible}}"/>
+            <TextBox Grid.Row="11"
+                     Grid.Column="2"
+                     Width="260"
+                     Height="35"
+                     Text="{Binding Path=RepNumPassport}"
+                     Visibility="{Binding Path=Operation,
+                                    Converter={StaticResource RepNumVisible}}"/>
+            <!--#endregion-->
             <TextBlock Text="Role:"
                        Grid.Column="1"
                        Grid.Row="11"
                        Visibility="{Binding Path=Operation,
                                     Converter={StaticResource RoleVisible}}"/>
+            
             <ComboBox Grid.Row="11"
                       Grid.Column="2"
                       x:Name="RoleComboBox"

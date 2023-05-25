@@ -1,20 +1,10 @@
 ﻿using Crematorium.Domain.Entities;
 using Crematorium.UI.Fabrics;
 using Crematorium.UI.ViewModels;
-using FluentValidation;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Crematorium.UI.Pages
 {
@@ -24,7 +14,6 @@ namespace Crematorium.UI.Pages
     public partial class ChangeUserPage : Window
     {
         private UserChangeVM _userChangeVM;
-        private bool isRegistration;
         public ChangeUserPage(UserChangeVM VM)
         {
             _userChangeVM = VM;
@@ -35,6 +24,7 @@ namespace Crematorium.UI.Pages
 
         public void InitializeUser(int Id, UserChangeOperation op)
         {
+            _userChangeVM.ClearFields();
             _userChangeVM.SetUser(Id, op);
         }
 
