@@ -50,7 +50,7 @@ namespace Crematorium.UI.ViewModels
             }
             this.Name = User.Name;
             this.Surname = User.Surname;
-            //this.NumPassport = User.NumPassport;
+            this.NumPassport = string.Empty;
             this.SelectedRole = User.UserRole;
             this.MailAdress = User.MailAdress;
         }

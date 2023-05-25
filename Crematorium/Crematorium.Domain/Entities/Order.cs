@@ -11,9 +11,9 @@
 
         public Corpose CorposeId { get; set; } = null!;
 
-        public RitualUrn RitualUrnId { get; set; } = null!;
+        public RitualUrn? RitualUrnId { get; set; }
 
-        public Hall HallId { get; set; } = null!;
+        public Hall? HallId { get; set; }
     }
 
     public enum StateOrder

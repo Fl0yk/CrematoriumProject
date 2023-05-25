@@ -42,6 +42,7 @@ namespace Crematorium.UI
             {
                 w.Close();
             }
+            this.Close();
         }
 
         private void Minimize(object sender, RoutedEventArgs e)

@@ -10,7 +10,7 @@ namespace Crematorium.Application.Services
         public UserService(IUnitOfWork unitOfWork)
         {
             _repository = unitOfWork.UserRepository;
-            //_repository.AddAsync(new User() { Id = 1, Name = "Admin", MailAdress = "admin@mail.ru", NumPassport = "Admin123", Surname = "Adminov", UserRole = Role.Admin });
+            //_repository.AddAsync(new User() { Id = 1, Name = "Admin", MailAdress = "admin@mail.ru", NumPassport = "1111111A111PB1", Surname = "Adminov", UserRole = Role.Admin });
         }
 
         public override async Task<IEnumerable<User>> GetAllAsync()

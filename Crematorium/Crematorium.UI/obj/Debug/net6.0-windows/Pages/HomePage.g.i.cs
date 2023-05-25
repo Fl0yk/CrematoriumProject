@@ -55,7 +55,7 @@ namespace Crematorium.UI.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Crematorium.UI;component/pages/homepage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Crematorium.UI;V1.0.0.0;component/pages/homepage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Pages\HomePage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

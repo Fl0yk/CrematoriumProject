@@ -10,7 +10,6 @@
         Height="250" Width="460"
         AllowsTransparency="True"
         MouseDown="Window_MousDown"
-        Activated="Window_Activated"
         Background="Transparent">
     <!--#region RESOURCES-->
     <Window.Resources>

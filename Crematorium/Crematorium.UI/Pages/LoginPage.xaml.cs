@@ -35,12 +35,10 @@ namespace Crematorium.UI.Pages
         {
             //this.Close();
             if (loginVM.LoginUser())
+            {
+                loginVM.ClearFields();
                 this.Hide();
-        }
-
-        private void Login_Loaded(object sender, RoutedEventArgs e)
-        {
-            loginVM.ClearFields();
+            }
         }
 
         private void Window_Activated(object sender, System.EventArgs e)
