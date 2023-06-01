@@ -25,7 +25,7 @@ namespace Crematorium.UI.ViewModels
 
 
         [RelayCommand]
-        public void NextStateOrder()
+        public async void NextStateOrder()
         {
             if (SelectedOrder is null)
                 return;
@@ -38,7 +38,7 @@ namespace Crematorium.UI.ViewModels
                 return;
             }
 
-            _orderService.NextState(ref selectedOrder);
+            await _orderService.NextState(selectedOrder);
             UpdateOrdersCollection();
         }
 
@@ -57,12 +57,19 @@ namespace Crematorium.UI.ViewModels
         }
 
         [RelayCommand]
-        public void CancelOrder()
+        public async void CancelOrder()
         {
-            if (SelectedOrder is null || curUser.UserRole == Role.Employee)
+            if (SelectedOrder is null)
                 return;
 
-            _orderService.CancelOrder(ref selectedOrder);
+            if (curUser.UserRole == Role.Employee)
+            {
+                var er = ServicesFabric.GetErrorPage("Только админ может отменить заказ");
+                er.ShowDialog();
+                return;
+            }
+
+            await _orderService.CancelOrder(selectedOrder);
             UpdateOrdersCollection();
         }
 

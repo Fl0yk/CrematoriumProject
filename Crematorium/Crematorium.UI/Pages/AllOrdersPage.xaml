@@ -63,7 +63,8 @@
                       x:Name="OrdersDataGrid"
                       Style="{StaticResource BaseDataGrid}"
                       ItemsSource="{Binding Orders}"
-                      SelectedItem="{Binding Path=SelectedOrder}">
+                      SelectedItem="{Binding Path=SelectedOrder}"
+                      IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID"
                                         Width="50"

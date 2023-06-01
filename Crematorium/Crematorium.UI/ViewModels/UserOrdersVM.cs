@@ -38,12 +38,12 @@ namespace Crematorium.UI.ViewModels
         }
 
         [RelayCommand]
-        public void CancelOrder()
+        public async void CancelOrder()
         {
             if (SelectedOrder is null)
                 return;
 
-            _orderService.CancelOrder(ref selectedOrder);
+            await _orderService.CancelOrder(selectedOrder);
             UpdateOrdersCollection();
         }
 

@@ -32,37 +32,37 @@ namespace Crematorium.Application.Services
             return await _repository.FirstOrDefaultAsync(filter, CancellationToken.None, o => o.RitualUrnId, o => o.DateOfStart, o => o.Customer, o => o.HallId, o => o.CorposeId);
         }
 
-        public Task CancelOrder(int Id)
+        public async Task CancelOrder(int Id)
         {
             var order = _repository.GetByIdAsync(Id).Result;
-            CancelOrder(ref order);
+            await CancelOrder(order);
 
-            return Task.CompletedTask;
+            return;
         }
 
-        public Task CancelOrder(ref Order? order)
+        public async Task CancelOrder(Order? order)
         {
             if (order is null || order.State == StateOrder.Closed)
-                return Task.CompletedTask;
+                return;
 
             order.State = StateOrder.Cancelled;
-            _repository.UpdateAsync(order).Wait();
+            await _repository.UpdateAsync(order);
 
-            return Task.CompletedTask;
+            return;
         }
 
-        public Task NextState(int Id)
+        public async Task NextState(int Id)
         {
             var order = _repository.GetByIdAsync(Id).Result;
-            NextState(ref order);
+            await NextState(order);
 
-            return Task.CompletedTask;
+            return;
         }
 
-        public Task NextState(ref Order? order)
+        public async Task NextState(Order? order)
         {
             if (order is null)
-                return Task.CompletedTask;
+                return;
 
             switch (order.State)
             {
@@ -74,9 +74,9 @@ namespace Crematorium.Application.Services
                     order.State = StateOrder.Closed;
                     break;
             }
-            _repository.UpdateAsync(order).Wait();
+            await _repository.UpdateAsync(order);
 
-            return Task.CompletedTask;
+            return;
         }
     }
 }

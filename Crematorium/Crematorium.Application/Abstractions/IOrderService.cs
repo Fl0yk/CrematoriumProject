@@ -11,10 +11,10 @@ namespace Crematorium.Application.Abstractions
     {
         public Task NextState(int Id);
 
-        public Task NextState(ref Order? order);
+        public Task NextState(Order? order);
 
         public Task CancelOrder(int Id);
 
-        public Task CancelOrder(ref Order? order);
+        public Task CancelOrder(Order? order);
     }
 }

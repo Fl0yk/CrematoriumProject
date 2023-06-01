@@ -56,7 +56,7 @@ namespace Crematorium.UI.ViewModels
         public void ChangeFoto()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            //openFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
+            openFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF";
             if (openFileDialog.ShowDialog() == true)
             {
                 byte[] data;

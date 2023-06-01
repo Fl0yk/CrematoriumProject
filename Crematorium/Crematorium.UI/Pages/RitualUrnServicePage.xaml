@@ -74,6 +74,7 @@
             <DataGrid Grid.Row="4" Grid.RowSpan="3"
                       Grid.Column="1" Grid.ColumnSpan="3"
                       x:Name="UsersDataGrid"
+                      IsReadOnly="True"
                       Style="{StaticResource BaseDataGrid}"
                       ItemsSource="{Binding RitualUrns}"
                       SelectedItem="{Binding Path=SelectedUrn}">

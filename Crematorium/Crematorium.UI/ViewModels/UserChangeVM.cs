@@ -88,7 +88,7 @@ namespace Crematorium.UI.ViewModels
             switch (Operation)
             {
                 case UserChangeOperation.UserRegistration:
-                    //CheckInputValue();
+                    IsBusyNumber();
                     NumPassportCoincide();
                     User.NumPassport = this.NumPassport;
                     InitializeValue(true);
@@ -105,7 +105,7 @@ namespace Crematorium.UI.ViewModels
                     break;
 
                 case UserChangeOperation.AdminAdd:
-                    //CheckInputValue();
+                    IsBusyNumber();
                     User.NumPassport = this.NumPassport;
                     InitializeValue(false);
                     validations.ValidateAndThrow(User);
@@ -159,6 +159,16 @@ namespace Crematorium.UI.ViewModels
                 throw new Exception("Введенные номера паспорта не совпадают");
 
             return true;
+        }
+
+        private void IsBusyNumber()
+        {
+            var item = _userService.FirstOrDefaultAsync(u => u.NumPassport == NumPassport).Result;
+
+            if (item is not null)
+                throw new Exception("Данный номер паспорта уже зарегестрирован");
+
+            return;
         }
     }
 
