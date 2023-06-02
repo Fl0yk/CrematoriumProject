@@ -71,9 +71,9 @@ namespace Crematorium.UI.ViewModels
                 return;
             
             //if (Regex.IsMatch(NewDate, @"(\d\d|\d)\.(\d\d|\d)\.\d\d\d\d"))
-            if(DateOnly.TryParse(NewDate, out DateOnly dateOnly))
+            if(DateTime.TryParse(NewDate, out DateTime dateOnly) && dateOnly >= DateTime.Now.Date)
             {
-                Date d = new Date() { Data = dateOnly.ToString()};
+                Date d = new Date() { Data = dateOnly.ToString("dd.MM.yyyy") };
                 FreeDates.Add(d);
                 //SelectedHall.FreeDates.Add(d);
             }
@@ -81,7 +81,7 @@ namespace Crematorium.UI.ViewModels
             {
                 var er = ServicesFabric.GetErrorPage("Некорректная дата");
                 er.ShowDialog();
-                NewDate = DateTime.Now.Date.ToString();
+                NewDate = DateTime.Now.Date.ToString("dd.MM.yyyy");
             }
         }
 

@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:converters="clr-namespace:Crematorium.UI.Converters"
              xmlns:properties="clr-namespace:Crematorium.UI.Converters.PropertyConverters"
+             xmlns:visibles="clr-namespace:Crematorium.UI.Converters.VisibleConverters"
              xmlns:local="clr-namespace:Crematorium.UI.Pages"
              mc:Ignorable="d" 
              Loaded="UserControl_Loaded"
@@ -25,6 +26,7 @@
             <properties:DateOfStartToStringConverter x:Key="GetDateOfStart"/>
             <properties:GetCorposeSurNameConverter x:Key="GetCorposeSurname"/>
             <properties:GetHallNameConverter x:Key="GetHallName"/>
+            <visibles:AdminConverter x:Key="AdminVisible"/>
         </ResourceDictionary>
     </UserControl.Resources>
     <!--#endregion-->

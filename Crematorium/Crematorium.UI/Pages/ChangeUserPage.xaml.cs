@@ -1,10 +1,14 @@
 ﻿using Crematorium.Domain.Entities;
 using Crematorium.UI.Fabrics;
 using Crematorium.UI.ViewModels;
+using FluentValidation;
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Crematorium.UI.Pages
 {
@@ -52,7 +56,7 @@ namespace Crematorium.UI.Pages
             }
             catch (Exception ex)
             {
-                var er = ServicesFabric.GetErrorPage(ex.Message);
+                var er = ServicesFabric.GetErrorPage(ex.Message.ToString());
                 er.ShowDialog();
             }
         }
