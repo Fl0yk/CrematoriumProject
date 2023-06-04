@@ -1,16 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using Crematorium.Application.Abstractions;
+using Crematorium.Application.Validators;
 using Crematorium.Domain.Entities;
-using Crematorium.UI.Fabrics;
+using FluentValidation;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace Crematorium.UI.ViewModels
 {
@@ -73,23 +67,17 @@ namespace Crematorium.UI.ViewModels
         private string numPassport;
 
 
-        [RelayCommand]
         public void AddCorpose()
         {
             if (Corpose is null)
                 throw new ArgumentNullException("corpose not initialized");
 
-            if (Name == string.Empty || Name is null ||
-                Surname == string.Empty || Surname is null ||
-                NumPassport == string.Empty || NumPassport is null)
-            {
-                var er = ServicesFabric.GetErrorPage("Что-то не заполнили");
-                er.ShowDialog();
-            }
-
             Corpose.Name = this.Name;
             Corpose.SurName = this.Surname;
             Corpose.NumPassport = this.NumPassport;
+
+            CorposeValidator validator = new();
+            validator.ValidateAndThrow(Corpose);
 
             if (_isNewCorpose)
             {

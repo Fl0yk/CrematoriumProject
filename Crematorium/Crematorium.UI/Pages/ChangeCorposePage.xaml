@@ -77,8 +77,7 @@
                     Height="35"
                     Background="#FFF53657"
                     x:Name="OperatinBtn"
-                    Command="{Binding Path=AddCorposeCommand}"
-                    Click="Back"
+                    Click="RegCorpose"
                     Style="{StaticResource BaseBtnStyle}">
                 <TextBlock x:Name="OpBtnName" Text="Registration"
                            Margin="0, 0, 0, 0"/>

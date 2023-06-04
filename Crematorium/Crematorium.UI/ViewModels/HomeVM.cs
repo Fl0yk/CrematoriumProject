@@ -35,7 +35,7 @@ namespace Crematorium.UI.ViewModels
         }
 
         [ObservableProperty]
-        private Hall selectedHall;
+        private Hall? selectedHall;
 
         public ObservableCollection<Date> HallDates { get; set; }
 
@@ -53,13 +53,13 @@ namespace Crematorium.UI.ViewModels
         }
 
         [ObservableProperty]
-        private Date selectedDate;
+        private Date? selectedDate;
 
         [ObservableProperty]
-        private RitualUrn selectedUrn;
+        private RitualUrn? selectedUrn;
 
         //[ObservableProperty]
-        private Corpose selectedCorpose;
+        private Corpose? selectedCorpose;
 
         [RelayCommand]
         public async void CreateOrder()
@@ -71,22 +71,18 @@ namespace Crematorium.UI.ViewModels
                 return;
             }
 
-            User curUser = ServicesFabric.CurrentUser;
+            User curUser = ServicesFabric.CurrentUser!;
             await _orderService.AddAsync( new Order() {HallId = SelectedHall,
                                                         Customer = curUser!,
                                                         CorposeId = selectedCorpose,
                                                         DateOfStart = SelectedDate,
                                                         RitualUrnId = SelectedUrn });
             SelectedHall.FreeDates.Remove(SelectedDate);
-            await _hallService.UpdateAsync(selectedHall);
+            await _hallService.UpdateAsync(SelectedHall);
             SelectedHall = null;
             SelectedDate = null;
             SelectedUrn = null;
             selectedCorpose = null;
-            //using (FileStream fs = new FileStream("order.json", FileMode.OpenOrCreate))
-            //{
-            //    JsonSerializer.Serialize<Order>(fs, order);
-            //}
         }
 
         [RelayCommand]

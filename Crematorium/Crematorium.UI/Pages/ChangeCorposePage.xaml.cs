@@ -1,18 +1,9 @@
 ﻿using Crematorium.Domain.Entities;
+using Crematorium.UI.Fabrics;
 using Crematorium.UI.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Crematorium.UI.Pages
 {
@@ -21,22 +12,22 @@ namespace Crematorium.UI.Pages
     /// </summary>
     public partial class ChangeCorposePage : Window
     {
-        private ChangeCorposeVM _urnVM;
+        private ChangeCorposeVM _corposeVM;
         public ChangeCorposePage(ChangeCorposeVM VM)
         {
-            _urnVM = VM;
+            _corposeVM = VM;
             InitializeComponent();
-            DataContext = _urnVM;
+            DataContext = _corposeVM;
         }
 
         public void InitializeCorpose(int Id)
         {
-            _urnVM.SetCorpose(Id);
+            _corposeVM.SetCorpose(Id);
         }
 
         public void InitializeCorpose(ref Corpose corpose)
         {
-            _urnVM.SetCorpose(ref corpose);
+            _corposeVM.SetCorpose(ref corpose);
         }
 
         private void Window_MousDown(object sender, MouseButtonEventArgs e)
@@ -47,10 +38,23 @@ namespace Crematorium.UI.Pages
             }
         }
 
+        private void RegCorpose(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _corposeVM.AddCorpose();
+                this.Hide();
+            }
+            catch(Exception ex)
+            {
+                var er = ServicesFabric.GetErrorPage(ex.Message.ToString());
+                er.ShowDialog();
+            }
+        }
+
         private void Back(object sender, RoutedEventArgs e)
         {
-            //Close();
-            Hide();
+            this.Hide();
         }
     }
 }
